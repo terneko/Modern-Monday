@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+
+<BorderPane fx:id="mainPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="609.0" prefWidth="914.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller">
+   <left>
+      <VBox prefHeight="561.0" prefWidth="256.0" style="-fx-background-color: #104066;" BorderPane.alignment="CENTER">
+         <children>
+            <JFXButton onMouseClicked="#noteClick" prefHeight="74.0" prefWidth="256.0" style="-fx-background-color: transparent; -fx-text-fill: #f0f0f0;" text="Note" />
+         </children>
+         <BorderPane.margin>
+            <Insets right="3.0" />
+         </BorderPane.margin>
+      </VBox>
+   </left>
+   <top>
+      <HBox alignment="CENTER_RIGHT" prefHeight="46.0" prefWidth="914.0" style="-fx-background-color: #001a2b;" BorderPane.alignment="CENTER">
+         <children>
+            <Label text="ModernMonday" textFill="WHITE" />
+            <Pane prefHeight="46.0" prefWidth="776.0" />
+            <ImageView fitHeight="34.0" fitWidth="66.0" onMouseClicked="#close" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@icon/x-512.png" />
+               </image>
+               <HBox.margin>
+                  <Insets bottom="5.0" left="5.0" right="10.0" top="5.0" />
+               </HBox.margin>
+            </ImageView>
+         </children>
+      </HBox>
+   </top>
+</BorderPane>
