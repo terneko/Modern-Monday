@@ -29,6 +29,42 @@
                <font>
                   <Font size="14.0" />
                </font></JFXButton>
+            <JFXButton layoutX="10.0" layoutY="10.0" onMouseClicked="#noteClick" prefHeight="74.0" prefWidth="256.0" style="-fx-background-color: transparent; -fx-text-fill: #f0f0f0;" text="Note">
+               <graphic>
+                  <ImageView fitHeight="48.0" fitWidth="69.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@icon/noteIcon.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </JFXButton>
+            <JFXButton layoutX="10.0" layoutY="84.0" onMouseClicked="#noteClick" prefHeight="74.0" prefWidth="256.0" style="-fx-background-color: transparent; -fx-text-fill: #f0f0f0;" text="Note">
+               <graphic>
+                  <ImageView fitHeight="48.0" fitWidth="69.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@icon/noteIcon.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </JFXButton>
+            <JFXButton layoutX="10.0" layoutY="159.0" onMouseClicked="#noteClick" prefHeight="74.0" prefWidth="256.0" style="-fx-background-color: transparent; -fx-text-fill: #f0f0f0;" text="Note">
+               <graphic>
+                  <ImageView fitHeight="48.0" fitWidth="69.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@icon/noteIcon.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </JFXButton>
          </children>
          <BorderPane.margin>
             <Insets right="3.0" />
