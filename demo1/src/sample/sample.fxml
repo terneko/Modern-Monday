@@ -11,7 +11,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane fx:id="mainPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="609.0" prefWidth="914.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller">
+<BorderPane fx:id="mainPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="609.0" prefWidth="914.0" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller">
    <left>
       <VBox prefHeight="561.0" prefWidth="256.0" style="-fx-background-color: #104066;" BorderPane.alignment="CENTER">
          <children>
@@ -53,7 +53,7 @@
                   <Font size="14.0" />
                </font>
             </JFXButton>
-            <JFXButton layoutX="10.0" layoutY="159.0" onMouseClicked="#noteClick" prefHeight="74.0" prefWidth="256.0" style="-fx-background-color: transparent; -fx-text-fill: #f0f0f0;" text="Note">
+            <JFXButton layoutX="10.0" layoutY="159.0" onMouseClicked="#noteClick" prefHeight="74.0" prefWidth="256.0" style="-fx-background-color: transparent; -fx-text-fill: #f0f0f0;" text="ternakubb">
                <graphic>
                   <ImageView fitHeight="48.0" fitWidth="69.0" pickOnBounds="true" preserveRatio="true">
                      <image>
