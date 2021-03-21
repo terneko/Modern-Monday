@@ -1,11 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
 
-
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="563.0" prefWidth="661.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <Pane prefHeight="563.0" prefWidth="661.0" style="-fx-background-color: #5b95c3;" />
+      <ScrollPane fx:id="noteScroll" hbarPolicy="NEVER" layoutX="-2.0" layoutY="-1.0" style="-fx-background-color: #5b95c3;" />
+      <GridPane fx:id="noteGrid" layoutX="32.0" layoutY="62.0" prefHeight="93.0" prefWidth="106.0" style="-fx-background-color: #5b95c3;">
+        <columnConstraints>
+          <ColumnConstraints hgrow="SOMETIMES" maxWidth="79.39996719360352" minWidth="10.0" prefWidth="79.39996719360352" />
+          <ColumnConstraints hgrow="SOMETIMES" maxWidth="53.0" minWidth="10.0" prefWidth="26.600032806396484" />
+        </columnConstraints>
+        <rowConstraints>
+          <RowConstraints maxHeight="233.19998779296876" minHeight="10.0" prefHeight="149.6" vgrow="SOMETIMES" />
+          <RowConstraints maxHeight="268.0" minHeight="10.0" prefHeight="159.20001220703128" vgrow="SOMETIMES" />
+          <RowConstraints maxHeight="197.19998779296873" minHeight="10.0" prefHeight="197.19998779296873" vgrow="SOMETIMES" />
+        </rowConstraints>
+      </GridPane>
    </children>
 </AnchorPane>

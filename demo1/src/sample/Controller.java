@@ -18,6 +18,8 @@ import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
+import static com.jfoenix.svg.SVGGlyphLoader.clear;
+
 public class Controller implements Initializable {
 
     @FXML
@@ -41,6 +43,7 @@ public class Controller implements Initializable {
 
     public void noteClick(MouseEvent mouseEvent) {
         System.out.println("Clicked!");
+        clear();
         loadPage("notePage");
     }
 
@@ -51,6 +54,8 @@ public class Controller implements Initializable {
     }
 
     public void daycounterClick(MouseEvent mouseEvent) {
+        System.out.println("Clicked!");
+        loadPage("daycounterPage");
     }
 
     public void temperatureClick(MouseEvent mouseEvent) {
@@ -59,6 +64,9 @@ public class Controller implements Initializable {
     public void close(MouseEvent mouseEvent) {
         Stage stage = (Stage) mainPane.getScene().getWindow();
         stage.close();
+    }
+
+    public void translateClick(MouseEvent mouseEvent) {
     }
 }
 

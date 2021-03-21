@@ -10,7 +10,6 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-
 <BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="520.0" prefWidth="520.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
    <top>
       <HBox alignment="CENTER_RIGHT" prefHeight="38.0" style="-fx-background-color: #104066;" BorderPane.alignment="CENTER">
@@ -85,7 +84,7 @@
       </HBox>
    </bottom>
    <center>
-      <TextArea text="  Type Here" BorderPane.alignment="CENTER">
+      <TextArea fx:id="noteTypeHere" text="  Type Here" BorderPane.alignment="CENTER">
          <BorderPane.margin>
             <Insets />
          </BorderPane.margin>
