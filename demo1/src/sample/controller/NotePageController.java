@@ -1,11 +1,11 @@
-package sample.option;
+package sample.controller;
 
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.layout.GridPane;
-import sample.note.Note;
+import sample.item.Note;
 
 import java.net.URL;
 import java.util.ArrayList;

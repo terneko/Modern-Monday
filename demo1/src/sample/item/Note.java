@@ -1,4 +1,4 @@
-package sample.note;
+package sample.item;
 
 public class Note {
     protected String description;

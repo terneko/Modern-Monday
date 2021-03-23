@@ -1,4 +1,4 @@
-package sample.note;
+package sample.controller;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.TextArea;
