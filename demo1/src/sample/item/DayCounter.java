@@ -49,6 +49,7 @@ public class DayCounter {
         } catch (ParseException e) {
             e.printStackTrace();
         }
+        System.out.println(diff);
         return diff;
     }
 

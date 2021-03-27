@@ -27,7 +27,7 @@ public class NotePageController implements Initializable {
         Note note;
 
         for (int i = 0; i < 10; i++) {
-            note = new Note();
+            note = new Note("yeah","babo");
             note.setDescription("hi, I'm ter");
             notes.add(note);
         }
@@ -37,12 +37,6 @@ public class NotePageController implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        notes.addAll(getData());
 
-        for (int i = 0; i < notes.size(); i++) {
-            FXMLLoader fxmlLoader = new FXMLLoader();
-            fxmlLoader.setLocation(getClass().getResource("/views/showNote.fxml"));
-
-        }
     }
 }

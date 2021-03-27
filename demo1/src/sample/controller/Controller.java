@@ -23,7 +23,6 @@ public class Controller implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-
     }
 
     // for Load page FXML name
@@ -39,7 +38,7 @@ public class Controller implements Initializable {
 
     public void noteClick(MouseEvent mouseEvent) {
         System.out.println("Clicked!");
-        clear();
+        //clear();
         loadPage("notePage");
     }
 
