@@ -12,7 +12,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane fx:id="mainPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="609.0" prefWidth="914.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.controller.Controller">
+<BorderPane fx:id="mainPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="609.0" prefWidth="914.0" style="-fx-background-color: #FFFFFF;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.controller.Controller">
    <left>
       <VBox prefHeight="561.0" prefWidth="256.0" style="-fx-background-color: #104066;" BorderPane.alignment="CENTER">
          <children>
@@ -33,23 +33,9 @@
                   </ImageView>
                </children>
             </Pane>
-            <Pane prefHeight="74.0" prefWidth="256.0">
-               <children>
-                  <JFXButton onMouseClicked="#dateClick" prefHeight="74.0" prefWidth="256.0" style="-fx-background-color: transparent; -fx-text-fill: #f0f0f0; -fx-alignment: CENTER_LEFT;" text="                   Date">
-                     <font>
-                        <Font name="System Bold" size="14.0" />
-                     </font>
-                  </JFXButton>
-                  <ImageView fitHeight="46.0" fitWidth="53.0" layoutX="20.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@../icon/dateIcon.png" />
-                     </image>
-                  </ImageView>
-               </children>
-            </Pane>
             <Pane layoutX="10.0" layoutY="84.0" prefHeight="74.0" prefWidth="256.0">
                <children>
-                  <JFXButton onMouseClicked="#dateClick" prefHeight="74.0" prefWidth="256.0" style="-fx-background-color: transparent; -fx-text-fill: #f0f0f0; -fx-alignment: CENTER_LEFT;" text="                   Clock">
+                  <JFXButton onMouseClicked="#dateClick" prefHeight="74.0" prefWidth="256.0" style="-fx-background-color: transparent; -fx-text-fill: #f0f0f0; -fx-alignment: CENTER_LEFT;" text="                   Date and Clock">
                      <font>
                         <Font name="System Bold" size="14.0" />
                      </font>
@@ -119,13 +105,29 @@
                <padding>
                   <Insets left="15.0" />
                </padding></Label>
-            <Pane prefHeight="46.0" prefWidth="776.0" />
-            <ImageView fitHeight="34.0" fitWidth="66.0" onMouseClicked="#close" pickOnBounds="true" preserveRatio="true">
+            <Pane prefHeight="22.0" prefWidth="644.0" />
+            <ImageView fitHeight="20.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../icon/Untitled-1.png" />
+               </image>
+               <HBox.margin>
+                  <Insets right="15.0" />
+               </HBox.margin>
+            </ImageView>
+            <ImageView fitHeight="21.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../icon/det.png" />
+               </image>
+               <HBox.margin>
+                  <Insets right="10.0" />
+               </HBox.margin>
+            </ImageView>
+            <ImageView fitHeight="32.0" fitWidth="16.0" onMouseClicked="#close" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../icon/x-512.png" />
                </image>
                <HBox.margin>
-                  <Insets bottom="5.0" left="5.0" right="10.0" top="5.0" />
+                  <Insets bottom="5.0" left="5.0" right="15.0" top="5.0" />
                </HBox.margin>
             </ImageView>
          </children>

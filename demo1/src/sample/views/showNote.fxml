@@ -10,7 +10,7 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane fx:id="mainNote" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="449.0" prefWidth="434.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.controller.note.NotePageController">
+<BorderPane fx:id="mainNote" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="325.0" prefWidth="350.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.controller.note.NotePageController">
    <top>
       <HBox alignment="CENTER_RIGHT" prefHeight="38.0" style="-fx-background-color: #104066;" BorderPane.alignment="CENTER">
          <children>
@@ -46,7 +46,7 @@
       </HBox>
    </top>
    <bottom>
-      <HBox prefHeight="38.0" style="-fx-background-color: #5c94c3;" BorderPane.alignment="CENTER_LEFT">
+      <HBox prefHeight="28.0" prefWidth="350.0" style="-fx-background-color: #5c94c3;" BorderPane.alignment="CENTER_LEFT">
          <children>
             <ImageView fitHeight="19.0" fitWidth="19.0" pickOnBounds="true" preserveRatio="true">
                <image>
@@ -86,18 +86,10 @@
    <center>
       <Pane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
          <children>
-            <TextArea fx:id="descripNote" layoutY="56.0" prefHeight="319.0" prefWidth="434.0">
+            <TextArea fx:id="descripNote" layoutY="-2.0" prefHeight="251.0" prefWidth="350.0">
                <font>
                   <Font size="18.0" />
                </font></TextArea>
-            <TextArea fx:id="titleNote" prefHeight="48.0" prefWidth="434.0">
-               <opaqueInsets>
-                  <Insets />
-               </opaqueInsets>
-               <font>
-                  <Font size="18.0" />
-               </font>
-            </TextArea>
          </children>
       </Pane>
    </center>
