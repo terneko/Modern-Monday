@@ -13,7 +13,7 @@
          <children>
             <Pane prefHeight="60.0" prefWidth="256.0">
                <children>
-                  <JFXButton alignment="TOP_LEFT" onMouseClicked="#noteClick" prefHeight="60.0" prefWidth="256.0" style="-fx-background-color: transparent; -fx-text-fill: #f0f0f0; -fx-padding: 10 0 0 75;" styleClass="button-with-margin" text="Note">
+                  <JFXButton alignment="TOP_LEFT" onMouseClicked="#noteClick" prefHeight="60.0" prefWidth="256.0" style="-fx-background-color: transparent; -fx-text-fill: #f0f0f0; -fx-padding: 10 0 0 75;" styleClass="button-with-margin" text="Notes">
                      <opaqueInsets>
                         <Insets />
                      </opaqueInsets>
@@ -31,7 +31,7 @@
             </Pane>
             <Pane layoutX="10.0" layoutY="84.0" prefHeight="60.0" prefWidth="256.0">
                <children>
-                  <JFXButton alignment="TOP_LEFT" onMouseClicked="#dateClick" prefHeight="60.0" prefWidth="256.0" style="-fx-background-color: transparent; -fx-text-fill: #f0f0f0; -fx-padding: 10 0 0 75;" text="Date and Clock">
+                  <JFXButton alignment="TOP_LEFT" onMouseClicked="#dateClick" prefHeight="60.0" prefWidth="256.0" style="-fx-background-color: transparent; -fx-text-fill: #f0f0f0; -fx-padding: 10 0 0 75;" text="Date &amp; Clock">
                      <font>
                         <Font name="System Bold" size="14.0" />
                      </font>
@@ -61,7 +61,7 @@
             </Pane>
             <Pane layoutX="10.0" layoutY="233.0" prefHeight="60.0" prefWidth="256.0">
                <children>
-                  <JFXButton alignment="TOP_LEFT" onMouseClicked="#temperatureClick" prefHeight="60.0" prefWidth="256.0" style="-fx-background-color: transparent; -fx-text-fill: #f0f0f0; -fx-padding: 10 0 0 75;" text="Temperature">
+                  <JFXButton alignment="TOP_LEFT" onMouseClicked="#temperatureClick" prefHeight="60.0" prefWidth="256.0" style="-fx-background-color: transparent; -fx-text-fill: #f0f0f0; -fx-padding: 10 0 0 75;" text="Weather &amp; Temperature">
                      <font>
                         <Font name="System Bold" size="14.0" />
                      </font>
@@ -76,7 +76,7 @@
             </Pane>
             <Pane layoutX="10.0" layoutY="308.0" prefHeight="60.0" prefWidth="256.0">
                <children>
-                  <JFXButton alignment="TOP_LEFT" onMouseClicked="#dateClick" prefHeight="60.0" prefWidth="256.0" style="-fx-background-color: transparent; -fx-text-fill: #f0f0f0; -fx-padding: 10 0 0 75;" text="Translate">
+                  <JFXButton alignment="TOP_LEFT" onMouseClicked="#dateClick" prefHeight="60.0" prefWidth="256.0" style="-fx-background-color: transparent; -fx-text-fill: #f0f0f0; -fx-padding: 10 0 0 75;" text="Translator">
                      <font>
                         <Font name="System Bold" size="14.0" />
                      </font>

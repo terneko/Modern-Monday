@@ -65,7 +65,7 @@ public class TemperatureAPI implements Initializable {
         ArrayList<String> province = new ArrayList<String>();
         Scanner input = null;
         try {
-            input = new Scanner(new FileReader("D:\\Project\\demo1\\src\\main\\java\\sample\\controller\\temperature\\province"));
+            input = new Scanner(new FileReader("src/main/resources/province"));
             while (input.hasNext()) {
                 province.add(input.next());
             }
