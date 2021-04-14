@@ -1,2 +1,0 @@
-screen
--wdth 944  high 777
