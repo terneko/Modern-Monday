@@ -1,24 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import com.jfoenix.controls.JFXButton?>
-<?import javafx.geometry.Insets?>
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.image.Image?>
-<?import javafx.scene.image.ImageView?>
-<?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.layout.BorderPane?>
-<?import javafx.scene.layout.HBox?>
-<?import javafx.scene.layout.Pane?>
-<?import javafx.scene.layout.VBox?>
-<?import javafx.scene.text.Font?>
+<?import com.jfoenix.controls.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 
 <BorderPane fx:id="mainPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="609.0" prefWidth="914.0" style="-fx-background-color: #FFFFFF;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.controller.Controller">
    <left>
-      <VBox prefHeight="561.0" prefWidth="256.0" style="-fx-background-color: #104066;" BorderPane.alignment="CENTER">
+      <VBox prefHeight="561.0" prefWidth="256.0" style="-fx-background-color: #082033;" BorderPane.alignment="CENTER">
          <children>
-            <Pane prefHeight="74.0" prefWidth="256.0">
+            <Pane prefHeight="60.0" prefWidth="256.0">
                <children>
-                  <JFXButton onMouseClicked="#noteClick" prefHeight="74.0" prefWidth="256.0" style="-fx-background-color: transparent; -fx-text-fill: #f0f0f0; -fx-alignment: CENTER_LEFT; -fx-padding: 0 0 0 10;" text="                   Note">
+                  <JFXButton alignment="TOP_LEFT" onMouseClicked="#noteClick" prefHeight="60.0" prefWidth="256.0" style="-fx-background-color: transparent; -fx-text-fill: #f0f0f0; -fx-padding: 10 0 0 75;" styleClass="button-with-margin" stylesheets="@../values/style.css" text="Note">
                      <opaqueInsets>
                         <Insets />
                      </opaqueInsets>
@@ -26,67 +21,72 @@
                         <Font name="System Bold" size="14.0" />
                      </font>
                   </JFXButton>
-                  <ImageView fitHeight="48.0" fitWidth="51.0" layoutX="17.0" layoutY="13.0" onMouseClicked="#noteClick" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fitHeight="35.0" fitWidth="31.0" layoutX="14.0" layoutY="15.0" onMouseClicked="#noteClick" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@/noteIcon.png" />
                      </image>
                   </ImageView>
+                  <Label layoutY="30.0" prefHeight="17.0" prefWidth="256.0" style="-fx-padding: 0 0 0 75;" text="Manage your notes" textFill="#a7a7a7" />
                </children>
             </Pane>
-            <Pane layoutX="10.0" layoutY="84.0" prefHeight="74.0" prefWidth="256.0">
+            <Pane layoutX="10.0" layoutY="84.0" prefHeight="60.0" prefWidth="256.0">
                <children>
-                  <JFXButton onMouseClicked="#dateClick" prefHeight="74.0" prefWidth="256.0" style="-fx-background-color: transparent; -fx-text-fill: #f0f0f0; -fx-alignment: CENTER_LEFT;" text="                   Date and Clock">
+                  <JFXButton alignment="TOP_LEFT" onMouseClicked="#dateClick" prefHeight="60.0" prefWidth="256.0" style="-fx-background-color: transparent; -fx-text-fill: #f0f0f0; -fx-padding: 10 0 0 75;" text="Date and Clock">
                      <font>
                         <Font name="System Bold" size="14.0" />
                      </font>
                   </JFXButton>
-                  <ImageView fitHeight="36.0" fitWidth="40.0" layoutX="23.0" layoutY="19.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fitHeight="28.0" fitWidth="26.0" layoutX="14.0" layoutY="17.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@/clockIcon.png" />
                      </image>
                   </ImageView>
+                  <Label layoutY="30.0" prefHeight="17.0" prefWidth="256.0" style="-fx-padding: 0 0 0 75;" text="Manage date &amp; clock styles" textFill="#a7a7a7" />
                </children>
             </Pane>
-            <Pane layoutX="10.0" layoutY="159.0" prefHeight="74.0" prefWidth="256.0">
+            <Pane layoutX="10.0" layoutY="159.0" prefHeight="60.0" prefWidth="256.0">
                <children>
-                  <JFXButton onMouseClicked="#daycounterClick" prefHeight="74.0" prefWidth="256.0" style="-fx-background-color: transparent; -fx-text-fill: #f0f0f0; -fx-alignment: CENTER_LEFT;" text="                   Day counter">
+                  <JFXButton alignment="TOP_LEFT" onMouseClicked="#daycounterClick" prefHeight="60.0" prefWidth="256.0" style="-fx-background-color: transparent; -fx-text-fill: #f0f0f0; -fx-padding: 10 0 0 75;" text="Day counter">
                      <font>
                         <Font name="System Bold" size="14.0" />
                      </font>
                   </JFXButton>
-                  <ImageView fitHeight="36.0" fitWidth="40.0" layoutX="23.0" layoutY="19.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fitHeight="31.0" fitWidth="27.0" layoutX="14.0" layoutY="17.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@/daycounterIcon.png" />
                      </image>
                   </ImageView>
+                  <Label layoutY="30.0" prefHeight="17.0" prefWidth="256.0" style="-fx-padding: 0 0 0 75;" text="Track your incoming events" textFill="#a7a7a7" />
                </children>
             </Pane>
-            <Pane layoutX="10.0" layoutY="233.0" prefHeight="74.0" prefWidth="256.0">
+            <Pane layoutX="10.0" layoutY="233.0" prefHeight="60.0" prefWidth="256.0">
                <children>
-                  <JFXButton onMouseClicked="#dateClick" prefHeight="74.0" prefWidth="256.0" style="-fx-background-color: transparent; -fx-text-fill: #f0f0f0; -fx-alignment: CENTER_LEFT;" text="                   Temperature">
+                  <JFXButton alignment="TOP_LEFT" onMouseClicked="#dateClick" prefHeight="60.0" prefWidth="256.0" style="-fx-background-color: transparent; -fx-text-fill: #f0f0f0; -fx-padding: 10 0 0 75;" text="Temperature">
                      <font>
                         <Font name="System Bold" size="14.0" />
                      </font>
                   </JFXButton>
-                  <ImageView fitHeight="36.0" fitWidth="40.0" layoutX="23.0" layoutY="19.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fitHeight="37.0" fitWidth="32.0" layoutX="14.0" layoutY="16.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@/temperatureIcon.png" />
                      </image>
                   </ImageView>
+                  <Label layoutY="30.0" prefHeight="17.0" prefWidth="256.0" style="-fx-padding: 0 0 0 75;" text="Adjust styles and units" textFill="#a7a7a7" />
                </children>
             </Pane>
-            <Pane layoutX="10.0" layoutY="308.0" prefHeight="74.0" prefWidth="256.0">
+            <Pane layoutX="10.0" layoutY="308.0" prefHeight="60.0" prefWidth="256.0">
                <children>
-                  <JFXButton onMouseClicked="#dateClick" prefHeight="74.0" prefWidth="256.0" style="-fx-background-color: transparent; -fx-text-fill: #f0f0f0; -fx-alignment: CENTER_LEFT;" text="                   Translate">
+                  <JFXButton alignment="TOP_LEFT" onMouseClicked="#dateClick" prefHeight="60.0" prefWidth="256.0" style="-fx-background-color: transparent; -fx-text-fill: #f0f0f0; -fx-padding: 10 0 0 75;" text="Translate">
                      <font>
                         <Font name="System Bold" size="14.0" />
                      </font>
                   </JFXButton>
-                  <ImageView fitHeight="36.0" fitWidth="40.0" layoutX="23.0" layoutY="19.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fitHeight="36.0" fitWidth="40.0" layoutX="14.0" layoutY="12.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@/translateIcon.png" />
                      </image>
                   </ImageView>
+                  <Label layoutY="30.0" prefHeight="17.0" prefWidth="256.0" style="-fx-padding: 0 0 0 75;" text="Translate, display on desktop" textFill="#a7a7a7" />
                </children>
             </Pane>
          </children>
@@ -134,13 +134,18 @@
       </HBox>
    </top>
    <center>
-      <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="563.0" prefWidth="661.0" BorderPane.alignment="CENTER">
+      <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="563.0" prefWidth="658.0" style="-fx-background-color: #051522;" BorderPane.alignment="CENTER_RIGHT">
          <children>
-            <ImageView fitHeight="347.0" fitWidth="407.0" layoutX="127.0" layoutY="108.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@/page1.png" />
-               </image>
-            </ImageView>
+            <Label alignment="CENTER" layoutX="-1.0" layoutY="242.0" prefHeight="40.0" prefWidth="662.0" text="Settings" textFill="WHITE">
+               <font>
+                  <Font size="28.0" />
+               </font></Label>
+            <Label alignment="CENTER" layoutX="-1.0" layoutY="182.0" prefHeight="40.0" prefWidth="662.0" text="&quot;Hi, How's your day?&quot;" textFill="WHITE">
+               <font>
+                  <Font name="System Italic" size="20.0" />
+               </font>
+            </Label>
+            <TextField alignment="CENTER" layoutX="227.0" layoutY="289.0" prefHeight="26.0" prefWidth="206.0" text="Find a setting" />
          </children>
       </AnchorPane>
    </center>
