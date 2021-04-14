@@ -7,7 +7,6 @@ import javafx.scene.Parent;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
-import sample.controller.note.WriteNote;
 
 import java.io.IOException;
 import java.net.URL;
@@ -15,8 +14,6 @@ import java.util.Objects;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-
-import static com.jfoenix.svg.SVGGlyphLoader.clear;
 
 public class Controller implements Initializable {
 
@@ -57,6 +54,8 @@ public class Controller implements Initializable {
     }
 
     public void temperatureClick(MouseEvent mouseEvent) {
+        loadPage("temperaturePage");
+
     }
 
     public void close(MouseEvent mouseEvent) {

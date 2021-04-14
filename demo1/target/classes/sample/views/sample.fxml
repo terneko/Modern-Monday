@@ -9,11 +9,11 @@
 
 <BorderPane fx:id="mainPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="609.0" prefWidth="914.0" style="-fx-background-color: #FFFFFF;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.controller.Controller">
    <left>
-      <VBox prefHeight="561.0" prefWidth="256.0" style="-fx-background-color: #082033; -fx-effect: dropshadow(gaussian, rgba(255, 255, 255, 1), 10, 0.5, 0.0, 0.0);" BorderPane.alignment="CENTER">
+      <VBox prefHeight="561.0" prefWidth="256.0" style="-fx-background-color: #082033;" BorderPane.alignment="CENTER">
          <children>
             <Pane prefHeight="60.0" prefWidth="256.0">
                <children>
-                  <JFXButton alignment="TOP_LEFT" onMouseClicked="#noteClick" prefHeight="60.0" prefWidth="256.0" style="-fx-background-color: transparent; -fx-text-fill: #f0f0f0; -fx-padding: 10 0 0 75;" styleClass="button-with-margin" stylesheets="@../values/style.css" text="Note">
+                  <JFXButton alignment="TOP_LEFT" onMouseClicked="#noteClick" prefHeight="60.0" prefWidth="256.0" style="-fx-background-color: transparent; -fx-text-fill: #f0f0f0; -fx-padding: 10 0 0 75;" styleClass="button-with-margin" text="Note">
                      <opaqueInsets>
                         <Insets />
                      </opaqueInsets>
@@ -61,7 +61,7 @@
             </Pane>
             <Pane layoutX="10.0" layoutY="233.0" prefHeight="60.0" prefWidth="256.0">
                <children>
-                  <JFXButton alignment="TOP_LEFT" onMouseClicked="#dateClick" prefHeight="60.0" prefWidth="256.0" style="-fx-background-color: transparent; -fx-text-fill: #f0f0f0; -fx-padding: 10 0 0 75;" text="Temperature">
+                  <JFXButton alignment="TOP_LEFT" onMouseClicked="#temperatureClick" prefHeight="60.0" prefWidth="256.0" style="-fx-background-color: transparent; -fx-text-fill: #f0f0f0; -fx-padding: 10 0 0 75;" text="Temperature">
                      <font>
                         <Font name="System Bold" size="14.0" />
                      </font>

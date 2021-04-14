@@ -21,7 +21,6 @@ public class WriteNote extends NotePageController implements Initializable {
     private int num;
     private Note note = new Note("");
 
-
     public void descripeNote(KeyEvent keyEvent) {
         String text;
         text = textEdit.getText();
@@ -29,7 +28,6 @@ public class WriteNote extends NotePageController implements Initializable {
         note.setSaveDate(LocalDate.now());
         note.saveJSON();
     }
-
 
     @Override
     public void close(MouseEvent mouseEvent) {

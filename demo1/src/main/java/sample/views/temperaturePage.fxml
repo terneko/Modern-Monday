@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.ColumnConstraints?>
@@ -8,7 +9,7 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.RowConstraints?>
 
-<AnchorPane prefHeight="563.0" prefWidth="661.0" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.views.TemperaturePage">
+<AnchorPane prefHeight="563.0" prefWidth="661.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.controller.temperature.TemperatureAPI">
    <children>
       <GridPane prefHeight="563.0" prefWidth="662.0">
         <columnConstraints>
@@ -28,8 +29,12 @@
                   <Label layoutX="535.0" layoutY="158.0" prefWidth="28.0" text="12:30" />
                   <Label layoutX="535.0" layoutY="205.0" text="RAINY" />
                   <JFXButton layoutX="90.0" layoutY="222.0" text="Pop-up widget" />
+                  <ComboBox fx:id="selectedProvince" layoutX="236.0" layoutY="189.0" prefWidth="150.0" promptText="เลือกเมืองบ้านมึงอะ" />
                </children></Pane>
-            <Pane prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="1" />
+            <Pane prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="1">
+               <children>
+                  <Pane layoutX="28.0" layoutY="14.0" prefHeight="93.0" prefWidth="200.0" style="-fx-background-color: black;" />
+               </children></Pane>
          </children>
       </GridPane>
    </children>
