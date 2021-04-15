@@ -5,9 +5,15 @@
 <?import javafx.scene.shape.*?>
 <?import javafx.scene.text.*?>
 
+<<<<<<< Updated upstream
 <AnchorPane prefHeight="563.0" prefWidth="661.0" style="-fx-background-color: #051522;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.views.DateAndClock">
    <children>
       <Pane layoutX="30.0" layoutY="100.0" prefHeight="90.0" prefWidth="290.0" style="-fx-background-color: #104066;">
+=======
+<AnchorPane prefHeight="563.0" prefWidth="661.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.controller.daycounter.DaycounterController">
+   <children>
+      <Pane layoutX="35.0" layoutY="80.0" prefHeight="90.0" prefWidth="290.0" style="-fx-background-color: #104066;">
+>>>>>>> Stashed changes
          <children>
             <Label fx:id="Date1_1" layoutX="228.0" layoutY="13.0" prefHeight="32.0" prefWidth="67.0" text="Tue," textFill="WHITE">
                <font>
@@ -19,7 +25,11 @@
                </font>
             </Label>
          </children></Pane>
+<<<<<<< Updated upstream
       <Pane layoutX="30.0" layoutY="206.0" prefHeight="90.0" prefWidth="290.0" style="-fx-background-color: #104066;">
+=======
+      <Pane layoutX="35.0" layoutY="205.0" prefHeight="90.0" prefWidth="290.0" style="-fx-background-color: #104066;">
+>>>>>>> Stashed changes
          <children>
             <Label fx:id="Date2_1" layoutX="250.0" layoutY="14.0" prefHeight="17.0" prefWidth="28.0" text="9" textFill="WHITE">
                <font>
@@ -30,7 +40,11 @@
                   <Font size="20.0" />
                </font></Label>
          </children></Pane>
+<<<<<<< Updated upstream
       <Pane layoutX="30.0" layoutY="314.0" prefHeight="90.0" prefWidth="290.0" style="-fx-background-color: #104066;">
+=======
+      <Pane layoutX="35.0" layoutY="330.0" prefHeight="90.0" prefWidth="290.0" style="-fx-background-color: #104066;">
+>>>>>>> Stashed changes
          <children>
             <Label fx:id="Date3_1" layoutX="16.0" layoutY="17.0" text="Tue, March 9" textFill="WHITE">
                <font>
@@ -42,7 +56,11 @@
                </font>
             </Label>
          </children></Pane>
+<<<<<<< Updated upstream
       <Pane layoutX="30.0" layoutY="420.0" prefHeight="90.0" prefWidth="290.0" style="-fx-background-color: #104066;">
+=======
+      <Pane layoutX="35.0" layoutY="455.0" prefHeight="90.0" prefWidth="290.0" style="-fx-background-color: #104066;">
+>>>>>>> Stashed changes
          <children>
             <Label fx:id="Date4_1" layoutX="213.0" layoutY="14.0" text="Tue, 9" textFill="WHITE">
                <font>
@@ -54,7 +72,11 @@
                </font>
             </Label>
          </children></Pane>
+<<<<<<< Updated upstream
       <Pane layoutX="340.0" layoutY="100.0" prefHeight="90.0" prefWidth="290.0" style="-fx-background-color: #104066;">
+=======
+      <Pane layoutX="345.0" layoutY="80.0" prefHeight="90.0" prefWidth="290.0" style="-fx-background-color: #104066;">
+>>>>>>> Stashed changes
          <children>
             <Label fx:id="Clock1" layoutX="130.0" layoutY="14.0" text="00" textFill="WHITE">
                <font>
@@ -66,14 +88,22 @@
                </font>
             </Label>
          </children></Pane>
+<<<<<<< Updated upstream
       <Pane layoutX="340.0" layoutY="206.0" prefHeight="90.0" prefWidth="290.0" style="-fx-background-color: #104066;">
+=======
+      <Pane layoutX="345.0" layoutY="205.0" prefHeight="90.0" prefWidth="290.0" style="-fx-background-color: #104066;">
+>>>>>>> Stashed changes
          <children>
             <Label fx:id="Clock2" layoutX="98.0" layoutY="22.0" text="00 : 00" textFill="WHITE">
                <font>
                   <Font size="32.0" />
                </font></Label>
          </children></Pane>
+<<<<<<< Updated upstream
       <Pane layoutX="340.0" layoutY="314.0" prefHeight="90.0" prefWidth="290.0" style="-fx-background-color: #104066;">
+=======
+      <Pane layoutX="345.0" layoutY="330.0" prefHeight="90.0" prefWidth="290.0" style="-fx-background-color: #104066;">
+>>>>>>> Stashed changes
          <children>
             <Label fx:id="Clock3" layoutX="98.0" layoutY="22.0" text="00 : 00" textFill="WHITE">
                <font>
@@ -82,6 +112,7 @@
             <Line endX="54.5999755859375" layoutX="143.0" layoutY="29.0" startX="-52.399993896484375" stroke="WHITE" strokeWidth="2.0" />
             <Line endX="54.5999755859375" layoutX="143.0" layoutY="64.0" startX="-52.399993896484375" stroke="WHITE" strokeWidth="2.0" />
          </children></Pane>
+<<<<<<< Updated upstream
       <Pane layoutX="340.0" layoutY="420.0" prefHeight="90.0" prefWidth="290.0" style="-fx-background-color: #104066;">
          <children>
             <Label fx:id="Clock4" layoutX="117.0" layoutY="28.0" text="Label" />
@@ -95,5 +126,15 @@
          <font>
             <Font size="14.0" />
          </font></Label>
+=======
+      <Pane layoutX="345.0" layoutY="455.0" prefHeight="90.0" prefWidth="290.0" style="-fx-background-color: #104066;">
+         <children>
+            <Label fx:id="Clock4" layoutX="117.0" layoutY="28.0" text="Label" />
+         </children></Pane>
+      <Text layoutX="35.0" layoutY="40.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Date and Clock" wrappingWidth="191.2734375">
+         <font>
+            <Font size="24.0" />
+         </font></Text>
+>>>>>>> Stashed changes
    </children>
 </AnchorPane>
