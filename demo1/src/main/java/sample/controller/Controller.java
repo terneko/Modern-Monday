@@ -62,7 +62,7 @@ public class Controller implements Initializable {
 
     public void dateAndClockClicked(MouseEvent mouseEvent) {
         System.out.println("Clicked!");
-        loadPage("daycounterPage");
+        loadPage("dateAndClock");
     }
 
     public void daycounterClick(MouseEvent mouseEvent) {
