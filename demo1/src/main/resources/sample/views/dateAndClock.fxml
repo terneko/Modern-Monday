@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane prefHeight="563.0" prefWidth="661.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.views.DateAndClock">
+   <children>
+      <Pane layoutX="35.0" layoutY="80.0" prefHeight="90.0" prefWidth="290.0" style="-fx-background-color: #104066;">
+         <children>
+            <Label fx:id="Date1_1" layoutX="228.0" layoutY="13.0" prefHeight="32.0" prefWidth="67.0" text="Tue," textFill="WHITE">
+               <font>
+                  <Font size="24.0" />
+               </font></Label>
+            <Label fx:id="Date1_2" layoutX="187.0" layoutY="46.0" text="March 9" textFill="WHITE">
+               <font>
+                  <Font size="24.0" />
+               </font>
+            </Label>
+         </children></Pane>
+      <Pane layoutX="35.0" layoutY="205.0" prefHeight="90.0" prefWidth="290.0" style="-fx-background-color: #104066;">
+         <children>
+            <Label fx:id="Date2_1" layoutX="250.0" layoutY="14.0" prefHeight="17.0" prefWidth="28.0" text="9" textFill="WHITE">
+               <font>
+                  <Font size="28.0" />
+               </font></Label>
+            <Label fx:id="Date2_2" layoutX="135.0" layoutY="50.0" text="Tue, March 2021" textFill="WHITE">
+               <font>
+                  <Font size="20.0" />
+               </font></Label>
+         </children></Pane>
+      <Pane layoutX="35.0" layoutY="330.0" prefHeight="90.0" prefWidth="290.0" style="-fx-background-color: #104066;">
+         <children>
+            <Label fx:id="Date3_1" layoutX="16.0" layoutY="17.0" text="Tue, March 9" textFill="WHITE">
+               <font>
+                  <Font size="26.0" />
+               </font></Label>
+            <Label fx:id="Date3_2" layoutX="16.0" layoutY="55.0" text="2021" textFill="WHITE">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+         </children></Pane>
+      <Pane layoutX="35.0" layoutY="455.0" prefHeight="90.0" prefWidth="290.0" style="-fx-background-color: #104066;">
+         <children>
+            <Label fx:id="Date4_1" layoutX="213.0" layoutY="14.0" text="Tue, 9" textFill="WHITE">
+               <font>
+                  <Font size="24.0" />
+               </font></Label>
+            <Label layoutX="154.0" layoutY="49.0" text="March 2021" textFill="WHITE">
+               <font>
+                  <Font size="24.0" />
+               </font>
+            </Label>
+         </children></Pane>
+      <Pane layoutX="345.0" layoutY="80.0" prefHeight="90.0" prefWidth="290.0" style="-fx-background-color: #104066;">
+         <children>
+            <Label fx:id="Clock1" layoutX="130.0" layoutY="14.0" text="00" textFill="WHITE">
+               <font>
+                  <Font size="28.0" />
+               </font></Label>
+            <Label layoutX="130.0" layoutY="39.0" text="00" textFill="WHITE">
+               <font>
+                  <Font size="28.0" />
+               </font>
+            </Label>
+         </children></Pane>
+      <Pane layoutX="345.0" layoutY="205.0" prefHeight="90.0" prefWidth="290.0" style="-fx-background-color: #104066;">
+         <children>
+            <Label fx:id="Clock2" layoutX="98.0" layoutY="22.0" text="00 : 00" textFill="WHITE">
+               <font>
+                  <Font size="32.0" />
+               </font></Label>
+         </children></Pane>
+      <Pane layoutX="345.0" layoutY="330.0" prefHeight="90.0" prefWidth="290.0" style="-fx-background-color: #104066;">
+         <children>
+            <Label fx:id="Clock3" layoutX="98.0" layoutY="22.0" text="00 : 00" textFill="WHITE">
+               <font>
+                  <Font size="32.0" />
+               </font></Label>
+            <Line endX="54.5999755859375" layoutX="143.0" layoutY="29.0" startX="-52.399993896484375" stroke="WHITE" strokeWidth="2.0" />
+            <Line endX="54.5999755859375" layoutX="143.0" layoutY="64.0" startX="-52.399993896484375" stroke="WHITE" strokeWidth="2.0" />
+         </children></Pane>
+      <Pane layoutX="345.0" layoutY="455.0" prefHeight="90.0" prefWidth="290.0" style="-fx-background-color: #104066;">
+         <children>
+            <Label fx:id="Clock4" layoutX="117.0" layoutY="28.0" text="Label" />
+         </children></Pane>
+      <Text layoutX="35.0" layoutY="40.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Date and Clock" wrappingWidth="191.2734375">
+         <font>
+            <Font size="24.0" />
+         </font></Text>
+   </children>
+</AnchorPane>
