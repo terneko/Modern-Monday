@@ -1,14 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 
-<AnchorPane xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
-            fx:controller="sample.views.AddTranslateWidget"
-            prefHeight="400.0" prefWidth="600.0">
-
+<AnchorPane prefHeight="250.0" prefWidth="300.0" style="-fx-background-color: #26037c;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.views.AddTranslateWidget">
+   <children>
+      <Pane layoutX="25.0" layoutY="44.0" prefHeight="80.0" prefWidth="250.0" style="-fx-background-color: #ffff;" />
+      <Pane layoutX="25.0" layoutY="134.0" prefHeight="80.0" prefWidth="250.0" style="-fx-background-color: #ffff;" />
+      <Label fx:id="translate1" layoutX="70.0" layoutY="9.0" text="English" textFill="WHITE">
+         <font>
+            <Font size="18.0" />
+         </font></Label>
+      <Label fx:id="translate2" layoutX="185.0" layoutY="9.0" text="Thai" textFill="WHITE">
+         <font>
+            <Font size="18.0" />
+         </font></Label>
+      <Label fx:id="translate3" layoutX="116.0" layoutY="223.0" text="Translate!" textFill="WHITE">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Label>
+   </children>
 </AnchorPane>
