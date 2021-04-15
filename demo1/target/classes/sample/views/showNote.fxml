@@ -24,7 +24,7 @@
             <Pane prefHeight="38.0" prefWidth="960.0" />
             <ImageView fitHeight="27.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true" rotate="90.0">
                <image>
-                  <Image url="@../../../resources/3dot.png" />
+                  <Image url="@../../3dot.png" />
                </image>
                <HBox.margin>
                   <Insets bottom="5.0" left="5.0" right="10.0" top="5.0" />

@@ -11,9 +11,9 @@
    <left>
       <VBox prefHeight="561.0" prefWidth="256.0" style="-fx-background-color: #082033;" BorderPane.alignment="CENTER">
          <children>
-            <Pane prefHeight="60.0" prefWidth="256.0">
+            <Pane prefHeight="60.0" prefWidth="256.0" stylesheets="@values/style.css">
                <children>
-                  <JFXButton alignment="TOP_LEFT" onMouseClicked="#noteClick" prefHeight="60.0" prefWidth="256.0" style="-fx-background-color: transparent; -fx-text-fill: #f0f0f0; -fx-padding: 10 0 0 75;" styleClass="button-with-margin" text="Notes">
+                  <JFXButton fx:id="notesButton" alignment="TOP_LEFT" onMouseClicked="#noteClick" prefHeight="60.0" prefWidth="256.0" style="-fx-background-color: transparent; -fx-text-fill: #f0f0f0; -fx-padding: 10 0 0 75;" stylesheets="@values/style.css" text="Notes">
                      <opaqueInsets>
                         <Insets />
                      </opaqueInsets>
@@ -31,7 +31,7 @@
             </Pane>
             <Pane layoutX="10.0" layoutY="84.0" prefHeight="60.0" prefWidth="256.0">
                <children>
-                  <JFXButton alignment="TOP_LEFT" onMouseClicked="#dateClick" prefHeight="60.0" prefWidth="256.0" style="-fx-background-color: transparent; -fx-text-fill: #f0f0f0; -fx-padding: 10 0 0 75;" text="Date &amp; Clock">
+                  <JFXButton fx:id="dateClockButton" alignment="TOP_LEFT" onMouseClicked="#dateClick" prefHeight="60.0" prefWidth="256.0" style="-fx-background-color: transparent; -fx-text-fill: #f0f0f0; -fx-padding: 10 0 0 75;" text="Date &amp; Clock">
                      <font>
                         <Font name="System Bold" size="14.0" />
                      </font>
@@ -46,7 +46,7 @@
             </Pane>
             <Pane layoutX="10.0" layoutY="159.0" prefHeight="60.0" prefWidth="256.0">
                <children>
-                  <JFXButton alignment="TOP_LEFT" onMouseClicked="#daycounterClick" prefHeight="60.0" prefWidth="256.0" style="-fx-background-color: transparent; -fx-text-fill: #f0f0f0; -fx-padding: 10 0 0 75;" text="Day counter">
+                  <JFXButton fx:id="dayCounterButton" alignment="TOP_LEFT" onMouseClicked="#daycounterClick" prefHeight="60.0" prefWidth="256.0" style="-fx-background-color: transparent; -fx-text-fill: #f0f0f0; -fx-padding: 10 0 0 75;" text="Day counter">
                      <font>
                         <Font name="System Bold" size="14.0" />
                      </font>
@@ -61,7 +61,7 @@
             </Pane>
             <Pane layoutX="10.0" layoutY="233.0" prefHeight="60.0" prefWidth="256.0">
                <children>
-                  <JFXButton alignment="TOP_LEFT" onMouseClicked="#temperatureClick" prefHeight="60.0" prefWidth="256.0" style="-fx-background-color: transparent; -fx-text-fill: #f0f0f0; -fx-padding: 10 0 0 75;" text="Weather &amp; Temperature">
+                  <JFXButton fx:id="tempButton" alignment="TOP_LEFT" onMouseClicked="#temperatureClick" prefHeight="60.0" prefWidth="256.0" style="-fx-background-color: transparent; -fx-text-fill: #f0f0f0; -fx-padding: 10 0 0 75;" text="Weather &amp; Temperature">
                      <font>
                         <Font name="System Bold" size="14.0" />
                      </font>
@@ -76,7 +76,7 @@
             </Pane>
             <Pane layoutX="10.0" layoutY="308.0" prefHeight="60.0" prefWidth="256.0">
                <children>
-                  <JFXButton alignment="TOP_LEFT" onMouseClicked="#dateClick" prefHeight="60.0" prefWidth="256.0" style="-fx-background-color: transparent; -fx-text-fill: #f0f0f0; -fx-padding: 10 0 0 75;" text="Translator">
+                  <JFXButton fx:id="translatorButton" alignment="TOP_LEFT" onMouseClicked="#dateClick" prefHeight="60.0" prefWidth="256.0" style="-fx-background-color: transparent; -fx-text-fill: #f0f0f0; -fx-padding: 10 0 0 75;" text="Translator">
                      <font>
                         <Font name="System Bold" size="14.0" />
                      </font>
@@ -145,7 +145,7 @@
                   <Font name="System Italic" size="20.0" />
                </font>
             </Label>
-            <TextField alignment="CENTER" layoutX="227.0" layoutY="289.0" prefHeight="26.0" prefWidth="206.0" text="Find a setting" />
+            <TextField alignment="CENTER" layoutX="227.0" layoutY="289.0" prefHeight="26.0" prefWidth="206.0" promptText="Find a setting" stylesheets="@values/style.css" />
          </children>
       </AnchorPane>
    </center>

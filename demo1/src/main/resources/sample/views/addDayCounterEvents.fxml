@@ -41,7 +41,7 @@
       </BorderPane>
       <ImageView fitHeight="63.0" fitWidth="44.0" layoutX="196.0" layoutY="110.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../icon/addImg.png" />
+            <Image url="@../../../java/sample/icon/addImg.png" />
          </image>
       </ImageView>
    </children>

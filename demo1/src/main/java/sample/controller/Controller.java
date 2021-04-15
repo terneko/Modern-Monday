@@ -1,5 +1,6 @@
 package sample.controller;
 
+import com.jfoenix.controls.JFXButton;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -8,6 +9,7 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
 
+import java.awt.*;
 import java.io.IOException;
 import java.net.URL;
 import java.util.Objects;
@@ -16,12 +18,32 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 public class Controller implements Initializable {
+    private static final String IDLE_BUTTON_STYLE = "-fx-background-color: transparent;";
+    private static final String HOVERED_BUTTON_STYLE = "-fx-background-color: -fx-shadow-highlight-color, -fx-outer-border, -fx-inner-border, -fx-body-color;";
 
     @FXML
     private BorderPane mainPane;
 
+    @FXML
+    private JFXButton notesButton;
+
+    @FXML
+    private JFXButton dateClockButton;
+
+    @FXML
+    private JFXButton dayCounterButton;
+
+    @FXML
+    private JFXButton tempButton;
+
+    @FXML
+    private JFXButton translatorButton;
+
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+        notesButton.setStyle(IDLE_BUTTON_STYLE);
+        notesButton.setOnMouseEntered(event -> notesButton.setStyle(HOVERED_BUTTON_STYLE));
+        notesButton.setOnMouseExited(e -> notesButton.setStyle(IDLE_BUTTON_STYLE));
     }
 
     // for Load page FXML name

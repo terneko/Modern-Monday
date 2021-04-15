@@ -61,7 +61,7 @@ public class DaycounterController implements Initializable {
         System.out.println(dayNow);
         System.out.println(dateLeft);
         try {
-            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("../../views/daycounterWidget.fxml"));
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("../../../../resources/sample/views/daycounterWidget.fxml"));
             Parent root1 = (Parent) fxmlLoader.load();
             Stage stage = new Stage();
             dragWidget(root1,stage);
@@ -84,7 +84,7 @@ public class DaycounterController implements Initializable {
 
     public void addPageDaycounter(MouseEvent mouseEvent) {
         try {
-            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("../../views/addDayCounterEvents.fxml"));
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("../../../../resources/sample/views/addDayCounterEvents.fxml"));
             Parent root1 = (Parent) fxmlLoader.load();
             Stage stage = new Stage();
             stage.setTitle("Add Day Counter");

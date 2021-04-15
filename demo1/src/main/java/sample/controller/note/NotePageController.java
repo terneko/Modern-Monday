@@ -56,7 +56,7 @@ public class NotePageController extends Controller implements Initializable {
 
     public void addNote(MouseEvent mouseEvent) {
         try {
-            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("../../views/showNote.fxml"));
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("../../../../resources/sample/views/showNote.fxml"));
             Parent root1 = (Parent) fxmlLoader.load();
             Stage stage = new Stage();
             stage.setTitle("Add Note");
