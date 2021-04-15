@@ -55,35 +55,34 @@ public class Controller implements Initializable {
     }
 
     public void noteClick(MouseEvent mouseEvent) {
-        System.out.println("Clicked!");
         //clear();
         loadPage("notePage");
     }
 
     public void dateAndClockClicked(MouseEvent mouseEvent) {
+<<<<<<< Updated upstream
         System.out.println("Clicked!");
+=======
+>>>>>>> Stashed changes
         loadPage("dateAndClock");
     }
 
     public void daycounterClick(MouseEvent mouseEvent) {
-        System.out.println("Clicked!");
         loadPage("daycounterPage");
 
     }
 
     public void temperatureClick(MouseEvent mouseEvent) {
         loadPage("temperaturePage");
+    }
 
+    public void translateClick(MouseEvent mouseEvent) {
+        loadPage("addTraslate");
     }
 
     public void close(MouseEvent mouseEvent) {
         Stage stage = (Stage) mainPane.getScene().getWindow();
         stage.close();
     }
-
-    public void translateClick(MouseEvent mouseEvent) {
-    }
-
-
 }
 
