@@ -9,7 +9,6 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
 
-import java.awt.*;
 import java.io.IOException;
 import java.net.URL;
 import java.util.Objects;
@@ -41,9 +40,7 @@ public class Controller implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        notesButton.setStyle(IDLE_BUTTON_STYLE);
-        notesButton.setOnMouseEntered(event -> notesButton.setStyle(HOVERED_BUTTON_STYLE));
-        notesButton.setOnMouseExited(e -> notesButton.setStyle(IDLE_BUTTON_STYLE));
+
     }
 
     // for Load page FXML name
@@ -63,10 +60,9 @@ public class Controller implements Initializable {
         loadPage("notePage");
     }
 
-    public void dateClick(MouseEvent mouseEvent) {
-    }
-
-    public void clockClick(MouseEvent mouseEvent) {
+    public void dateAndClockClicked(MouseEvent mouseEvent) {
+        System.out.println("Clicked!");
+        loadPage("daycounterPage");
     }
 
     public void daycounterClick(MouseEvent mouseEvent) {
@@ -87,5 +83,7 @@ public class Controller implements Initializable {
 
     public void translateClick(MouseEvent mouseEvent) {
     }
+
+
 }
 

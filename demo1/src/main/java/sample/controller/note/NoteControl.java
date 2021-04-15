@@ -16,5 +16,4 @@ public class NoteControl {
         dateNote.setText(String.valueOf(note.getSaveDate()));
         descripNote.setText(note.getDescription());
     }
-
 }

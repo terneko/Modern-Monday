@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="145.0" prefWidth="130.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.controller.note.NotePageController">
+   <children>
+      <BorderPane prefHeight="145.0" prefWidth="130.0">
+         <top>
+            <Label prefHeight="34.0" prefWidth="130.0" style="-fx-background-color: #104066;" BorderPane.alignment="CENTER" />
+         </top>
+         <center>
+            <Pane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+               <children>
+                  <ImageView fitHeight="39.0" fitWidth="35.0" layoutX="48.0" layoutY="38.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../Untitled-2.png" />
+                     </image>
+                  </ImageView>
+               </children>
+            </Pane>
+         </center>
+      </BorderPane>
+   </children>
+</AnchorPane>

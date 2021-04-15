@@ -3,11 +3,13 @@ package sample.controller.note;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.geometry.Insets;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.control.TextArea;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
@@ -20,18 +22,16 @@ import java.io.FileNotFoundException;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.net.URL;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.ResourceBundle;
-import java.util.Scanner;
+import java.util.*;
 
 import static sample.controller.daycounter.DaycounterController.dragWidget;
 
 public class NotePageController extends Controller implements Initializable {
     public BorderPane mainNote;
-    public GridPane MainGrid;
+
     public TextArea descripeNote;
     public TextArea textEdit;
+    public GridPane mainGrid;
 
     @FXML
     private ScrollPane noteScroll;
@@ -54,22 +54,7 @@ public class NotePageController extends Controller implements Initializable {
     }
 
 
-    public void addNote(MouseEvent mouseEvent) {
-        try {
-            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("../../../../resources/sample/views/showNote.fxml"));
-            Parent root1 = (Parent) fxmlLoader.load();
-            Stage stage = new Stage();
-            stage.setTitle("Add Note");
-            dragWidget(root1, stage);
-            stage.setScene(new Scene(root1));
-            stage.initStyle(StageStyle.TRANSPARENT);
-            stage.show();
-            addOrDelCount(0);
-            deleteFile(2);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
+
 
     // for delete note
     public void deleteFile(int num) {
@@ -114,8 +99,56 @@ public class NotePageController extends Controller implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+        notes.addAll(getData());
+        int columns = 0;
+        int row = 0;
+        for (int i = 0; i < notes.size(); i++) {
+            FXMLLoader fxmlLoader = new FXMLLoader();
+            //FXMLLoader fxmlLoader2 = new FXMLLoader();
+            fxmlLoader.setLocation(Objects.requireNonNull(getClass().getResource("../../views/addNote.fxml")));
+            //fxmlLoader2.setLocation(Objects.requireNonNull(getClass().getResource("../../views/addStickyNote.fxml")));
+            try {
+                AnchorPane anchorPane = fxmlLoader.load();
+                //AnchorPane anchorPane2 = fxmlLoader2.load();
+                NoteControl noteController = fxmlLoader.getController();
+                noteController.setData(notes.get(i));
+                if (columns == 4) {
+                    columns = 0;
+                    row++;
+                }
+                mainGrid.add(anchorPane, columns++, row); // (child , columns , row)
+                GridPane.setMargin(anchorPane, new Insets(15));
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+//        columns++;
+//        try {
+//            AnchorPane anchorPane = FXMLLoader.load(getClass().getResource("../../views/addStickyNote.fxml"));
+//            mainGrid.add(anchorPane,columns,row);
+//            mainGrid.setConstraints(anchorPane,columns,row);
+//        } catch (IOException e) {
+//            e.printStackTrace();
+//        }
+        //ABC.getChildren().addAll(new TextField("hehe00"));
+
 
     }
 
 
+    public void addNote(MouseEvent mouseEvent) {
+        try {
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("../../views/showNote.fxml"));
+            Parent root1 = (Parent) fxmlLoader.load();
+            Stage stage = new Stage();
+            stage.setTitle("Add Note");
+            dragWidget(root1, stage);
+            stage.setScene(new Scene(root1));
+            stage.initStyle(StageStyle.TRANSPARENT);
+            stage.show();
+            addOrDelCount(0);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
 }
