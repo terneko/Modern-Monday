@@ -1,17 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import com.jfoenix.controls.JFXButton?>
-<?import javafx.geometry.Insets?>
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.control.TextField?>
-<?import javafx.scene.image.Image?>
-<?import javafx.scene.image.ImageView?>
-<?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.layout.BorderPane?>
-<?import javafx.scene.layout.HBox?>
-<?import javafx.scene.layout.Pane?>
-<?import javafx.scene.layout.VBox?>
-<?import javafx.scene.text.Font?>
+<?import com.jfoenix.controls.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 
 <BorderPane fx:id="mainPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="609.0" prefWidth="914.0" style="-fx-background-color: #FFFFFF;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.controller.Controller">
    <left>
@@ -19,7 +13,7 @@
          <children>
             <Pane onMouseClicked="#noteClick" prefHeight="60.0" prefWidth="256.0" stylesheets="@values/style.css">
                <children>
-                  <JFXButton alignment="TOP_LEFT" onMouseClicked="#noteClick" prefHeight="60.0" prefWidth="256.0" style="-fx-background-color: transparent; -fx-text-fill: #f0f0f0; -fx-padding: 10 0 0 75;" stylesheets="@values/style.css" text="Notes">
+                  <JFXButton fx:id="notesButton" alignment="TOP_LEFT" onMouseClicked="#noteClick" prefHeight="60.0" prefWidth="256.0" style="-fx-background-color: transparent; -fx-text-fill: #f0f0f0; -fx-padding: 10 0 0 75;" stylesheets="@values/style.css" text="Notes">
                      <opaqueInsets>
                         <Insets />
                      </opaqueInsets>
@@ -67,7 +61,7 @@
             </Pane>
             <Pane layoutX="10.0" layoutY="233.0" onMouseClicked="#temperatureClick" prefHeight="60.0" prefWidth="256.0">
                <children>
-                  <JFXButton alignment="TOP_LEFT" onMouseClicked="#temperatureClick" prefHeight="60.0" prefWidth="256.0" style="-fx-background-color: transparent; -fx-text-fill: #f0f0f0; -fx-padding: 10 0 0 75;" text="Weather &amp; Temperature">
+                  <JFXButton fx:id="tempButton" alignment="TOP_LEFT" onMouseClicked="#temperatureClick" prefHeight="60.0" prefWidth="256.0" style="-fx-background-color: transparent; -fx-text-fill: #f0f0f0; -fx-padding: 10 0 0 75;" text="Weather &amp; Temperature">
                      <font>
                         <Font name="System Bold" size="14.0" />
                      </font>
@@ -80,14 +74,14 @@
                   <Label layoutY="30.0" onMouseClicked="#temperatureClick" prefHeight="17.0" prefWidth="256.0" style="-fx-padding: 0 0 0 75;" text="Adjust styles and units" textFill="#a7a7a7" />
                </children>
             </Pane>
-            <Pane layoutX="10.0" layoutY="308.0" onMouseClicked="#translateClick" prefHeight="60.0" prefWidth="155.0">
+            <Pane layoutX="10.0" layoutY="308.0" onMouseClicked="#translateClick" prefHeight="60.0" prefWidth="256.0">
                <children>
-                  <JFXButton alignment="TOP_LEFT" onMouseClicked="#translateClick" prefHeight="60.0" prefWidth="256.0" style="-fx-background-color: transparent; -fx-text-fill: #f0f0f0; -fx-padding: 10 0 0 75;" text="Translator">
+                  <JFXButton fx:id="translatorButton" alignment="TOP_LEFT" onMouseClicked="#translateClick" prefHeight="60.0" prefWidth="256.0" style="-fx-background-color: transparent; -fx-text-fill: #f0f0f0; -fx-padding: 10 0 0 75;" text="Translator">
                      <font>
                         <Font name="System Bold" size="14.0" />
                      </font>
                   </JFXButton>
-                  <ImageView fitHeight="36.0" fitWidth="40.0" layoutX="14.0" layoutY="12.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fitHeight="36.0" fitWidth="40.0" layoutX="14.0" layoutY="12.0" onMouseClicked="#translateClick" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@/translateIcon.png" />
                      </image>
@@ -146,7 +140,7 @@
                <font>
                   <Font size="28.0" />
                </font></Label>
-            <Label alignment="CENTER" layoutX="-1.0" layoutY="182.0" prefHeight="40.0" prefWidth="662.0" text="&quot;Hi, How's your day?&quot;" textFill="WHITE">
+            <Label alignment="CENTER" layoutX="-1.0" layoutY="182.0" prefHeight="40.0" prefWidth="662.0" styleClass="welcomeText" stylesheets="@values/style.css" text="&quot;Hi, How's your day?&quot;" textFill="WHITE">
                <font>
                   <Font name="System Italic" size="20.0" />
                </font>

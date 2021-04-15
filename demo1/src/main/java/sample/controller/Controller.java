@@ -60,10 +60,6 @@ public class Controller implements Initializable {
     }
 
     public void dateAndClockClicked(MouseEvent mouseEvent) {
-<<<<<<< Updated upstream
-        System.out.println("Clicked!");
-=======
->>>>>>> Stashed changes
         loadPage("dateAndClock");
     }
 

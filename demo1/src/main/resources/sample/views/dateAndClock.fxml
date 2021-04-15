@@ -5,11 +5,7 @@
 <?import javafx.scene.shape.*?>
 <?import javafx.scene.text.*?>
 
-<<<<<<< Updated upstream
-<AnchorPane prefHeight="563.0" prefWidth="661.0" style="-fx-background-color: #051522;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.views.DateAndClock">
-=======
-<AnchorPane prefHeight="563.0" prefWidth="661.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.controller.daycounter.DaycounterController">
->>>>>>> Stashed changes
+<AnchorPane prefHeight="563.0" prefWidth="661.0" style="-fx-background-color: #051522;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <Pane layoutX="30.0" layoutY="100.0" prefHeight="90.0" prefWidth="290.0" style="-fx-background-color: #104066;">
          <children>

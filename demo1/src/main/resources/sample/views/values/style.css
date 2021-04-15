@@ -15,3 +15,8 @@
 .buttonPoint.button:hover {
     -fx-background-color: Black;
 }
+
+.welcomeText:hover {
+    -fx-font-size: 50px;
+    -fx-translate-x: -10px;
+}
