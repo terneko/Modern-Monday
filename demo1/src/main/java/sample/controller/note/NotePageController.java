@@ -1,18 +1,23 @@
 package sample.controller.note;
 
+import javafx.animation.FadeTransition;
+import javafx.animation.TranslateTransition;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.geometry.Insets;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Label;
 import javafx.scene.control.ScrollPane;
+import javafx.scene.control.TextArea;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
+import javafx.util.Duration;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
@@ -24,15 +29,20 @@ import sample.main.MyListener;
 import java.io.*;
 import java.net.URL;
 import java.util.*;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 import static sample.controller.daycounter.DaycounterController.dragWidget;
 import static sample.controller.note.WriteNote.setTextNote;
 
 public class NotePageController extends Controller implements Initializable {
     public BorderPane mainNote;
+
+    public TextArea descripeNote;
+    public TextArea textEdit;
     public GridPane mainGrid;
+    public AnchorPane notePageMainPane;
+    public Label mainLabel;
+    public Label mainDescriptionLabel;
+    private File file;
 
     @FXML
     private ScrollPane noteScroll;
@@ -42,40 +52,33 @@ public class NotePageController extends Controller implements Initializable {
 
     private List<Note> notes = new ArrayList<>();
 
-    private MyListener myListener;
+    public void setFadeTransitionNotePage() {
+        FadeTransition mainPaneFade = new FadeTransition(Duration.millis(500), notePageMainPane);
+        mainPaneFade.setFromValue(0);
+        mainPaneFade.setToValue(9);
+        mainPaneFade.play();
 
+        Label[] labels = {mainLabel, mainDescriptionLabel};
+        for (Label label : labels) {
+            TranslateTransition labelTrans = new TranslateTransition();
+            labelTrans.setByX(2);
+            labelTrans.setDuration(Duration.millis(1200));
+            labelTrans.setNode(label);
+            labelTrans.play();
+        }
+    }
 
     private List<Note> getData() {
-        // OPEN FILE JSON AND READ WITH SPECIFIC NUMBER OF COUNT
-        JSONParser parser = new JSONParser();
-        JSONArray noteArray = null;
-        try {
-            Object object = parser.parse(new FileReader("FileNote/noteDemo.json"));
-            noteArray = (JSONArray) object;
-            //System.out.println(noteArray.get(number - 1));
-            //JSONObject noteObject = (JSONObject) noteArray.get(number - 1);
-            //String description = (String) noteObject.get("Description");
-            //System.out.println(description);
-            //String day = (String) noteObject.get("Day");
-            //System.out.println(day);
-        } catch (ParseException | IOException e) {
-            e.printStackTrace();
-        }
-
         List<Note> notes = new ArrayList<>();
         Note note;
 
-        for (int i = 0; i < noteArray.size(); i++) {
-            JSONObject noteObject = (JSONObject) noteArray.get(i);
-            String description = (String) noteObject.get("Description");
-            String day = (String) noteObject.get("Day");
-            note = new Note(description);
-            note.setSaveDate(day);
+        for (int i = 0; i < 10; i++) {
+            note = new Note("hello");
+            note.setDescription("วันนี้เป็นวันสงกรานต์");
             notes.add(note);
         }
         return notes;
     }
-
 
     // for delete note
     public void deleteFile(int num) {
@@ -84,7 +87,7 @@ public class NotePageController extends Controller implements Initializable {
     }
 
     //0 for add and 1 for delete
-    public static void addOrDelCount(int keys) {
+    public void addOrDelCount(int keys) {
         Scanner input = null;
         {
             try {
@@ -120,6 +123,7 @@ public class NotePageController extends Controller implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+        setFadeTransitionNotePage();
         // เพิ่มข้อมูลทุกอย่างที่มี ใส่ลงไปใยลิส
         notes.addAll(getData());
         if (notes.size() > 0) {
@@ -156,7 +160,37 @@ public class NotePageController extends Controller implements Initializable {
     private void setChosenNote(Note note) {
         System.out.println(note.getSaveDate());
         setTextNote(note.getDescription());
+        JSONObject obj = new JSONObject();
+        obj.put("Description", note.getDescription());
+        obj.put("Day", note.getSaveDate());
+        deleteJSON(obj);
         openNote();
+    }
+
+    private void deleteJSON(JSONObject currentObject) {
+        JSONParser parser = new JSONParser();
+        Object object = null;
+        try {
+            object = parser.parse(new FileReader("FileNote/noteDemo.json"));
+        } catch (IOException e) {
+            e.printStackTrace();
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+        JSONArray noteArray = (JSONArray) object;
+        for (int i = 0; i < noteArray.size(); i++) {
+            if (noteArray.get(i).equals(currentObject)) {
+                noteArray.remove(i);
+            }
+        }
+        try {
+            // Constructs a FileWriter given a file name, using the platform's default charset
+            file = new FileWriter("FileNote/noteDemo.json");
+            file.write(noteArray.toJSONString());
+            file.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     public void openNote() {
@@ -179,7 +213,5 @@ public class NotePageController extends Controller implements Initializable {
         setTextNote("");
         openNote();
         // for Load page FXML name
-
     }
-
 }
