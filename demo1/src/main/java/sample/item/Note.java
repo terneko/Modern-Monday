@@ -1,5 +1,6 @@
 package sample.item;
 
+import com.google.gson.JsonObject;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
@@ -60,10 +61,6 @@ public class Note {
         num = sc.nextInt();
     }
 
-    public void openJSON() {
-
-    }
-
     private static void parseNoteObject(JSONObject noteObject) {
         //Get employee first name
         String description = (String) noteObject.get("Description");
@@ -74,9 +71,7 @@ public class Note {
         System.out.println(day);
     }
 
-
-    public void openAndSaveJSON() {
-
+    public JSONArray openJSON() {
         // OPEN FILE JSON AND READ WITH SPECIFIC NUMBER OF COUNT
         JSONParser parser = new JSONParser();
         JSONArray noteArray = null;
@@ -94,6 +89,29 @@ public class Note {
         } catch (ParseException | IOException e) {
             e.printStackTrace();
         }
+        return noteArray;
+    }
+
+    public void deleteJSON(JsonObject object) {
+        JSONArray noteArray = openJSON();
+        for (int i = 0; i < noteArray.size(); i++) {
+            if(noteArray.get(i).equals(object)) {
+                noteArray.remove(i);
+            }
+        }
+        try {
+            // Constructs a FileWriter given a file name, using the platform's default charset
+            file = new FileWriter("FileNote/noteDemo.json");
+            file.write(noteArray.toJSONString());
+            file.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void SaveJSON() {
+
+        JSONArray noteArray = openJSON();
         JSONObject obj = new JSONObject();
         obj.put("Description", description);
         obj.put("Day", saveDate);

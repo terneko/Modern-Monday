@@ -5,7 +5,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane prefHeight="563.0" prefWidth="661.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.controller.temperature.TemperatureAPI">
+<AnchorPane fx:id="tempPageMainPane" prefHeight="563.0" prefWidth="661.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.controller.temperature.TemperatureAPI">
    <children>
       <GridPane prefHeight="563.0" prefWidth="662.0">
         <columnConstraints>
@@ -18,7 +18,7 @@
          <children>
             <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #051522;">
                <children>
-                  <Label layoutY="3.0" prefHeight="22.0" prefWidth="662.0" style="-fx-padding: 10 0 0 20;" text="Weather &amp; Temperature" textFill="WHITE">
+                  <Label fx:id="mainLabel" layoutY="3.0" prefHeight="22.0" prefWidth="662.0" style="-fx-padding: 10 0 0 20;" text="Weather &amp; Temperature" textFill="WHITE">
                      <font>
                         <Font name="System Bold" size="25.0" />
                      </font></Label>
@@ -32,7 +32,7 @@
                   <Label layoutX="584.0" layoutY="169.0" text="RAINY" textFill="WHITE" />
                   <JFXButton layoutX="178.0" layoutY="235.0" text="Pop-up widget" textFill="WHITE" />
                   <ComboBox fx:id="selectedProvince" layoutX="14.0" layoutY="235.0" prefWidth="150.0" promptText="เลือกเมืองบ้านมึงอะ" stylesheets="@values/provinceComboboxStyle.css" />
-                  <Label layoutY="45.0" prefHeight="22.0" prefWidth="662.0" style="-fx-padding: 10 0 0 20;" text="Current weather and temperature in your region." textFill="#a7a7a7">
+                  <Label fx:id="mainDescriptionLabel" layoutY="45.0" prefHeight="22.0" prefWidth="662.0" style="-fx-padding: 10 0 0 20;" text="Current weather and temperature in your region." textFill="#a7a7a7">
                      <font>
                         <Font size="14.0" />
                      </font>

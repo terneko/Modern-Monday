@@ -22,7 +22,6 @@ import java.util.ResourceBundle;
 import java.util.Scanner;
 
 import static sample.controller.daycounter.DaycounterController.dragWidget;
-import static sample.controller.note.NotePageController.addOrDelCount;
 
 public class WriteNote implements Initializable {
 
@@ -75,7 +74,7 @@ public class WriteNote implements Initializable {
         note.setDescription(text);
         note.setSaveDate(String.valueOf(LocalDate.now()));
         if(!text.equals("")) {
-            note.openAndSaveJSON();
+            note.SaveJSON();
         }
         //checkCount();
         Stage stage = (Stage) mainNote.getScene().getWindow();

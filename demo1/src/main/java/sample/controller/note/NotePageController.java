@@ -42,7 +42,7 @@ public class NotePageController extends Controller implements Initializable {
     public AnchorPane notePageMainPane;
     public Label mainLabel;
     public Label mainDescriptionLabel;
-    private File file;
+    private FileWriter file;
 
     @FXML
     private ScrollPane noteScroll;
@@ -51,6 +51,7 @@ public class NotePageController extends Controller implements Initializable {
     private GridPane noteGrid;
 
     private List<Note> notes = new ArrayList<>();
+
 
     public void setFadeTransitionNotePage() {
         FadeTransition mainPaneFade = new FadeTransition(Duration.millis(500), notePageMainPane);
@@ -68,16 +69,36 @@ public class NotePageController extends Controller implements Initializable {
         }
     }
 
+    private MyListener myListener;
+
     private List<Note> getData() {
+        // OPEN FILE JSON AND READ WITH SPECIFIC NUMBER OF COUNT
+        JSONParser parser = new JSONParser();
+        JSONArray noteArray = null;
+        try {
+            Object object = parser.parse(new FileReader("FileNote/noteDemo.json"));
+            noteArray = (JSONArray) object;
+            //System.out.println(noteArray.get(number - 1));
+            //JSONObject noteObject = (JSONObject) noteArray.get(number - 1);
+            //String description = (String) noteObject.get("Description");
+            //System.out.println(description);
+            //String day = (String) noteObject.get("Day");
+            //System.out.println(day);
+        } catch (ParseException | IOException e) {
+            e.printStackTrace();
+        }
         List<Note> notes = new ArrayList<>();
         Note note;
-
-        for (int i = 0; i < 10; i++) {
-            note = new Note("hello");
-            note.setDescription("วันนี้เป็นวันสงกรานต์");
+        for (int i = 0; i < noteArray.size(); i++) {
+            JSONObject noteObject = (JSONObject) noteArray.get(i);
+            String description = (String) noteObject.get("Description");
+            String day = (String) noteObject.get("Day");
+            note = new Note(description);
+            note.setSaveDate(day);
             notes.add(note);
         }
         return notes;
+
     }
 
     // for delete note

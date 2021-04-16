@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane fx:id="translatePageMainPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="563.0" prefWidth="661.0" style="-fx-background-color: #051522;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.controller.translate.TranslateController">
+   <children>
+      <Pane layoutX="80.0" layoutY="137.0" prefHeight="200.0" prefWidth="250.0" style="-fx-background-color: #26037c;">
+         <children>
+            <Label layoutX="87.0" layoutY="159.0" text="English" textFill="WHITE">
+               <font>
+                  <Font size="24.0" />
+               </font>
+            </Label>
+         </children></Pane>
+      <Pane layoutX="330.0" layoutY="137.0" prefHeight="200.0" prefWidth="250.0" style="-fx-background-color: #ffff;">
+         <children>
+            <Label layoutX="103.0" layoutY="161.0" text="Thai">
+               <font>
+                  <Font size="24.0" />
+               </font></Label>
+         </children></Pane>
+      <Pane layoutX="80.0" layoutY="373.0" prefHeight="50.0" prefWidth="150.0" style="-fx-background-color: #26037c;">
+         <children>
+            <Label layoutX="13.0" layoutY="10.0" text="Popup widget" textFill="WHITE">
+               <font>
+                  <Font size="20.0" />
+               </font></Label>
+         </children></Pane>
+      <Label fx:id="mainLabel" style="-fx-padding: 10 0 0 20;" text="Translator" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="25.0" />
+         </font>
+      </Label>
+      <Label fx:id="mainDescriptionLabel" layoutX="2.0" layoutY="37.0" style="-fx-padding: 10 0 0 20;" text="Translate between two languages and display the results on the screen" textFill="#a7a7a7">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>

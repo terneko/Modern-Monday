@@ -2,9 +2,14 @@ package sample.controller.temperature;
 
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
+import javafx.animation.FadeTransition;
+import javafx.animation.TranslateTransition;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.ComboBox;
+import javafx.scene.control.Label;
+import javafx.scene.layout.AnchorPane;
+import javafx.util.Duration;
 
 import java.io.*;
 import java.net.URL;
@@ -14,14 +19,33 @@ import java.util.*;
 
 public class TemperatureAPI implements Initializable {
 
+    public AnchorPane tempPageMainPane;
+    public Label mainLabel;
+    public Label mainDescriptionLabel;
     // set API information
-    private String API_KEY = "5f26cbe1a121b474f1e7c6e6f6350943";
+    private String  API_KEY = "5f26cbe1a121b474f1e7c6e6f6350943";
     private String LOCATION;
     private String urlString;
 
 
     @FXML
     ComboBox<String> selectedProvince;
+
+    public void setFadeTransitionTempPage() {
+        FadeTransition mainPaneFade = new FadeTransition(Duration.millis(500), tempPageMainPane);
+        mainPaneFade.setFromValue(0);
+        mainPaneFade.setToValue(9);
+        mainPaneFade.play();
+
+        Label[] labels = {mainLabel, mainDescriptionLabel};
+        for (Label label : labels) {
+            TranslateTransition labelTrans = new TranslateTransition();
+            labelTrans.setByX(2);
+            labelTrans.setDuration(Duration.millis(1200));
+            labelTrans.setNode(label);
+            labelTrans.play();
+        }
+    }
 
     public static Map<String, Object> jsonToMap(String str) {
         Map<String, Object> map = new Gson().fromJson(str, new TypeToken<HashMap<String, Object>>() {
@@ -33,7 +57,7 @@ public class TemperatureAPI implements Initializable {
         urlString = "http://api.openweathermap.org/data/2.5/weather?q=" + LOCATION + "&appid=" + API_KEY + "&units =imperial&lang=th";
     }
 
-    public void weather() {
+    public  void weather() {
         try {
             callAPI();
             StringBuilder result = new StringBuilder();
@@ -62,6 +86,7 @@ public class TemperatureAPI implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+        setFadeTransitionTempPage();
         ArrayList<String> province = new ArrayList<String>();
         Scanner input = null;
         try {
@@ -87,5 +112,11 @@ public class TemperatureAPI implements Initializable {
             System.out.println(LOCATION);
             weather();
         });
+
     }
+
+//        for (int i = 0; i < 77; i++) {
+//
+//        }
+
 }
