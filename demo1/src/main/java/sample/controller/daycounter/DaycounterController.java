@@ -1,5 +1,7 @@
 package sample.controller.daycounter;
 
+import javafx.animation.FadeTransition;
+import javafx.animation.TranslateTransition;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -10,8 +12,11 @@ import javafx.scene.control.DatePicker;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
+import javafx.util.Duration;
+import sample.controller.Controller;
 import sample.item.DayCounter;
 
 import java.io.IOException;
@@ -19,7 +24,7 @@ import java.net.URL;
 import java.time.LocalDate;
 import java.util.ResourceBundle;
 
-public class DaycounterController implements Initializable {
+public class DaycounterController extends Controller implements Initializable {
 
     public TextField textInput;
     public Label outputLabel;
@@ -33,6 +38,9 @@ public class DaycounterController implements Initializable {
     public TextField titleEvent;
     public DatePicker dateEvent;
     public TextField descriptionEvent;
+    public AnchorPane dayCounterPageMainPane;
+    public Label mainLabel;
+    public Label mainDescriptionLabel;
 
     public static void dragWidget(Parent root,Stage primaryStage) {
 
@@ -105,7 +113,24 @@ public class DaycounterController implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+        setFadeTransitionDayCounterPage();
         static_day_label = dayLabel;
+    }
+
+    public void setFadeTransitionDayCounterPage() {
+        FadeTransition mainPaneFade = new FadeTransition(Duration.millis(500), dayCounterPageMainPane);
+        mainPaneFade.setFromValue(0);
+        mainPaneFade.setToValue(9);
+        mainPaneFade.play();
+
+        Label[] labels = {mainLabel, mainDescriptionLabel};
+        for (Label label : labels) {
+            TranslateTransition labelTrans = new TranslateTransition();
+            labelTrans.setByX(2);
+            labelTrans.setDuration(Duration.millis(1200));
+            labelTrans.setNode(label);
+            labelTrans.play();
+        }
     }
 }
 

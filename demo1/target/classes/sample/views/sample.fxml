@@ -3,15 +3,16 @@
 <?import com.jfoenix.controls.*?>
 <?import javafx.geometry.*?>
 <?import javafx.scene.control.*?>
+<?import javafx.scene.effect.*?>
 <?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<BorderPane fx:id="mainPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="609.0" prefWidth="914.0" style="-fx-background-color: #FFFFFF;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.controller.Controller">
+<BorderPane fx:id="mainPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="609.0" prefWidth="914.0" style="-fx-background-color: #000000;" styleClass="noteDropShadow" stylesheets="@values/style.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.controller.Controller">
    <left>
-      <VBox prefHeight="561.0" prefWidth="256.0" style="-fx-background-color: #082033;" BorderPane.alignment="CENTER">
+      <VBox fx:id="vBox" prefHeight="561.0" prefWidth="256.0" style="-fx-background-color: #082033;" stylesheets="@values/style.css" BorderPane.alignment="CENTER">
          <children>
-            <Pane onMouseClicked="#noteClick" prefHeight="60.0" prefWidth="256.0" stylesheets="@values/style.css">
+            <Pane fx:id="notesPane" onMouseClicked="#noteClick" prefHeight="60.0" prefWidth="256.0" stylesheets="@values/style.css">
                <children>
                   <JFXButton fx:id="notesButton" alignment="TOP_LEFT" onMouseClicked="#noteClick" prefHeight="60.0" prefWidth="256.0" style="-fx-background-color: transparent; -fx-text-fill: #f0f0f0; -fx-padding: 10 0 0 75;" stylesheets="@values/style.css" text="Notes">
                      <opaqueInsets>
@@ -29,7 +30,7 @@
                   <Label layoutY="30.0" onMouseClicked="#noteClick" prefHeight="17.0" prefWidth="256.0" style="-fx-padding: 0 0 0 75;" text="Manage your notes" textFill="#a7a7a7" />
                </children>
             </Pane>
-            <Pane layoutX="10.0" layoutY="84.0" onMouseClicked="#dateAndClockClicked" prefHeight="60.0" prefWidth="256.0">
+            <Pane fx:id="datePane" layoutX="10.0" layoutY="84.0" onMouseClicked="#dateAndClockClicked" prefHeight="60.0" prefWidth="256.0" stylesheets="@values/style.css">
                <children>
                   <JFXButton alignment="TOP_LEFT" onMouseClicked="#dateAndClockClicked" prefHeight="60.0" prefWidth="256.0" style="-fx-background-color: transparent; -fx-text-fill: #f0f0f0; -fx-padding: 10 0 0 75;" text="Date &amp; Clock">
                      <font>
@@ -44,22 +45,22 @@
                   <Label layoutY="30.0" onMouseClicked="#dateAndClockClicked" prefHeight="17.0" prefWidth="256.0" style="-fx-padding: 0 0 0 75;" text="Manage date &amp; clock styles" textFill="#a7a7a7" />
                </children>
             </Pane>
-            <Pane layoutX="10.0" layoutY="159.0" onMouseClicked="#daycounterClick" prefHeight="60.0" prefWidth="256.0">
+            <Pane fx:id="dayCounterPane" layoutX="10.0" layoutY="159.0" onMouseClicked="#dayCounterClick" prefHeight="60.0" prefWidth="256.0" stylesheets="@values/style.css">
                <children>
-                  <JFXButton alignment="TOP_LEFT" onMouseClicked="#daycounterClick" prefHeight="60.0" prefWidth="256.0" style="-fx-background-color: transparent; -fx-text-fill: #f0f0f0; -fx-padding: 10 0 0 75;" text="Day counter">
+                  <JFXButton alignment="TOP_LEFT" onMouseClicked="#dayCounterClick" prefHeight="60.0" prefWidth="256.0" style="-fx-background-color: transparent; -fx-text-fill: #f0f0f0; -fx-padding: 10 0 0 75;" text="Day counter">
                      <font>
                         <Font name="System Bold" size="14.0" />
                      </font>
                   </JFXButton>
-                  <ImageView fitHeight="31.0" fitWidth="27.0" layoutX="14.0" layoutY="17.0" onMouseClicked="#daycounterClick" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fitHeight="31.0" fitWidth="27.0" layoutX="14.0" layoutY="17.0" onMouseClicked="#dayCounterClick" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@/daycounterIcon.png" />
                      </image>
                   </ImageView>
-                  <Label layoutY="30.0" onMouseClicked="#daycounterClick" prefHeight="17.0" prefWidth="256.0" style="-fx-padding: 0 0 0 75;" text="Track your incoming events" textFill="#a7a7a7" />
+                  <Label layoutY="30.0" onMouseClicked="#dayCounterClick" prefHeight="17.0" prefWidth="256.0" style="-fx-padding: 0 0 0 75;" text="Track your incoming events" textFill="#a7a7a7" />
                </children>
             </Pane>
-            <Pane layoutX="10.0" layoutY="233.0" onMouseClicked="#temperatureClick" prefHeight="60.0" prefWidth="256.0">
+            <Pane fx:id="tempPane" layoutX="10.0" layoutY="233.0" onMouseClicked="#temperatureClick" prefHeight="60.0" prefWidth="256.0" stylesheets="@values/style.css">
                <children>
                   <JFXButton fx:id="tempButton" alignment="TOP_LEFT" onMouseClicked="#temperatureClick" prefHeight="60.0" prefWidth="256.0" style="-fx-background-color: transparent; -fx-text-fill: #f0f0f0; -fx-padding: 10 0 0 75;" text="Weather &amp; Temperature">
                      <font>
@@ -74,7 +75,7 @@
                   <Label layoutY="30.0" onMouseClicked="#temperatureClick" prefHeight="17.0" prefWidth="256.0" style="-fx-padding: 0 0 0 75;" text="Adjust styles and units" textFill="#a7a7a7" />
                </children>
             </Pane>
-            <Pane layoutX="10.0" layoutY="308.0" onMouseClicked="#translateClick" prefHeight="60.0" prefWidth="256.0">
+            <Pane fx:id="translatorPane" layoutX="10.0" layoutY="308.0" onMouseClicked="#translateClick" prefHeight="60.0" prefWidth="256.0" stylesheets="@values/style.css">
                <children>
                   <JFXButton fx:id="translatorButton" alignment="TOP_LEFT" onMouseClicked="#translateClick" prefHeight="60.0" prefWidth="256.0" style="-fx-background-color: transparent; -fx-text-fill: #f0f0f0; -fx-padding: 10 0 0 75;" text="Translator">
                      <font>
@@ -89,6 +90,7 @@
                   <Label layoutY="30.0" onMouseClicked="#translateClick" prefHeight="17.0" prefWidth="256.0" style="-fx-padding: 0 0 0 75;" text="Translate, display on desktop" textFill="#a7a7a7" />
                </children>
             </Pane>
+            <Button fx:id="Home" mnemonicParsing="false" onMouseClicked="#homeClick" style="-fx-background-color: #051522;" text="Home" textFill="WHITE" />
          </children>
          <BorderPane.margin>
             <Insets right="3.0" />
@@ -96,7 +98,7 @@
       </VBox>
    </left>
    <top>
-      <HBox alignment="CENTER_RIGHT" prefHeight="46.0" prefWidth="914.0" style="-fx-background-color: #001a2b;" BorderPane.alignment="CENTER">
+      <HBox alignment="CENTER_RIGHT" prefHeight="46.0" prefWidth="914.0" style="-fx-background-color: #001a2b;" styleClass="noteDropShadow" stylesheets="@values/style.css" BorderPane.alignment="CENTER">
          <children>
             <Label prefHeight="20.0" prefWidth="163.0" text="ModernMonday" textFill="WHITE">
                <font>
@@ -136,16 +138,19 @@
    <center>
       <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="563.0" prefWidth="658.0" style="-fx-background-color: #051522;" BorderPane.alignment="CENTER_RIGHT">
          <children>
-            <Label alignment="CENTER" layoutX="-1.0" layoutY="242.0" prefHeight="40.0" prefWidth="662.0" text="Settings" textFill="WHITE">
+            <Label fx:id="settingsLabel" alignment="CENTER" layoutX="-3.0" layoutY="222.0" prefHeight="40.0" prefWidth="661.0" styleClass="noteDropShadow" stylesheets="@values/style.css" text="Settings" textFill="WHITE">
                <font>
-                  <Font size="28.0" />
+                  <Font name="System Bold" size="28.0" />
                </font></Label>
-            <Label alignment="CENTER" layoutX="-1.0" layoutY="182.0" prefHeight="40.0" prefWidth="662.0" styleClass="welcomeText" stylesheets="@values/style.css" text="&quot;Hi, How's your day?&quot;" textFill="WHITE">
+            <Label fx:id="welcomeText" alignment="CENTER" layoutX="190.0" layoutY="262.0" opacity="0.7" prefHeight="40.0" prefWidth="277.0" styleClass="welcomeText" stylesheets="@values/style.css" text="&quot;What's CRAKINN?, my friend.&quot;" textFill="WHITE">
                <font>
-                  <Font name="System Italic" size="20.0" />
+                  <Font name="System Italic" size="14.0" />
                </font>
+               <effect>
+                  <Glow />
+               </effect>
             </Label>
-            <TextField alignment="CENTER" layoutX="227.0" layoutY="289.0" prefHeight="26.0" prefWidth="206.0" promptText="Find a setting" stylesheets="@values/style.css" />
+            <TextField fx:id="settingsTextField" alignment="CENTER" layoutX="225.0" layoutY="302.0" prefHeight="26.0" prefWidth="206.0" promptText="Find a setting" style="-fx-background-color: #082033;" styleClass="noteDropShadow" stylesheets="@values/style.css" />
          </children>
       </AnchorPane>
    </center>

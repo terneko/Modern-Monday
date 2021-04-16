@@ -6,7 +6,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="563.0" prefWidth="661.0" style="-fx-background-color: #0a2942;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.controller.daycounter.DaycounterController">
+<AnchorPane fx:id="dayCounterPageMainPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="563.0" prefWidth="661.0" style="-fx-background-color: #051522;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.controller.daycounter.DaycounterController">
    <children>
       <DatePicker fx:id="dayInput" layoutX="32.0" layoutY="92.0" />
       <TextField fx:id="textInput" layoutX="32.0" layoutY="117.0" prefHeight="26.0" prefWidth="174.0" />
@@ -22,12 +22,12 @@
             <Image url="@../../../java/sample/icon/add.png" />
          </image>
       </ImageView>
-      <Label prefHeight="18.0" prefWidth="661.0" style="-fx-label-padding: 10 0 0 20;" text="Day counter" textFill="WHITE">
+      <Label fx:id="mainLabel" prefHeight="18.0" prefWidth="661.0" style="-fx-label-padding: 10 0 0 20;" text="Day counter" textFill="WHITE">
          <font>
             <Font name="System Bold" size="25.0" />
          </font>
       </Label>
-      <Label layoutY="44.0" prefHeight="18.0" prefWidth="661.0" style="-fx-padding: 10 0 0 20;" text="Track incoming events and remind you important events" textFill="#a7a7a7">
+      <Label fx:id="mainDescriptionLabel" layoutY="44.0" prefHeight="18.0" prefWidth="661.0" style="-fx-padding: 10 0 0 20;" text="Track incoming events and remind you important events" textFill="#a7a7a7">
          <font>
             <Font size="14.0" />
          </font>

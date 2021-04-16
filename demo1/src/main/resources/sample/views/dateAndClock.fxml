@@ -5,7 +5,7 @@
 <?import javafx.scene.shape.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane prefHeight="563.0" prefWidth="661.0" style="-fx-background-color: #051522;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane fx:id="dateAndClockPageMainPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="563.0" prefWidth="661.0" style="-fx-background-color: #051522;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.controller.dateandclock.DateAndClockController">
    <children>
       <Pane layoutX="30.0" layoutY="100.0" prefHeight="90.0" prefWidth="290.0" style="-fx-background-color: #104066;">
          <children>
@@ -86,12 +86,12 @@
          <children>
             <Label fx:id="Clock4" layoutX="117.0" layoutY="28.0" text="Label" />
          </children></Pane>
-      <Label layoutY="6.0" style="-fx-padding: 10 0 0 20;" text="Date and Clock" textFill="WHITE">
+      <Label fx:id="mainLabel" layoutY="6.0" style="-fx-padding: 10 0 0 20;" text="Date and Clock" textFill="WHITE">
          <font>
             <Font name="System Bold" size="25.0" />
          </font>
       </Label>
-      <Label layoutY="43.0" style="-fx-padding: 10 0 0 20;" text="Current time and date, you can choose date and clock styles here." textFill="#a7a7a7">
+      <Label fx:id="mainDescriptionLabel" layoutY="43.0" style="-fx-padding: 10 0 0 20;" text="Current time and date, you can choose date and clock styles here." textFill="#a7a7a7">
          <font>
             <Font size="14.0" />
          </font></Label>

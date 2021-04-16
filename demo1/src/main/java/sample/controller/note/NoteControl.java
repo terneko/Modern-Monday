@@ -19,7 +19,6 @@ public class NoteControl {
     @FXML
     private void click(MouseEvent mouseEvent) {
         myListener.onClickListener(note);
-        System.out.println("helllo");
     }
 
     public void setData(Note note,MyListener myListener) {
