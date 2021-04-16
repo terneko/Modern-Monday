@@ -15,7 +15,7 @@ import java.util.*;
 public class TemperatureAPI implements Initializable {
 
     // set API information
-    private String  API_KEY = "5f26cbe1a121b474f1e7c6e6f6350943";
+    private String API_KEY = "5f26cbe1a121b474f1e7c6e6f6350943";
     private String LOCATION;
     private String urlString;
 
@@ -33,7 +33,7 @@ public class TemperatureAPI implements Initializable {
         urlString = "http://api.openweathermap.org/data/2.5/weather?q=" + LOCATION + "&appid=" + API_KEY + "&units =imperial&lang=th";
     }
 
-    public  void weather() {
+    public void weather() {
         try {
             callAPI();
             StringBuilder result = new StringBuilder();
@@ -87,10 +87,5 @@ public class TemperatureAPI implements Initializable {
             System.out.println(LOCATION);
             weather();
         });
-
     }
-
-//        for (int i = 0; i < 77; i++) {
-//
-//        }
 }

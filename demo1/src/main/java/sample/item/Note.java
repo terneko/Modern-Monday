@@ -1,6 +1,9 @@
 package sample.item;
 
+import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
+import org.json.simple.parser.JSONParser;
+import org.json.simple.parser.ParseException;
 
 import java.io.*;
 import java.time.LocalDate;
@@ -11,19 +14,31 @@ public class Note {
     private static FileWriter file;
     private int num = 0;
     protected String description;
-    protected LocalDate saveDate;
+    protected String saveDate;
 
-    public Note(String description) {
-        this.description = description;
-        this.saveDate = LocalDate.now();
+    public Note() {
+        this.description = "";
+        this.saveDate = String.valueOf(LocalDate.now());
         readCountFile();
     }
 
-    public LocalDate getSaveDate() {
+    public Note(String description) {
+        this.description = description;
+        this.saveDate = String.valueOf(LocalDate.now());
+        readCountFile();
+    }
+
+    public Note(int num, String description) {
+        this.num = num;
+        this.description = description;
+        readCountFile();
+    }
+
+    public String getSaveDate() {
         return saveDate;
     }
 
-    public void setSaveDate(LocalDate saveDate) {
+    public void setSaveDate(String saveDate) {
         this.saveDate = saveDate;
     }
 
@@ -45,31 +60,51 @@ public class Note {
         num = sc.nextInt();
     }
 
-    public void saveJSON() {
+    public void openJSON() {
+
+    }
+
+    private static void parseNoteObject(JSONObject noteObject) {
+        //Get employee first name
+        String description = (String) noteObject.get("Description");
+        System.out.println(description);
+
+        //Get employee last name
+        String day = (String) noteObject.get("Day");
+        System.out.println(day);
+    }
+
+
+    public void openAndSaveJSON() {
+
+        // OPEN FILE JSON AND READ WITH SPECIFIC NUMBER OF COUNT
+        JSONParser parser = new JSONParser();
+        JSONArray noteArray = null;
+        try {
+            Object object = parser.parse(new FileReader("FileNote/noteDemo.json"));
+            noteArray = (JSONArray) object;
+            for (int i = 0; i < noteArray.size(); i++) {
+                System.out.println(noteArray.get(i));
+                JSONObject noteObject = (JSONObject) noteArray.get(i);
+                String description = (String) noteObject.get("Description");
+                System.out.println(description);
+                String day = (String) noteObject.get("Day");
+                System.out.println(day);
+            }
+        } catch (ParseException | IOException e) {
+            e.printStackTrace();
+        }
         JSONObject obj = new JSONObject();
         obj.put("Description", description);
         obj.put("Day", saveDate);
-
-        System.out.print(obj);
-
+        noteArray.add(obj);
         try {
-
             // Constructs a FileWriter given a file name, using the platform's default charset
-            file = new FileWriter("FileNote/note" + num + ".json");
-            file.write(obj.toJSONString());
-
+            file = new FileWriter("FileNote/noteDemo.json");
+            file.write(noteArray.toJSONString());
+            file.close();
         } catch (IOException e) {
             e.printStackTrace();
-
-        } finally {
-
-            try {
-                file.flush();
-                file.close();
-            } catch (IOException e) {
-                // TODO Auto-generated catch block
-                e.printStackTrace();
-            }
         }
     }
 
