@@ -46,6 +46,7 @@ public class Controller implements Initializable {
     public Pane tempPane;
     public Pane translatorPane;
     public VBox vBox;
+    public Label noteDesLabel;
 
     @FXML
     private JFXButton dateClockButton;
@@ -84,14 +85,17 @@ public class Controller implements Initializable {
             pane.setOnMouseExited(e -> pane.setStyle(""));
         }
 
-        /*InnerShadow shadow = new InnerShadow();
-        shadow.setBlurType(BlurType.GAUSSIAN);
-        shadow.setColor(Color.rgb(0, 0, 0, 0.3));
-        shadow.setHeight(0);
-        shadow.setRadius(30);
-        shadow.setWidth(50);
-        shadow.setChoke(0.1);
-        vBox.setEffect(shadow);*/
+        /*noteDesLabel.setOnMouseEntered((MouseEvent event) -> {
+            TranslateTransition translateTransition = new TranslateTransition(new Duration(350), noteDesLabel);
+            translateTransition.setByX(2);
+            translateTransition.play();
+        });
+
+        noteDesLabel.setOnMouseExited((MouseEvent event) -> {
+            TranslateTransition translateTransition = new TranslateTransition(new Duration(350), noteDesLabel);
+            translateTransition.setByX(-2);
+            translateTransition.play();
+        });*/
     }
 
     public void setTooltip() {

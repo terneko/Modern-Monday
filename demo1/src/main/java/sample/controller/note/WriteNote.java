@@ -83,6 +83,7 @@ public class WriteNote implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+        //setHoverController();
         textEdit.setText(textNote);
     }
 

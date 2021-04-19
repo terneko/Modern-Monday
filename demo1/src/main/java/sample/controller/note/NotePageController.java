@@ -15,6 +15,8 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.GridPane;
+import javafx.scene.layout.Pane;
+import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 import javafx.util.Duration;
@@ -26,9 +28,11 @@ import sample.controller.Controller;
 import sample.item.Note;
 import sample.main.MyListener;
 
+import java.awt.*;
 import java.io.*;
 import java.net.URL;
 import java.util.*;
+import java.util.List;
 
 import static sample.controller.daycounter.DaycounterController.dragWidget;
 import static sample.controller.note.WriteNote.setTextNote;
@@ -52,6 +56,11 @@ public class NotePageController extends Controller implements Initializable {
 
     private List<Note> notes = new ArrayList<>();
 
+    public void setHoverController() {
+        NoteControl noteControl = new NoteControl();
+        noteControl.getInputPane().setOnMouseEntered(e -> noteControl.getInputPane().setStyle("-fx-background-color: #51f542"));
+        noteControl.getInputPane().setOnMouseExited(e -> noteControl.getInputPane().setStyle("-fx-background-color:  #082033"));
+    }
 
     public void setFadeTransitionNotePage() {
         FadeTransition mainPaneFade = new FadeTransition(Duration.millis(500), notePageMainPane);
@@ -90,10 +99,21 @@ public class NotePageController extends Controller implements Initializable {
         List<Note> notes = new ArrayList<>();
         Note note;
         for (int i = 0; i < noteArray.size(); i++) {
+            String pureText;
+            String convertText = "";
             JSONObject noteObject = (JSONObject) noteArray.get(i);
-            String description = (String) noteObject.get("Description");
+            pureText = (String)noteObject.get("Description");
+            //System.out.println(pureText);
+            for (int j = 0; j < pureText.length(); j++) {
+                convertText+=pureText.charAt(j);
+                if(j % 13 == 0 && j != 0) {
+                    convertText += "\n";
+                }
+            }
+            System.out.println(convertText);
+            //String description = (String) noteObject.get(convertText);
             String day = (String) noteObject.get("Day");
-            note = new Note(description);
+            note = new Note(convertText);
             note.setSaveDate(day);
             notes.add(note);
         }
@@ -107,34 +127,34 @@ public class NotePageController extends Controller implements Initializable {
 
     }
 
-    //0 for add and 1 for delete
-    public void addOrDelCount(int keys) {
-        Scanner input = null;
-        {
-            try {
-                input = new Scanner(new File("FileNote/Count"));
-            } catch (FileNotFoundException e) {
-                e.printStackTrace();
-            }
-        }
-        String newCount;
-        int count;
-        if (keys == 0) {
-            count = input.nextInt() + 1;
-        } else {
-            count = input.nextInt() - 1;
-        }
-        newCount = String.valueOf(count);
-        try {
-            FileWriter myWriter = new FileWriter("FileNote/Count");
-            myWriter.write(newCount);
-            myWriter.close();
-            System.out.println("Successfully wrote to the file.");
-        } catch (IOException e) {
-            System.out.println("An error occurred.");
-            e.printStackTrace();
-        }
-    }
+//    //0 for add and 1 for delete
+//    public void addOrDelCount(int keys) {
+//        Scanner input = null;
+//        {
+//            try {
+//                input = new Scanner(new File("FileNote/Count"));
+//            } catch (FileNotFoundException e) {
+//                e.printStackTrace();
+//            }
+//        }
+//        String newCount;
+//        int count;
+//        if (keys == 0) {
+//            count = input.nextInt() + 1;
+//        } else {
+//            count = input.nextInt() - 1;
+//        }
+//        newCount = String.valueOf(count);
+//        try {
+//            FileWriter myWriter = new FileWriter("FileNote/Count");
+//            myWriter.write(newCount);
+//            myWriter.close();
+//            System.out.println("Successfully wrote to the file.");
+//        } catch (IOException e) {
+//            System.out.println("An error occurred.");
+//            e.printStackTrace();
+//        }
+//    }
 
     @Override
     public void close(MouseEvent mouseEvent) {
@@ -145,7 +165,11 @@ public class NotePageController extends Controller implements Initializable {
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         setFadeTransitionNotePage();
-        // เพิ่มข้อมูลทุกอย่างที่มี ใส่ลงไปใยลิส
+        //setHoverController();
+        //NoteControl noteControl = new NoteControl();
+        //noteControl.getInputPane().setOnMouseEntered(event -> noteControl.getInputPane().setStyle("-fx-background-color: Black"));
+
+        // เพิ่มข้อมูลทุกอย่างที่มี ใส่ลงไปในลิสต์
         notes.addAll(getData());
         if (notes.size() > 0) {
             //setChosenNote(notes.get(0));
@@ -171,7 +195,7 @@ public class NotePageController extends Controller implements Initializable {
                     row++;
                 }
                 mainGrid.add(anchorPane, columns++, row); // (child , columns , row)
-                GridPane.setMargin(anchorPane, new Insets(15));
+                GridPane.setMargin(anchorPane, new Insets(10));
             } catch (IOException e) {
                 e.printStackTrace();
             }
@@ -224,7 +248,7 @@ public class NotePageController extends Controller implements Initializable {
             stage.setScene(new Scene(root1));
             stage.initStyle(StageStyle.TRANSPARENT);
             stage.show();
-            addOrDelCount(0);
+            //addOrDelCount(0);
         } catch (IOException e) {
             e.printStackTrace();
         }

@@ -27,7 +27,7 @@
                         <Image url="@/noteIcon.png" />
                      </image>
                   </ImageView>
-                  <Label layoutY="30.0" onMouseClicked="#noteClick" prefHeight="17.0" prefWidth="256.0" style="-fx-padding: 0 0 0 75;" text="Manage your notes" textFill="#a7a7a7" />
+                  <Label fx:id="noteDesLabel" layoutY="30.0" onMouseClicked="#noteClick" prefHeight="17.0" prefWidth="256.0" style="-fx-padding: 0 0 0 75;" text="Manage your notes" textFill="#a7a7a7" />
                </children>
             </Pane>
             <Pane fx:id="datePane" layoutX="10.0" layoutY="84.0" onMouseClicked="#dateAndClockClicked" prefHeight="60.0" prefWidth="256.0" stylesheets="@values/style.css">

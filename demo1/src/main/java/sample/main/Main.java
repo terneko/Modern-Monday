@@ -28,7 +28,7 @@ public class Main extends Application {
     private double x,y;
 
     @Override
-    public void start(Stage primaryStage) throws Exception{
+    public void start(Stage primaryStage) throws Exception {
         Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("../views/sample.fxml")));
         Scene scene = new Scene(root);
         scene.setFill(Color.TRANSPARENT);

@@ -1,30 +1,38 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.lang.*?>
 <?import javafx.geometry.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#click" prefHeight="145.0" prefWidth="130.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.controller.note.NoteControl">
+<AnchorPane fx:id="eachNotePane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#click" prefHeight="145.0" prefWidth="130.0" stylesheets="@values/style.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.controller.note.NoteControl">
    <children>
       <BorderPane prefHeight="145.0" prefWidth="130.0">
          <top>
-            <Label fx:id="dateNote" prefHeight="34.0" prefWidth="176.0" style="-fx-background-color: #104066; -fx-text-fill: #ffffff;" BorderPane.alignment="CENTER">
-               <font>
-                  <Font size="14.0" />
-               </font>
+            <Label fx:id="dateNote" prefHeight="25.0" prefWidth="130.0" style="-fx-background-color: #082033;" textFill="#2c648f" BorderPane.alignment="CENTER">
                <padding>
                   <Insets left="10.0" />
                </padding>
+               <font>
+                  <Font size="10.0" />
+               </font>
             </Label>
          </top>
-         <bottom>
-            <Pane prefHeight="111.0" prefWidth="130.0" style="-fx-background-color: white;" BorderPane.alignment="CENTER">
+         <center>
+            <Pane fx:id="inputPane" prefHeight="111.0" prefWidth="130.0" style="-fx-background-color: #082033;" stylesheets="@values/style.css" BorderPane.alignment="CENTER">
                <children>
-                  <Label fx:id="descripNote" layoutX="14.0" layoutY="14.0" />
+                  <Label fx:id="descripNote" alignment="TOP_LEFT" layoutX="10.0" layoutY="5.0" onMouseClicked="#click" prefHeight="102.0" prefWidth="106.0" text="aaaaaaaaaaaaaa" textFill="WHITE" textOverrun="CLIP">
+                     <font>
+                        <Font size="14.0" />
+                     </font></Label>
                </children>
             </Pane>
-         </bottom>
+         </center>
       </BorderPane>
    </children>
+   <styleClass>
+      <String fx:value="noteDropShadow" />
+      <String fx:value="eachNote" />
+   </styleClass>
 </AnchorPane>
