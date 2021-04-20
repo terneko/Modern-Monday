@@ -6,6 +6,7 @@ import javafx.animation.TranslateTransition;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
+import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
@@ -21,6 +22,7 @@ public class NoteControl implements Initializable {
 
     public Pane inputPane = new Pane();
     public AnchorPane eachNotePane;
+    public ImageView deletedbutton;
     private Note note;
     private MyListener myListener;
 
@@ -43,7 +45,11 @@ public class NoteControl implements Initializable {
     public void setHover() {
         inputPane.setOnMouseEntered(e -> inputPane.setStyle("-fx-background-color: #0a2942"));
         inputPane.setOnMouseExited(e -> inputPane.setStyle("-fx-background-color:  #082033"));
+
+        eachNotePane.setOnMouseEntered((e -> deletedbutton.setVisible(true)));
+        eachNotePane.setOnMouseExited((e -> deletedbutton.setVisible(false)));
         //setTransition();
+
     }
 
     public void setTransition() {
@@ -70,4 +76,7 @@ public class NoteControl implements Initializable {
         setTransition();
     }
 
+    public void deletedNote(MouseEvent mouseEvent) {
+
+    }
 }

@@ -7,43 +7,38 @@
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.RowConstraints?>
-<?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
 <AnchorPane fx:id="notePageMainPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="563.0" prefWidth="661.0" style="-fx-background-color: #051522;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.controller.note.NotePageController">
    <children>
-      <VBox prefHeight="563.0" prefWidth="661.0">
+      <Label fx:id="noNoteShowText" alignment="CENTER" layoutY="274.0" prefHeight="18.0" prefWidth="662.0" textFill="WHITE">
+         <font>
+            <Font name="System Italic" size="12.0" />
+         </font>
+      </Label>
+      <Pane prefHeight="86.0" prefWidth="662.0">
          <children>
-            <Pane prefHeight="89.0" prefWidth="662.0">
-               <children>
-                  <Label alignment="CENTER" prefHeight="18.0" prefWidth="662.0" text="No notes to show here" textFill="WHITE">
-                     <font>
-                        <Font name="System Italic" size="12.0" />
-                     </font>
-                  </Label>
-                  <Label fx:id="mainLabel" prefHeight="18.0" prefWidth="661.0" style="-fx-label-padding: 10 0 0 20;" stylesheets="@values/style.css" text="Notes" textFill="WHITE">
-                     <font>
-                        <Font name="System Bold" size="25.0" />
-                     </font>
-                  </Label>
-                  <Label fx:id="mainDescriptionLabel" layoutY="31.0" prefHeight="18.0" prefWidth="662.0" style="-fx-padding: 10 0 0 20;" stylesheets="@values/style.css" text="Take notes and manage your notes here." textFill="#a7a7a7">
-                     <font>
-                        <Font size="14.0" />
-                     </font>
-                  </Label>
-                  <JFXButton layoutX="562.0" layoutY="34.0" onMouseClicked="#addNote" style="-fx-background-color: #082033;" styleClass="noteDropShadow" stylesheets="@values/style.css" text="New Note" textFill="WHITE" />
-               </children>
-            </Pane>
-            <ScrollPane hbarPolicy="NEVER" prefHeight="473.0" prefWidth="662.0">
-               <content>
-                  <GridPane fx:id="mainGrid" prefHeight="0.0" prefWidth="0.0">
-                     <rowConstraints>
-                        <RowConstraints minHeight="10.0" prefHeight="30.0" />
-                     </rowConstraints>
-                  </GridPane>
-               </content>
-            </ScrollPane>
+            <Label fx:id="mainLabel" prefHeight="52.0" prefWidth="655.0" style="-fx-label-padding: 10 0 0 20;" stylesheets="@values/style.css" text="Notes" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="25.0" />
+               </font>
+            </Label>
+            <Label fx:id="mainDescriptionLabel" layoutY="37.0" prefHeight="18.0" prefWidth="662.0" style="-fx-padding: 10 0 0 20;" stylesheets="@values/style.css" text="Take notes and manage your notes here." textFill="#a7a7a7">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+            <JFXButton layoutX="562.0" layoutY="34.0" onMouseClicked="#addNote" style="-fx-background-color: #082033;" styleClass="noteDropShadow" stylesheets="@values/style.css" text="New Note" textFill="WHITE" />
          </children>
-      </VBox>
+      </Pane>
+      <ScrollPane fx:id="scrollMainGrid" hbarPolicy="NEVER" layoutY="73.0" prefHeight="490.0" prefWidth="655.0" style="-fx-background-color: #051522;" stylesheets="@values/scroll.css">
+         <content>
+            <GridPane fx:id="mainGrid" prefHeight="0.0" prefWidth="0.0" style="-fx-background-color: #051522;">
+               <rowConstraints>
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" />
+               </rowConstraints>
+            </GridPane>
+         </content>
+      </ScrollPane>
    </children>
 </AnchorPane>

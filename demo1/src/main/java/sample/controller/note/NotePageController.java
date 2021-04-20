@@ -43,6 +43,8 @@ public class NotePageController extends Controller implements Initializable {
     public AnchorPane notePageMainPane;
     public Label mainLabel;
     public Label mainDescriptionLabel;
+    public Label noNoteShowText;
+    public ScrollPane scrollMainGrid;
     private FileWriter file;
 
     @FXML
@@ -52,12 +54,6 @@ public class NotePageController extends Controller implements Initializable {
     private GridPane noteGrid;
 
     private List<Note> notes = new ArrayList<>();
-
-    public void setHoverController() {
-        NoteControl noteControl = new NoteControl();
-        noteControl.getInputPane().setOnMouseEntered(e -> noteControl.getInputPane().setStyle("-fx-background-color: #51f542"));
-        noteControl.getInputPane().setOnMouseExited(e -> noteControl.getInputPane().setStyle("-fx-background-color:  #082033"));
-    }
 
     public void setFadeTransitionNotePage() {
         FadeTransition mainPaneFade = new FadeTransition(Duration.millis(500), notePageMainPane);
@@ -208,6 +204,10 @@ public class NotePageController extends Controller implements Initializable {
             } catch (IOException e) {
                 e.printStackTrace();
             }
+        }
+        if (notes.size() == 0) {
+            scrollMainGrid.setVisible(false);
+            noNoteShowText.setText("No notes to show here");
         }
 
     }

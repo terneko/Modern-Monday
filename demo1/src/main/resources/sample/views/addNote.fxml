@@ -1,25 +1,38 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.geometry.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
-<?import javafx.scene.text.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="eachNotePane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#click" prefHeight="145.0" prefWidth="130.0" styleClass="noteDropShadow" stylesheets="@values/style.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.controller.note.NoteControl">
+<AnchorPane fx:id="eachNotePane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="145.0" prefWidth="130.0" styleClass="noteDropShadow" stylesheets="@values/style.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.controller.note.NoteControl">
    <children>
       <BorderPane prefHeight="145.0" prefWidth="130.0">
          <top>
-            <Label fx:id="dateNote" prefHeight="25.0" prefWidth="130.0" style="-fx-background-color: #082033;" textFill="#2c648f" BorderPane.alignment="CENTER">
-               <padding>
-                  <Insets left="10.0" />
-               </padding>
-               <font>
-                  <Font size="10.0" />
-               </font>
-            </Label>
+            <Pane prefWidth="130.0" BorderPane.alignment="CENTER">
+               <children>
+                  <Label fx:id="dateNote" prefHeight="24.0" prefWidth="130.0" style="-fx-background-color: #082033;" textFill="#2c648f">
+                     <padding>
+                        <Insets left="10.0" />
+                     </padding>
+                     <font>
+                        <Font size="10.0" />
+                     </font>
+                  </Label>
+                  <ImageView fx:id="deletedbutton" fitHeight="11.0" fitWidth="83.0" layoutX="114.0" layoutY="6.0" onMouseClicked="#deletedNote" pickOnBounds="true" preserveRatio="true" style="visibility: false;">
+                     <image>
+                        <Image url="@../../Xwhite.png" />
+                     </image>
+                  </ImageView>
+               </children>
+            </Pane>
          </top>
          <center>
-            <Pane fx:id="inputPane" prefHeight="111.0" prefWidth="130.0" style="-fx-background-color: #082033;" stylesheets="@values/style.css" BorderPane.alignment="CENTER">
+            <Pane fx:id="inputPane" onMouseClicked="#click" prefHeight="111.0" prefWidth="130.0" style="-fx-background-color: #082033;" stylesheets="@values/style.css" BorderPane.alignment="CENTER">
                <children>
                   <Label fx:id="descripNote" alignment="TOP_LEFT" layoutX="10.0" layoutY="5.0" prefHeight="102.0" prefWidth="106.0" text="text" textFill="WHITE" textOverrun="CLIP">
                      <font>
