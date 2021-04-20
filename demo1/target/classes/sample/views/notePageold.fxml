@@ -1,20 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import com.jfoenix.controls.JFXButton?>
+<?import java.lang.String?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.Pane?>
-<?import javafx.scene.layout.RowConstraints?>
-<?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
 <AnchorPane fx:id="notePageMainPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="563.0" prefWidth="661.0" style="-fx-background-color: #051522;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.controller.note.NotePageController">
    <children>
-      <VBox prefHeight="563.0" prefWidth="661.0">
-         <children>
-            <Pane prefHeight="89.0" prefWidth="662.0">
+      <BorderPane prefHeight="563.0" prefWidth="661.0">
+         <top>
+            <Pane prefHeight="89.0" prefWidth="662.0" BorderPane.alignment="CENTER">
                <children>
                   <Label alignment="CENTER" prefHeight="18.0" prefWidth="662.0" text="No notes to show here" textFill="WHITE">
                      <font>
@@ -34,16 +35,22 @@
                   <JFXButton layoutX="562.0" layoutY="34.0" onMouseClicked="#addNote" style="-fx-background-color: #082033;" styleClass="noteDropShadow" stylesheets="@values/style.css" text="New Note" textFill="WHITE" />
                </children>
             </Pane>
-            <ScrollPane hbarPolicy="NEVER" prefHeight="473.0" prefWidth="662.0">
+         </top>
+         <bottom>
+            <ScrollPane hbarPolicy="NEVER" prefHeight="473.0" prefWidth="661.0" style="-fx-background-color: #051522;" stylesheets="@values/style.css" BorderPane.alignment="CENTER">
+               <styleClass>
+                  <String fx:value="track" />
+                  <String fx:value="thumb" />
+               </styleClass>
                <content>
-                  <GridPane fx:id="mainGrid" prefHeight="0.0" prefWidth="0.0">
-                     <rowConstraints>
-                        <RowConstraints minHeight="10.0" prefHeight="30.0" />
-                     </rowConstraints>
+                  <GridPane fx:id="mainGrid" gridLinesVisible="true" style="-fx-background-color: #051522;">
+                     <columnConstraints>
+                        <ColumnConstraints minWidth="10.0" prefWidth="100.0" />
+                     </columnConstraints>
                   </GridPane>
                </content>
             </ScrollPane>
-         </children>
-      </VBox>
+         </bottom>
+      </BorderPane>
    </children>
 </AnchorPane>

@@ -12,10 +12,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.control.TextArea;
 import javafx.scene.input.MouseEvent;
-import javafx.scene.layout.AnchorPane;
-import javafx.scene.layout.BorderPane;
-import javafx.scene.layout.GridPane;
-import javafx.scene.layout.Pane;
+import javafx.scene.layout.*;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
@@ -182,9 +179,9 @@ public class NotePageController extends Controller implements Initializable {
             };
         }
         int columns = 0;
-        int row = 0;
+        int row = 1;
         //นำข้อมูลลงไปเรียงใน Grid Pane
-        for (int i = notes.size() - 1; i >= 0; i--) {
+        for (int i = 0; i < notes.size(); i++) {
             FXMLLoader fxmlLoader = new FXMLLoader();
             fxmlLoader.setLocation(Objects.requireNonNull(getClass().getResource("../../views/addNote.fxml")));
             try {
@@ -196,7 +193,18 @@ public class NotePageController extends Controller implements Initializable {
                     row++;
                 }
                 mainGrid.add(anchorPane, columns++, row); // (child , columns , row)
-                GridPane.setMargin(anchorPane, new Insets(10));
+
+//                //set grid width
+//                mainGrid.setMinWidth(Region.USE_COMPUTED_SIZE);
+//                mainGrid.setPrefWidth(Region.USE_COMPUTED_SIZE);
+//                mainGrid.setMaxWidth(Region.USE_COMPUTED_SIZE);
+//
+//                //set grid hight
+//                mainGrid.setMinWidth(Region.USE_COMPUTED_SIZE);
+//                mainGrid.setPrefWidth(Region.USE_COMPUTED_SIZE);
+//                mainGrid.setMaxWidth(Region.USE_COMPUTED_SIZE);
+
+                GridPane.setMargin(anchorPane, new Insets(15));
             } catch (IOException e) {
                 e.printStackTrace();
             }
