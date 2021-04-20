@@ -98,25 +98,26 @@ public class NotePageController extends Controller implements Initializable {
         }
         List<Note> notes = new ArrayList<>();
         Note note;
-        for (int i = 0; i < noteArray.size(); i++) {
+        for (int i = noteArray.size() - 1; i >= 0; i--) {
             String pureText;
             String convertText = "";
             JSONObject noteObject = (JSONObject) noteArray.get(i);
-            pureText = (String)noteObject.get("Description");
-            //System.out.println(pureText);
-            for (int j = 0; j < pureText.length(); j++) {
-                convertText+=pureText.charAt(j);
-                if(j % 13 == 0 && j != 0) {
-                    convertText += "\n";
-                }
-            }
-            System.out.println(convertText);
+            pureText = (String) noteObject.get("Description");
+//            //System.out.println(pureText);
+//            for (int j = 0; j < pureText.length(); j++) {
+//                convertText += pureText.charAt(j);
+//                if (j % 13 == 0 && j != 0) {
+//                    convertText += "\n";
+//                }
+//            }
+//            System.out.println(convertText);
             //String description = (String) noteObject.get(convertText);
             String day = (String) noteObject.get("Day");
-            note = new Note(convertText);
+            note = new Note(pureText);
             note.setSaveDate(day);
             notes.add(note);
         }
+        //System.out.println(notes);
         return notes;
 
     }
@@ -183,7 +184,7 @@ public class NotePageController extends Controller implements Initializable {
         int columns = 0;
         int row = 0;
         //นำข้อมูลลงไปเรียงใน Grid Pane
-        for (int i = 0; i < notes.size(); i++) {
+        for (int i = notes.size() - 1; i >= 0; i--) {
             FXMLLoader fxmlLoader = new FXMLLoader();
             fxmlLoader.setLocation(Objects.requireNonNull(getClass().getResource("../../views/addNote.fxml")));
             try {
@@ -200,6 +201,7 @@ public class NotePageController extends Controller implements Initializable {
                 e.printStackTrace();
             }
         }
+
     }
 
     private void setChosenNote(Note note) {

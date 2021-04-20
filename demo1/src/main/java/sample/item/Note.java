@@ -8,6 +8,7 @@ import org.json.simple.parser.ParseException;
 
 import java.io.*;
 import java.time.LocalDate;
+import java.util.List;
 import java.util.Scanner;
 
 public class Note {
@@ -15,24 +16,22 @@ public class Note {
     private static FileWriter file;
     private int num = 0;
     protected String description;
+    protected String convertNewLine;
     protected String saveDate;
+
 
     public Note() {
         this.description = "";
         this.saveDate = String.valueOf(LocalDate.now());
         readCountFile();
+        setConvertNewLine(description);
     }
 
     public Note(String description) {
         this.description = description;
         this.saveDate = String.valueOf(LocalDate.now());
         readCountFile();
-    }
-
-    public Note(int num, String description) {
-        this.num = num;
-        this.description = description;
-        readCountFile();
+        setConvertNewLine(description);
     }
 
     public String getSaveDate() {
@@ -49,6 +48,31 @@ public class Note {
 
     public void setDescription(String description) {
         this.description = description;
+    }
+
+    public String getConvertNewLine() {
+        return convertNewLine;
+    }
+
+    //buff this method *********
+    public void setConvertNewLine(String text) {
+        String pureText = text;
+        String[] newText = text.split(" ");
+        text = "";
+        String result = "";
+        int numOfOneLine = 15;
+        for (String a : newText) {
+            text = text + a + " ";
+
+            if (text.length() > numOfOneLine || (text+a).length() > numOfOneLine) {
+                text += "\n";
+                numOfOneLine+=15;
+            }
+
+
+        }
+        System.out.println(text);
+        this.convertNewLine = text;
     }
 
     public void readCountFile() {
@@ -95,7 +119,7 @@ public class Note {
     public void deleteJSON(JsonObject object) {
         JSONArray noteArray = openJSON();
         for (int i = 0; i < noteArray.size(); i++) {
-            if(noteArray.get(i).equals(object)) {
+            if (noteArray.get(i).equals(object)) {
                 noteArray.remove(i);
             }
         }

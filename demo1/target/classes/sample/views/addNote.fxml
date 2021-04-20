@@ -22,7 +22,7 @@
          <center>
             <Pane fx:id="inputPane" prefHeight="111.0" prefWidth="130.0" style="-fx-background-color: #082033;" stylesheets="@values/style.css" BorderPane.alignment="CENTER">
                <children>
-                  <Label fx:id="descripNote" alignment="TOP_LEFT" layoutX="10.0" layoutY="5.0" onMouseClicked="#click" prefHeight="102.0" prefWidth="106.0" text="aaaaaaaaaaaaaa" textFill="WHITE" textOverrun="CLIP">
+                  <Label fx:id="descripNote" alignment="TOP_LEFT" layoutX="10.0" layoutY="5.0" prefHeight="102.0" prefWidth="106.0" text="text" textFill="WHITE" textOverrun="CLIP">
                      <font>
                         <Font size="14.0" />
                      </font></Label>

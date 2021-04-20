@@ -178,7 +178,6 @@ public class Controller implements Initializable {
     }
 
     public void noteClick(MouseEvent mouseEvent) {
-        //clear();
         loadPage("notePage");
     }
 

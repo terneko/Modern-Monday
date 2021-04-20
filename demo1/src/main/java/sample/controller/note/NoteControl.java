@@ -29,6 +29,7 @@ public class NoteControl implements Initializable {
 
     @FXML
     private void click(MouseEvent mouseEvent) {
+        System.out.println("caution!!");
         myListener.onClickListener(note);
     }
 
@@ -36,7 +37,7 @@ public class NoteControl implements Initializable {
         this.note = note;
         this.myListener = myListener;
         dateNote.setText(String.valueOf(note.getSaveDate()));
-        descripNote.setText(note.getDescription());
+        descripNote.setText(note.getConvertNewLine());
     }
 
     public void setHover() {
