@@ -3,12 +3,11 @@
 <?import com.jfoenix.controls.*?>
 <?import javafx.geometry.*?>
 <?import javafx.scene.control.*?>
-<?import javafx.scene.effect.*?>
 <?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<BorderPane fx:id="mainPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="609.0" prefWidth="914.0" style="-fx-background-color: #000000;" styleClass="noteDropShadow" stylesheets="@values/style.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.controller.Controller">
+<BorderPane fx:id="mainPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="598.0" prefWidth="914.0" style="-fx-background-color: #000000;" styleClass="noteDropShadow" stylesheets="@values/style.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.controller.Controller">
    <left>
       <VBox fx:id="vBox" prefHeight="561.0" prefWidth="256.0" style="-fx-background-color: #082033;" stylesheets="@values/style.css" BorderPane.alignment="CENTER">
          <children>
@@ -90,7 +89,7 @@
                   <Label layoutY="30.0" onMouseClicked="#translateClick" prefHeight="17.0" prefWidth="256.0" style="-fx-padding: 0 0 0 75;" text="Translate, display on desktop" textFill="#a7a7a7" />
                </children>
             </Pane>
-            <Button fx:id="Home" mnemonicParsing="false" onMouseClicked="#homeClick" style="-fx-background-color: #051522;" text="Home" textFill="WHITE" />
+            <Button fx:id="Home" mnemonicParsing="false" onMouseClicked="#homeClick" prefHeight="26.0" prefWidth="83.0" style="-fx-background-color: #051522;" text="Home" textFill="WHITE" />
          </children>
          <BorderPane.margin>
             <Insets right="3.0" />
@@ -98,60 +97,44 @@
       </VBox>
    </left>
    <top>
-      <HBox alignment="CENTER_RIGHT" prefHeight="46.0" prefWidth="914.0" style="-fx-background-color: #001a2b;" styleClass="noteDropShadow" stylesheets="@values/style.css" BorderPane.alignment="CENTER">
+      <HBox alignment="CENTER_RIGHT" prefHeight="35.0" prefWidth="914.0" style="-fx-background-color: #001a2b;" styleClass="noteDropShadow" stylesheets="@values/style.css" BorderPane.alignment="CENTER">
          <children>
-            <Label prefHeight="20.0" prefWidth="163.0" text="ModernMonday" textFill="WHITE">
+            <Label prefHeight="20.0" prefWidth="163.0" text="Modern Monday" textFill="WHITE">
                <font>
                   <Font name="System Bold" size="14.0" />
                </font>
                <padding>
-                  <Insets left="15.0" />
+                  <Insets left="5.0" />
                </padding></Label>
-            <Pane prefHeight="22.0" prefWidth="644.0" />
-            <ImageView fitHeight="20.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@/Untitled-1.png" />
-               </image>
+            <Pane prefHeight="35.0" prefWidth="659.0" />
+            <Pane fx:id="minimizePane" onMouseClicked="#minimizeWindow" prefHeight="30.0" prefWidth="35.0">
                <HBox.margin>
-                  <Insets right="15.0" />
+                  <Insets bottom="5.0" left="5.0" />
                </HBox.margin>
-            </ImageView>
-            <ImageView fitHeight="21.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@/det.png" />
-               </image>
+               <children>
+                  <ImageView fx:id="minimizeScreen" fitHeight="16.0" fitWidth="21.0" layoutX="10.0" layoutY="5.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@/Untitled-1.png" />
+                     </image>
+                  </ImageView>
+               </children>
+            </Pane>
+            <Pane fx:id="exitPane" onMouseClicked="#close" prefHeight="0.0" prefWidth="35.0">
                <HBox.margin>
-                  <Insets right="10.0" />
+                  <Insets bottom="5.0" right="5.0" />
                </HBox.margin>
-            </ImageView>
-            <ImageView fitHeight="32.0" fitWidth="16.0" onMouseClicked="#close" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@/x-512.png" />
-               </image>
-               <HBox.margin>
-                  <Insets bottom="5.0" left="5.0" right="15.0" top="5.0" />
-               </HBox.margin>
-            </ImageView>
+               <children>
+                  <ImageView fx:id="exitWindow" fitHeight="20.0" fitWidth="19.0" layoutX="8.0" layoutY="7.0" onMouseClicked="#close" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../Xwhite.png" />
+                     </image>
+                  </ImageView>
+               </children>
+            </Pane>
          </children>
       </HBox>
    </top>
    <center>
-      <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="563.0" prefWidth="658.0" style="-fx-background-color: #051522;" BorderPane.alignment="CENTER_RIGHT">
-         <children>
-            <Label fx:id="settingsLabel" alignment="CENTER" layoutX="-3.0" layoutY="222.0" prefHeight="40.0" prefWidth="661.0" styleClass="noteDropShadow" stylesheets="@values/style.css" text="Settings" textFill="WHITE">
-               <font>
-                  <Font name="System Bold" size="28.0" />
-               </font></Label>
-            <Label fx:id="welcomeText" alignment="CENTER" layoutX="190.0" layoutY="262.0" opacity="0.7" prefHeight="40.0" prefWidth="277.0" styleClass="welcomeText" stylesheets="@values/style.css" text="&quot;What's CRAKINN?, my friend.&quot;" textFill="WHITE">
-               <font>
-                  <Font name="System Italic" size="14.0" />
-               </font>
-               <effect>
-                  <Glow />
-               </effect>
-            </Label>
-            <TextField fx:id="settingsTextField" alignment="CENTER" layoutX="225.0" layoutY="302.0" prefHeight="26.0" prefWidth="206.0" promptText="Find a setting" style="-fx-background-color: #082033;" styleClass="noteDropShadow" stylesheets="@values/style.css" />
-         </children>
-      </AnchorPane>
+      <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="563.0" prefWidth="658.0" style="-fx-background-color: #051522;" BorderPane.alignment="CENTER_RIGHT" />
    </center>
 </BorderPane>

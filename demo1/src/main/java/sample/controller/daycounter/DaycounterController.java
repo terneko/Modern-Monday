@@ -13,6 +13,8 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.BorderPane;
+import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 import javafx.util.Duration;
@@ -22,7 +24,10 @@ import sample.item.DayCounter;
 import java.io.IOException;
 import java.net.URL;
 import java.time.LocalDate;
+import java.util.Objects;
 import java.util.ResourceBundle;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 public class DaycounterController extends Controller implements Initializable {
 
@@ -38,9 +43,9 @@ public class DaycounterController extends Controller implements Initializable {
     public TextField titleEvent;
     public DatePicker dateEvent;
     public TextField descriptionEvent;
-    public AnchorPane dayCounterPageMainPane;
     public Label mainLabel;
     public Label mainDescriptionLabel;
+    public BorderPane dayCounterPageMainPane;
 
     public static void dragWidget(Parent root,Stage primaryStage) {
 
@@ -91,19 +96,32 @@ public class DaycounterController extends Controller implements Initializable {
     }
 
     public void addPageDaycounter(MouseEvent mouseEvent) {
-        try {
-            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("../../../../resources/sample/views/addDayCounterEvents.fxml"));
-            Parent root1 = (Parent) fxmlLoader.load();
-            Stage stage = new Stage();
-            stage.setTitle("Add Day Counter");
-            dragWidget(root1,stage);
-            stage.setScene(new Scene(root1));
-            stage.initStyle(StageStyle.TRANSPARENT);
-            stage.show();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+        //            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("../../../../resources/sample/views/addDayCounterEvents.fxml"));
+//            Parent root1 = (Parent) fxmlLoader.load();
+//            Stage stage = new Stage();
+//            stage.setTitle("Add Day Counter");
+//            dragWidget(root1,stage);
+//            stage.setScene(new Scene(root1));
+//            stage.initStyle(StageStyle.TRANSPARENT);
+//            stage.show();
+        loadPage2("addDayCounterPage");
     }
+
+//    @Override
+//    protected void loadPage() {
+//
+//    }
+
+    protected void loadPage2(String namePage) {
+        Parent root = null;
+        try {
+            root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("../../views/" + namePage + ".fxml")));
+        } catch (IOException ex) {
+            Logger.getLogger(Controller.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        dayCounterPageMainPane.setCenter(root);
+    }
+
 
     public void addDaycounter(MouseEvent mouseEvent) {
         DayCounter ter = new DayCounter(titleEvent.getText(),dateEvent.getValue(),descriptionEvent.getText());
@@ -113,6 +131,7 @@ public class DaycounterController extends Controller implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+        loadPage2("daycounterShowInfoPage");
         setFadeTransitionDayCounterPage();
         static_day_label = dayLabel;
     }
@@ -132,5 +151,15 @@ public class DaycounterController extends Controller implements Initializable {
             labelTrans.play();
         }
     }
+
+    public void chooseImage(MouseEvent mouseEvent) {
+//        Stage stage = new Stage();
+//        stage.initStyle(StageStyle.TRANSPARENT);
+//        FileChooser fileChooser = new FileChooser();
+//        fileChooser.setTitle("Open Resource File");
+//        fileChooser.showOpenDialog(stage);
+//        stage.show();
+    }
+
 }
 

@@ -10,12 +10,13 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
+import org.json.simple.JSONArray;
+import org.json.simple.JSONObject;
+import org.json.simple.parser.JSONParser;
+import org.json.simple.parser.ParseException;
 import sample.item.Note;
 
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.FileWriter;
-import java.io.IOException;
+import java.io.*;
 import java.net.URL;
 import java.time.LocalDate;
 import java.util.ResourceBundle;
@@ -28,43 +29,51 @@ public class WriteNote implements Initializable {
     public TextArea textEdit;
     public BorderPane mainNote;
     //initial variable
-    private int num;
     private Note note = new Note();
 
     private static String textNote;
+    private FileWriter file;
 
     public void descripeNote(KeyEvent keyEvent) {
+        deleteNote(note);
         String text;
         text = textEdit.getText();
         note.setDescription(text);
         note.setSaveDate(String.valueOf(LocalDate.now()));
+        setTextEdit(text);
+       // NotePageController.initialize();
         //note.openAndSaveJSON();
+        //System.out.println(note);
     }
 
-    public void checkCount() {
-        if (note.getDescription().equals("")) {
+    private void deleteNote(Note note) {
+        JSONObject obj = new JSONObject();
+        obj.put("Description", note.getDescription());
+        obj.put("Day", note.getSaveDate());
 
-            Scanner input = null;
-            {
-                try {
-                    input = new Scanner(new File("FileNote/Count"));
-                } catch (FileNotFoundException e) {
-                    e.printStackTrace();
-                }
+        JSONParser parser = new JSONParser();
+        Object object = null;
+        try {
+            object = parser.parse(new FileReader("FileNote/noteDemo.json"));
+        } catch (IOException | ParseException e) {
+            e.printStackTrace();
+        }
+        System.out.println(obj);
+        JSONArray noteArray = (JSONArray) object;
+        for (int i = 0; i < noteArray.size(); i++) {
+            if (noteArray.get(i).equals(obj)) {
+                noteArray.remove(i);
             }
-            String newCount;
-            int count = input.nextInt() - 1;
-            newCount = String.valueOf(count);
-            System.out.println(newCount);
-            try {
-                FileWriter myWriter = new FileWriter("FileNote/Count");
-                myWriter.write(newCount);
-                myWriter.close();
-                System.out.println("Successfully wrote to the file.");
-            } catch (IOException e) {
-                System.out.println("An error occurred.");
-                e.printStackTrace();
-            }
+        }
+
+        //Save by new
+        try {
+            // Constructs a FileWriter given a file name, using the platform's default charset
+            file = new FileWriter("FileNote/noteDemo.json");
+            file.write(noteArray.toJSONString());
+            file.close();
+        } catch (IOException e) {
+            e.printStackTrace();
         }
     }
 
@@ -73,6 +82,7 @@ public class WriteNote implements Initializable {
         text = textEdit.getText();
         note.setDescription(text);
         note.setSaveDate(String.valueOf(LocalDate.now()));
+        //note.SaveJSON();
         if(!text.equals("")) {
             note.SaveJSON();
         }
@@ -84,6 +94,7 @@ public class WriteNote implements Initializable {
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         //setHoverController();
+
         textEdit.setText(textNote);
     }
 

@@ -31,7 +31,6 @@ public class NoteControl implements Initializable {
 
     @FXML
     private void click(MouseEvent mouseEvent) {
-        System.out.println("caution!!");
         myListener.onClickListener(note);
     }
 

@@ -1,7 +1,14 @@
 package sample.item;
 
+import com.google.gson.JsonObject;
 import javafx.scene.control.DatePicker;
+import org.json.simple.JSONArray;
+import org.json.simple.JSONObject;
+import org.json.simple.parser.JSONParser;
 
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.time.LocalDate;
@@ -14,12 +21,23 @@ public class DayCounter {
     private LocalDate dayStart;
     private String description;
     private LocalDate now = LocalDate.now();
+    private String imageFilePath;
+    private FileWriter file;
 
     public DayCounter(String title,LocalDate  dayEnd, String description) {
+        this(title,dayEnd,description,"");
+    }
+
+    public String getTitle() {
+        return title;
+    }
+
+    public DayCounter(String title, LocalDate  dayEnd, String description, String imageFilePath ) {
         this.title = title;
         this.dayEnd = dayEnd;
         this.description = description;
         this.dayStart = now;
+        this.imageFilePath = imageFilePath;
     }
 
     @Override
@@ -30,6 +48,7 @@ public class DayCounter {
                 ", dayStart=" + dayStart +
                 ", description='" + description + '\'' +
                 ", now=" + now +
+                ", imageFilePath='" + imageFilePath + '\'' +
                 '}';
     }
 
@@ -51,6 +70,63 @@ public class DayCounter {
         }
         System.out.println(diff);
         return diff;
+    }
+
+    public void saveJSON() {
+        JSONArray noteArray = openJSON();
+        JSONObject obj = new JSONObject();
+        obj.put("Title", title);
+        obj.put("Description", description);
+        obj.put("DayEnd", String.valueOf(dayEnd));
+        obj.put("ImagePath",imageFilePath);
+        noteArray.add(obj);
+        try {
+            // Constructs a FileWriter given a file name, using the platform's default charset
+            file = new FileWriter("FileNote/dayCounterNote.json");
+            file.write(noteArray.toJSONString());
+            file.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public JSONArray openJSON() {
+        JSONParser parser = new JSONParser();
+        JSONArray noteArray = null;
+        try {
+            Object object = parser.parse(new FileReader("FileNote/dayCounterNote.json"));
+            noteArray = (JSONArray) object;
+            for (int i = 0; i < noteArray.size(); i++) {
+                System.out.println(noteArray.get(i));
+                JSONObject noteObject = (JSONObject) noteArray.get(i);
+                String title = (String) noteObject.get("Title");
+                System.out.println(title);
+                String description = (String) noteObject.get("Description");
+                System.out.println(description);
+                String dayEnd = (String) noteObject.get("End");
+                System.out.println(dayEnd);
+            }
+        } catch (org.json.simple.parser.ParseException | IOException e) {
+            e.printStackTrace();
+        }
+        return noteArray;
+    }
+
+    public void deleteJSON(JsonObject object) {
+        JSONArray noteArray = openJSON();
+        for (int i = 0; i < noteArray.size(); i++) {
+            if (noteArray.get(i).equals(object)) {
+                noteArray.remove(i);
+            }
+        }
+        try {
+            // Constructs a FileWriter given a file name, using the platform's default charset
+            file = new FileWriter("FileNote/dayCounterNote.json");
+            file.write(noteArray.toJSONString());
+            file.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
 }

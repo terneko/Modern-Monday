@@ -2,7 +2,6 @@ package sample.controller.note;
 
 import javafx.animation.FadeTransition;
 import javafx.animation.TranslateTransition;
-import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.geometry.Insets;
@@ -10,10 +9,9 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.control.ScrollPane;
-import javafx.scene.control.TextArea;
+import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.*;
-import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 import javafx.util.Duration;
@@ -25,7 +23,6 @@ import sample.controller.Controller;
 import sample.item.Note;
 import sample.main.MyListener;
 
-import java.awt.*;
 import java.io.*;
 import java.net.URL;
 import java.util.*;
@@ -35,10 +32,9 @@ import static sample.controller.daycounter.DaycounterController.dragWidget;
 import static sample.controller.note.WriteNote.setTextNote;
 
 public class NotePageController extends Controller implements Initializable {
+    String[] listNoNoteText = {"No note to show here!", "Are you note yet?", "Let note!", "Have a nice day!", "Come and take note!"};
     public BorderPane mainNote;
 
-    public TextArea descripeNote;
-    public TextArea textEdit;
     public GridPane mainGrid;
     public AnchorPane notePageMainPane;
     public Label mainLabel;
@@ -46,12 +42,6 @@ public class NotePageController extends Controller implements Initializable {
     public Label noNoteShowText;
     public ScrollPane scrollMainGrid;
     private FileWriter file;
-
-    @FXML
-    private ScrollPane noteScroll;
-
-    @FXML
-    private GridPane noteGrid;
 
     private List<Note> notes = new ArrayList<>();
 
@@ -96,30 +86,14 @@ public class NotePageController extends Controller implements Initializable {
             String convertText = "";
             JSONObject noteObject = (JSONObject) noteArray.get(i);
             pureText = (String) noteObject.get("Description");
-//            //System.out.println(pureText);
-//            for (int j = 0; j < pureText.length(); j++) {
-//                convertText += pureText.charAt(j);
-//                if (j % 13 == 0 && j != 0) {
-//                    convertText += "\n";
-//                }
-//            }
-//            System.out.println(convertText);
-            //String description = (String) noteObject.get(convertText);
             String day = (String) noteObject.get("Day");
             note = new Note(pureText);
             note.setSaveDate(day);
             notes.add(note);
         }
-        //System.out.println(notes);
         return notes;
-
     }
 
-    // for delete note
-    public void deleteFile(int num) {
-
-
-    }
 
 //    //0 for add and 1 for delete
 //    public void addOrDelCount(int keys) {
@@ -150,19 +124,7 @@ public class NotePageController extends Controller implements Initializable {
 //        }
 //    }
 
-    @Override
-    public void close(MouseEvent mouseEvent) {
-        Stage stage = (Stage) mainNote.getScene().getWindow();
-        stage.close();
-    }
-
-    @Override
-    public void initialize(URL location, ResourceBundle resources) {
-        setFadeTransitionNotePage();
-        //setHoverController();
-        //NoteControl noteControl = new NoteControl();
-        //noteControl.getInputPane().setOnMouseEntered(event -> noteControl.getInputPane().setStyle("-fx-background-color: Black"));
-
+    public void openData() {
         // เพิ่มข้อมูลทุกอย่างที่มี ใส่ลงไปในลิสต์
         notes.addAll(getData());
         if (notes.size() > 0) {
@@ -189,55 +151,65 @@ public class NotePageController extends Controller implements Initializable {
                     row++;
                 }
                 mainGrid.add(anchorPane, columns++, row); // (child , columns , row)
-
-//                //set grid width
-//                mainGrid.setMinWidth(Region.USE_COMPUTED_SIZE);
-//                mainGrid.setPrefWidth(Region.USE_COMPUTED_SIZE);
-//                mainGrid.setMaxWidth(Region.USE_COMPUTED_SIZE);
-//
-//                //set grid hight
-//                mainGrid.setMinWidth(Region.USE_COMPUTED_SIZE);
-//                mainGrid.setPrefWidth(Region.USE_COMPUTED_SIZE);
-//                mainGrid.setMaxWidth(Region.USE_COMPUTED_SIZE);
-
                 GridPane.setMargin(anchorPane, new Insets(15));
             } catch (IOException e) {
                 e.printStackTrace();
             }
         }
+        System.out.println(columns + "," + (row - 1));
         if (notes.size() == 0) {
             scrollMainGrid.setVisible(false);
-            noNoteShowText.setText("No notes to show here");
+            Random r = new Random();
+            noNoteShowText.setText(listNoNoteText[r.nextInt(listNoNoteText.length)]);
         }
+    }
 
+//    @Override
+//    public void close(MouseEvent mouseEvent) {
+//
+//        Stage stage = (Stage) mainNote.getScene().getWindow();
+//        stage.close();
+//    }
+
+    @Override
+    public void initialize(URL location, ResourceBundle resources) {
+        setFadeTransitionNotePage();
+        openData();
+        //setHoverController();
+        //NoteControl noteControl = new NoteControl();
+        //noteControl.getInputPane().setOnMouseEntered(event -> noteControl.getInputPane().setStyle("-fx-background-color: Black"));
     }
 
     private void setChosenNote(Note note) {
-        System.out.println(note.getSaveDate());
+        //System.out.println(note.getSaveDate());
+        deleteNote(note);
         setTextNote(note.getDescription());
-        JSONObject obj = new JSONObject();
-        obj.put("Description", note.getDescription());
-        obj.put("Day", note.getSaveDate());
-        deleteJSON(obj);
+
+        //if()
         openNote();
     }
 
-    private void deleteJSON(JSONObject currentObject) {
+    private void deleteNote(Note note) {
+        JSONObject obj = new JSONObject();
+        obj.put("Description", note.getDescription());
+        obj.put("Day", note.getSaveDate());
+
         JSONParser parser = new JSONParser();
         Object object = null;
         try {
             object = parser.parse(new FileReader("FileNote/noteDemo.json"));
-        } catch (IOException e) {
-            e.printStackTrace();
-        } catch (ParseException e) {
+        } catch (IOException | ParseException e) {
             e.printStackTrace();
         }
+        System.out.println(obj);
         JSONArray noteArray = (JSONArray) object;
         for (int i = 0; i < noteArray.size(); i++) {
-            if (noteArray.get(i).equals(currentObject)) {
+            if (noteArray.get(i).equals(obj)) {
                 noteArray.remove(i);
             }
         }
+
+        //Save by new
         try {
             // Constructs a FileWriter given a file name, using the platform's default charset
             file = new FileWriter("FileNote/noteDemo.json");
@@ -264,9 +236,20 @@ public class NotePageController extends Controller implements Initializable {
         }
     }
 
-    public void addNote(MouseEvent mouseEvent) throws IOException {
+    public void addNote(MouseEvent mouseEvent) {
+        System.out.println("New Note Created!");
         setTextNote("");
         openNote();
         // for Load page FXML name
+    }
+
+    public void refreshPageNote(MouseEvent mouseEvent) {
+        clearData();
+        openData();
+    }
+
+    private void clearData() {
+        mainGrid.getChildren().clear();
+        notes = new ArrayList<>();
     }
 }

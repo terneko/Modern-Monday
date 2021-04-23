@@ -6,6 +6,7 @@ import javafx.animation.*;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
@@ -14,6 +15,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.effect.BlurType;
 import javafx.scene.effect.DropShadow;
 import javafx.scene.effect.InnerShadow;
+import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
@@ -47,6 +49,10 @@ public class Controller implements Initializable {
     public Pane translatorPane;
     public VBox vBox;
     public Label noteDesLabel;
+    public ImageView minimizeScreen;
+    public ImageView exitWindow;
+    public Pane exitPane;
+    public Pane minimizePane;
 
     @FXML
     private JFXButton dateClockButton;
@@ -71,6 +77,7 @@ public class Controller implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+        loadPage("homePage");
         setFadeTransition();
         //setTranslateTransition();
         setScaleTransition();
@@ -84,6 +91,12 @@ public class Controller implements Initializable {
             pane.setOnMouseEntered(e -> pane.setStyle("-fx-background-color: #0a2942"));
             pane.setOnMouseExited(e -> pane.setStyle(""));
         }
+
+        exitPane.setOnMouseEntered(e -> exitPane.setStyle("-fx-background-color: #ba0000"));
+        exitPane.setOnMouseExited(e -> exitPane.setStyle(""));
+
+        minimizePane.setOnMouseEntered(e -> minimizePane.setStyle("-fx-background-color: #00233a"));
+        minimizePane.setOnMouseExited(e -> minimizePane.setStyle(""));
 
         /*noteDesLabel.setOnMouseEntered((MouseEvent event) -> {
             TranslateTransition translateTransition = new TranslateTransition(new Duration(350), noteDesLabel);
@@ -102,7 +115,7 @@ public class Controller implements Initializable {
     }
 
     public void setFadeTransition() {
-        welcomeText.setTextFill(Color.WHITE);
+
 
         FadeTransition fadeRandomText = new FadeTransition(Duration.millis(3500), welcomeText);
         fadeRandomText.setFromValue(0);
@@ -167,7 +180,7 @@ public class Controller implements Initializable {
     }
 
     // for Load page FXML name
-    private void loadPage(String namePage) {
+    public void loadPage(String namePage) {
         Parent root = null;
         try {
             root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("../views/" + namePage + ".fxml")));
@@ -203,7 +216,12 @@ public class Controller implements Initializable {
     }
 
     public void homeClick() {
-        loadPage("Sample");
+        loadPage("homePage");
+    }
+
+    public void minimizeWindow(MouseEvent mouseEvent) {
+        Stage stage = (Stage) ((Node) mouseEvent.getSource()).getScene().getWindow();
+        stage.setIconified(true);
     }
 }
 

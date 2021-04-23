@@ -14,7 +14,6 @@ import java.util.Scanner;
 public class Note {
 
     private static FileWriter file;
-    private int num = 0;
     protected String description;
     protected String convertNewLine;
     protected String saveDate;
@@ -23,14 +22,12 @@ public class Note {
     public Note() {
         this.description = "";
         this.saveDate = String.valueOf(LocalDate.now());
-        readCountFile();
         setConvertNewLine(description);
     }
 
     public Note(String description) {
         this.description = description;
         this.saveDate = String.valueOf(LocalDate.now());
-        readCountFile();
         setConvertNewLine(description);
     }
 
@@ -71,18 +68,8 @@ public class Note {
 
 
         }
-        System.out.println(text);
+        //System.out.println(text);
         this.convertNewLine = text;
-    }
-
-    public void readCountFile() {
-        Scanner sc = null;
-        try {
-            sc = new Scanner(new File("FileNote/Count"));
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
-        }
-        num = sc.nextInt();
     }
 
     private static void parseNoteObject(JSONObject noteObject) {
@@ -96,7 +83,6 @@ public class Note {
     }
 
     public JSONArray openJSON() {
-        // OPEN FILE JSON AND READ WITH SPECIFIC NUMBER OF COUNT
         JSONParser parser = new JSONParser();
         JSONArray noteArray = null;
         try {
@@ -134,7 +120,6 @@ public class Note {
     }
 
     public void SaveJSON() {
-
         JSONArray noteArray = openJSON();
         JSONObject obj = new JSONObject();
         obj.put("Description", description);
@@ -153,7 +138,6 @@ public class Note {
     @Override
     public String toString() {
         return "Note{" +
-                "num=" + num +
                 ", description='" + description + '\'' +
                 ", saveDate=" + saveDate +
                 '}';

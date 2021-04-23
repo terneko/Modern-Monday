@@ -10,6 +10,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.*;
 import javafx.scene.control.Label;
+import javafx.scene.image.Image;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
@@ -30,6 +31,8 @@ public class Main extends Application {
     @Override
     public void start(Stage primaryStage) throws Exception {
         Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("../views/sample.fxml")));
+        Image icon = new Image(getClass().getResourceAsStream("../../MM.png"));
+        primaryStage.getIcons().add(icon); //addicon
         Scene scene = new Scene(root);
         scene.setFill(Color.TRANSPARENT);
 
