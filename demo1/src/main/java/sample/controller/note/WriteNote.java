@@ -19,6 +19,8 @@ import sample.item.Note;
 import java.io.*;
 import java.net.URL;
 import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.ResourceBundle;
 import java.util.Scanner;
 
@@ -34,16 +36,27 @@ public class WriteNote implements Initializable {
     private static String textNote;
     private FileWriter file;
 
+    private List<Note> allNote = new ArrayList<>();
+
+    public void getList() {
+        allNote = NotePageController.getData();
+    }
+
     public void descripeNote(KeyEvent keyEvent) {
         deleteNote(note);
+        initializeNote();
+    }
+
+    public void initializeNote() {
         String text;
         text = textEdit.getText();
         note.setDescription(text);
         note.setSaveDate(String.valueOf(LocalDate.now()));
         setTextEdit(text);
-       // NotePageController.initialize();
+        // NotePageController.initialize();
         //note.openAndSaveJSON();
         //System.out.println(note);
+        note.SaveJSON();
     }
 
     private void deleteNote(Note note) {
@@ -77,14 +90,47 @@ public class WriteNote implements Initializable {
         }
     }
 
+//    private void deleteNote(Note note) {
+//        JSONObject obj = new JSONObject();
+//        obj.put("Description", note.getDescription());
+//        obj.put("Day", note.getSaveDate());
+//
+//        JSONParser parser = new JSONParser();
+//        Object object = null;
+//        try {
+//            object = parser.parse(new FileReader("FileNote/noteDemo.json"));
+//        } catch (IOException | ParseException e) {
+//            e.printStackTrace();
+//        }
+//        System.out.println(obj);
+//        JSONArray noteArray = (JSONArray) object;
+//        for (int i = 0; i < noteArray.size(); i++) {
+//            if (noteArray.get(i).equals(obj)) {
+//                noteArray.remove(i);
+//            }
+//        }
+//
+//        //Save by new
+//        try {
+//            // Constructs a FileWriter given a file name, using the platform's default charset
+//            file = new FileWriter("FileNote/noteDemo.json");
+//            file.write(noteArray.toJSONString());
+//            file.close();
+//        } catch (IOException e) {
+//            e.printStackTrace();
+//        }
+//    }
+
     public void close(MouseEvent mouseEvent) {
         String text;
         text = textEdit.getText();
         note.setDescription(text);
         note.setSaveDate(String.valueOf(LocalDate.now()));
         //note.SaveJSON();
-        if(!text.equals("")) {
-            note.SaveJSON();
+        deleteNote(note);
+        note.SaveJSON();
+        if (text.equals("")) {
+            deleteNote(note);
         }
         //checkCount();
         Stage stage = (Stage) mainNote.getScene().getWindow();
@@ -99,6 +145,7 @@ public class WriteNote implements Initializable {
     }
 
     public void addNote(MouseEvent mouseEvent) {
+        setTextNote("");
         try {
             FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("../../views/showNote.fxml"));
             Parent root1 = (Parent) fxmlLoader.load();

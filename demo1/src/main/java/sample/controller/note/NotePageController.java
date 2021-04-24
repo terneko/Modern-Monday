@@ -1,7 +1,6 @@
 package sample.controller.note;
 
-import javafx.animation.FadeTransition;
-import javafx.animation.TranslateTransition;
+import javafx.animation.*;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.geometry.Insets;
@@ -42,8 +41,10 @@ public class NotePageController extends Controller implements Initializable {
     public Label noNoteShowText;
     public ScrollPane scrollMainGrid;
     private FileWriter file;
-
-    private List<Note> notes = new ArrayList<>();
+    private MyListener myListener, moveNoteToBin;
+    private List<Note> notes;
+    private File fileCheck = new File("FileNote/noteDemo.json");
+    private Date fileModified = new Date(fileCheck.lastModified());
 
     public void setFadeTransitionNotePage() {
         FadeTransition mainPaneFade = new FadeTransition(Duration.millis(500), notePageMainPane);
@@ -60,22 +61,13 @@ public class NotePageController extends Controller implements Initializable {
             labelTrans.play();
         }
     }
-
-    private MyListener myListener;
-
-    private List<Note> getData() {
+    
+    public static List<Note> getData() {
         // OPEN FILE JSON AND READ WITH SPECIFIC NUMBER OF COUNT
         JSONParser parser = new JSONParser();
         JSONArray noteArray = null;
         try {
             Object object = parser.parse(new FileReader("FileNote/noteDemo.json"));
-            noteArray = (JSONArray) object;
-            //System.out.println(noteArray.get(number - 1));
-            //JSONObject noteObject = (JSONObject) noteArray.get(number - 1);
-            //String description = (String) noteObject.get("Description");
-            //System.out.println(description);
-            //String day = (String) noteObject.get("Day");
-            //System.out.println(day);
         } catch (ParseException | IOException e) {
             e.printStackTrace();
         }
@@ -83,7 +75,6 @@ public class NotePageController extends Controller implements Initializable {
         Note note;
         for (int i = noteArray.size() - 1; i >= 0; i--) {
             String pureText;
-            String convertText = "";
             JSONObject noteObject = (JSONObject) noteArray.get(i);
             pureText = (String) noteObject.get("Description");
             String day = (String) noteObject.get("Day");
@@ -94,50 +85,33 @@ public class NotePageController extends Controller implements Initializable {
         return notes;
     }
 
-
-//    //0 for add and 1 for delete
-//    public void addOrDelCount(int keys) {
-//        Scanner input = null;
-//        {
-//            try {
-//                input = new Scanner(new File("FileNote/Count"));
-//            } catch (FileNotFoundException e) {
-//                e.printStackTrace();
-//            }
-//        }
-//        String newCount;
-//        int count;
-//        if (keys == 0) {
-//            count = input.nextInt() + 1;
-//        } else {
-//            count = input.nextInt() - 1;
-//        }
-//        newCount = String.valueOf(count);
-//        try {
-//            FileWriter myWriter = new FileWriter("FileNote/Count");
-//            myWriter.write(newCount);
-//            myWriter.close();
-//            System.out.println("Successfully wrote to the file.");
-//        } catch (IOException e) {
-//            System.out.println("An error occurred.");
-//            e.printStackTrace();
-//        }
-//    }
-
     public void openData() {
         // เพิ่มข้อมูลทุกอย่างที่มี ใส่ลงไปในลิสต์
+        notes = new ArrayList<>();
         notes.addAll(getData());
         if (notes.size() > 0) {
             //setChosenNote(notes.get(0));
+            scrollMainGrid.setVisible(true);
             myListener = new MyListener() {
                 @Override
                 public void onClickListener(Note note) {
                     setChosenNote(note);
                 }
             };
+            moveNoteToBin = new MyListener() {
+                @Override
+                public void onClickListener(Note note) {
+                    deleteNote(note);
+                }
+            };
         }
         int columns = 0;
         int row = 1;
+        if (notes.size() == 0) {
+            scrollMainGrid.setVisible(false);
+            Random r = new Random();
+            noNoteShowText.setText(listNoNoteText[r.nextInt(listNoNoteText.length)]);
+        }
         //นำข้อมูลลงไปเรียงใน Grid Pane
         for (int i = 0; i < notes.size(); i++) {
             FXMLLoader fxmlLoader = new FXMLLoader();
@@ -145,7 +119,7 @@ public class NotePageController extends Controller implements Initializable {
             try {
                 AnchorPane anchorPane = fxmlLoader.load();
                 NoteControl noteController = fxmlLoader.getController();
-                noteController.setData(notes.get(i), myListener);
+                noteController.setData(notes.get(i), myListener, moveNoteToBin);
                 if (columns == 4) {
                     columns = 0;
                     row++;
@@ -164,28 +138,16 @@ public class NotePageController extends Controller implements Initializable {
         }
     }
 
-//    @Override
-//    public void close(MouseEvent mouseEvent) {
-//
-//        Stage stage = (Stage) mainNote.getScene().getWindow();
-//        stage.close();
-//    }
-
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         setFadeTransitionNotePage();
         openData();
-        //setHoverController();
-        //NoteControl noteControl = new NoteControl();
-        //noteControl.getInputPane().setOnMouseEntered(event -> noteControl.getInputPane().setStyle("-fx-background-color: Black"));
+        checkFileChange();
     }
 
     private void setChosenNote(Note note) {
-        //System.out.println(note.getSaveDate());
         deleteNote(note);
         setTextNote(note.getDescription());
-
-        //if()
         openNote();
     }
 
@@ -230,7 +192,6 @@ public class NotePageController extends Controller implements Initializable {
             stage.setScene(new Scene(root1));
             stage.initStyle(StageStyle.TRANSPARENT);
             stage.show();
-            //addOrDelCount(0);
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -240,16 +201,28 @@ public class NotePageController extends Controller implements Initializable {
         System.out.println("New Note Created!");
         setTextNote("");
         openNote();
-        // for Load page FXML name
-    }
-
-    public void refreshPageNote(MouseEvent mouseEvent) {
-        clearData();
-        openData();
     }
 
     private void clearData() {
         mainGrid.getChildren().clear();
-        notes = new ArrayList<>();
+    }
+
+    public void checkFileChange() {
+        Timeline clock = new Timeline(new KeyFrame(Duration.ZERO, e -> {
+            File file = fileCheck;
+            if (file.exists()) {
+                Date lastModified = new Date(file.lastModified());
+                if (!fileModified.equals(lastModified)) {
+                    clearData();
+                    openData();
+                    fileModified = lastModified;
+                }
+            }
+
+        }),
+                new KeyFrame(Duration.seconds(0.1))
+        );
+        clock.setCycleCount(Animation.INDEFINITE);
+        clock.play();
     }
 }
