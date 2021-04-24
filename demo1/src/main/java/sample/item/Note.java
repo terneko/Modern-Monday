@@ -8,6 +8,7 @@ import org.json.simple.parser.ParseException;
 
 import java.io.*;
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
@@ -55,15 +56,27 @@ public class Note {
     public void setConvertNewLine(String text) {
         String pureText = text;
         String[] newText = text.split(" ");
+        List<String> textList = new ArrayList<>();
         text = "";
-        String result = "";
-        int numOfOneLine = 15;
+        int numOfOneLine = 13;
         for (String a : newText) {
+            if (a.length() > numOfOneLine) {
+                while (a.length() >= 13) {
+                    textList.add(a.substring(0, 13));
+                    a = a.substring(13);
+                }
+                textList.add(a);
+            } else {
+                textList.add(a);
+            }
+        }
+        System.out.println(textList);
+        for (String a : textList) {
             text = text + a + " ";
 
-            if (text.length() > numOfOneLine || (text+a).length() > numOfOneLine) {
+            if (text.length() > numOfOneLine || (text + a).length() > numOfOneLine) {
                 text += "\n";
-                numOfOneLine+=15;
+                numOfOneLine += 15;
             }
 
 
