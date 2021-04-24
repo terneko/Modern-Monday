@@ -24,7 +24,7 @@ public class NoteControl implements Initializable {
     public AnchorPane eachNotePane;
     public ImageView deletedbutton;
     private Note note;
-    private MyListener myListener,moveNoteToBin;
+    private MyListener myListener;
 
     public Label descripNote;
     public Label dateNote;
@@ -34,14 +34,9 @@ public class NoteControl implements Initializable {
         myListener.onClickListener(note);
     }
 
-    public void moveNoteToBinClicked(MouseEvent mouseEvent) {
-        moveNoteToBin.onClickListener(note);
-    }
-
-    public void setData(Note note, MyListener myListener, MyListener moveNoteToBin) {
+    public void setData(Note note,MyListener myListener) {
         this.note = note;
         this.myListener = myListener;
-        this.moveNoteToBin = moveNoteToBin;
         dateNote.setText(String.valueOf(note.getSaveDate()));
         descripNote.setText(note.getConvertNewLine());
     }
@@ -52,8 +47,6 @@ public class NoteControl implements Initializable {
 
         eachNotePane.setOnMouseEntered((e -> deletedbutton.setVisible(true)));
         eachNotePane.setOnMouseExited((e -> deletedbutton.setVisible(false)));
-
-        //deletedbutton.setOnMouseClicked((this::moveNoteToBinClicked));
         //setTransition();
 
     }
@@ -79,7 +72,10 @@ public class NoteControl implements Initializable {
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         setHover();
-        //setTransition();
+        setTransition();
     }
 
+    public void deletedNote(MouseEvent mouseEvent) {
+
+    }
 }

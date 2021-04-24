@@ -19,8 +19,6 @@ import sample.item.Note;
 import java.io.*;
 import java.net.URL;
 import java.time.LocalDate;
-import java.util.ArrayList;
-import java.util.List;
 import java.util.ResourceBundle;
 import java.util.Scanner;
 
@@ -35,27 +33,17 @@ public class WriteNote implements Initializable {
 
     private static String textNote;
     private FileWriter file;
-    private List<Note> allNote = new ArrayList<>();
-
-    public void getList() {
-        allNote = NotePageController.getData();
-    }
 
     public void descripeNote(KeyEvent keyEvent) {
         deleteNote(note);
-        initializeNote();
-        // NotePageController.initialize();
-        //note.openAndSaveJSON();
-        //System.out.println(note);
-    }
-
-    public void initializeNote() {
         String text;
         text = textEdit.getText();
         note.setDescription(text);
         note.setSaveDate(String.valueOf(LocalDate.now()));
         setTextEdit(text);
-        note.SaveJSON();
+       // NotePageController.initialize();
+        //note.openAndSaveJSON();
+        //System.out.println(note);
     }
 
     private void deleteNote(Note note) {
@@ -94,22 +82,23 @@ public class WriteNote implements Initializable {
         text = textEdit.getText();
         note.setDescription(text);
         note.setSaveDate(String.valueOf(LocalDate.now()));
-        deleteNote(note);
-        note.SaveJSON();
-        if (text.equals("")) {
-            deleteNote(note);
+        //note.SaveJSON();
+        if(!text.equals("")) {
+            note.SaveJSON();
         }
+        //checkCount();
         Stage stage = (Stage) mainNote.getScene().getWindow();
         stage.close();
     }
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+        //setHoverController();
+
         textEdit.setText(textNote);
     }
 
     public void addNote(MouseEvent mouseEvent) {
-        setTextNote("");
         try {
             FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("../../views/showNote.fxml"));
             Parent root1 = (Parent) fxmlLoader.load();
