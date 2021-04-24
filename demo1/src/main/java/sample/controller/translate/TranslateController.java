@@ -61,7 +61,7 @@ public class TranslateController extends Controller implements Initializable {
             int selectedIndex = sourceTranslation.getSelectionModel().getSelectedIndex();
             sourceLanguage = alpha2.get(selectedIndex);
             tempSwitchLanguage1 = selectedIndex;
-            //System.out.println(sourceLanguage);
+            System.out.println(sourceLanguage);
         });
 
         targetTranslation.getItems().addAll(languages);
@@ -69,7 +69,7 @@ public class TranslateController extends Controller implements Initializable {
             int selectedIndex = targetTranslation.getSelectionModel().getSelectedIndex();
             targetLanguage = alpha2.get(selectedIndex);
             tempSwitchLanguage2 = selectedIndex;
-            //System.out.println(targetLanguage);
+            System.out.println(targetLanguage);
         });
 
     }

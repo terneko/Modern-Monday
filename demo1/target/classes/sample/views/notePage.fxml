@@ -2,7 +2,6 @@
 
 <?import com.jfoenix.controls.*?>
 <?import javafx.scene.control.*?>
-<?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
@@ -26,11 +25,6 @@
                </font>
             </Label>
             <JFXButton layoutX="570.0" layoutY="31.0" onMouseClicked="#addNote" style="-fx-background-color: #082033;" styleClass="noteDropShadow" stylesheets="@values/style.css" text="New Note" textFill="WHITE" />
-            <ImageView fitHeight="30.0" fitWidth="70.0" layoutX="522.0" layoutY="28.0" onMouseClicked="#refreshPageNote" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../../rerere.png" />
-               </image>
-            </ImageView>
          </children>
       </Pane>
       <ScrollPane fx:id="scrollMainGrid" hbarPolicy="NEVER" layoutY="73.0" prefHeight="490.0" prefWidth="655.0" style="-fx-background-color: #051522;" stylesheets="@values/scroll.css">

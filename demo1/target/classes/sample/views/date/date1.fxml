@@ -7,7 +7,7 @@
 
 <AnchorPane style="-fx-background-color: Transparent;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.controller.dateandclock.widgetDateAndClock">
    <children>
-      <VBox alignment="CENTER_RIGHT" prefHeight="90.0" prefWidth="290.0">
+      <VBox alignment="CENTER_RIGHT" prefHeight="90.0" prefWidth="290.0" style="-fx-background-color: black;">
          <children>
             <Label fx:id="dayInWeek1" text="Tue," textFill="WHITE">
                <font>

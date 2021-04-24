@@ -18,10 +18,10 @@ import java.util.concurrent.TimeUnit;
 public class DayCounter {
     private String title;
     private LocalDate dayEnd;
-    private LocalDate dayStart;
     private String description;
     private LocalDate now = LocalDate.now();
     private String imageFilePath;
+    private long dayLeft;
     private FileWriter file;
 
     public DayCounter(String title,LocalDate  dayEnd, String description) {
@@ -36,26 +36,20 @@ public class DayCounter {
         this.title = title;
         this.dayEnd = dayEnd;
         this.description = description;
-        this.dayStart = now;
         this.imageFilePath = imageFilePath;
+        this.dayLeft = calculationDayLeft();
     }
 
-    @Override
-    public String toString() {
-        return "DayCounter{" +
-                "title='" + title + '\'' +
-                ", dayEnd=" + dayEnd +
-                ", dayStart=" + dayStart +
-                ", description='" + description + '\'' +
-                ", now=" + now +
-                ", imageFilePath='" + imageFilePath + '\'' +
-                '}';
+    public long getDayLeft() {
+        return dayLeft;
     }
+
+
 
     public long calculationDayLeft() {
         long diff = 0;
         SimpleDateFormat myFormat = new SimpleDateFormat("yyyy-MM-dd");
-        String inputString1 = String.valueOf(dayStart);
+        String inputString1 = String.valueOf(now);
         String inputString2 = String.valueOf(dayEnd);
         System.out.println(inputString1);
         System.out.println(inputString2);
@@ -79,6 +73,7 @@ public class DayCounter {
         obj.put("Description", description);
         obj.put("DayEnd", String.valueOf(dayEnd));
         obj.put("ImagePath",imageFilePath);
+        obj.put("DayLeft",dayLeft);
         noteArray.add(obj);
         try {
             // Constructs a FileWriter given a file name, using the platform's default charset
@@ -129,4 +124,36 @@ public class DayCounter {
         }
     }
 
+    public LocalDate getDayEnd() {
+        return dayEnd;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public LocalDate getNow() {
+        return now;
+    }
+
+    public String getImageFilePath() {
+        return imageFilePath;
+    }
+
+    public FileWriter getFile() {
+        return file;
+    }
+
+    @Override
+    public String toString() {
+        return "DayCounter{" +
+                "title='" + title + '\'' +
+                ", dayEnd=" + dayEnd +
+                ", description='" + description + '\'' +
+                ", now=" + now +
+                ", imageFilePath='" + imageFilePath + '\'' +
+                ", dayLeft='" + dayLeft + '\'' +
+                ", file=" + file +
+                '}';
+    }
 }
