@@ -30,7 +30,13 @@ public class DaycounterWidgetController implements Initializable {
     public void initialize(URL location, ResourceBundle resources) {
         dayLabel.setText(dayLeft);
         title.setText(staticTitle);
-        System.out.println("YO +>"+imagePath);
-        imageChange.setImage(new Image(imagePath));
+        System.out.println(imagePath);
+        Path imageFile = Path.of(imagePath);
+        System.out.println(imageFile);
+        try {
+            imageChange.setImage(new Image(imageFile.toUri().toURL().toExternalForm()));
+        } catch (MalformedURLException e) {
+            e.printStackTrace();
+        }
     }
 }

@@ -5,20 +5,20 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="463.0" prefWidth="661.0" style="-fx-background-color: #051522;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.controller.daycounter.DayCounterEventController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="477.0" prefWidth="661.0" style="-fx-background-color: #051522;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.controller.daycounter.DayCounterEventController">
    <children>
       <BorderPane prefHeight="463.0" prefWidth="661.0">
          <left>
             <Pane prefWidth="330.0" BorderPane.alignment="CENTER">
                <children>
-                  <Label alignment="CENTER" layoutX="102.0" layoutY="14.0" prefHeight="27.0" prefWidth="126.0" text="Income event" textFill="WHITE">
+                  <Label alignment="CENTER" layoutX="64.0" layoutY="14.0" prefHeight="27.0" prefWidth="203.0" text="FUTURE EVENTS" textFill="WHITE">
                      <font>
                         <Font size="18.0" />
                      </font>
                   </Label>
-                  <ScrollPane layoutX="32.0" layoutY="60.0" prefHeight="379.0" prefWidth="266.0">
+                  <ScrollPane layoutX="25.0" layoutY="57.0" prefHeight="379.0" prefWidth="280.0" style="-fx-background-color: #051522;" stylesheets="@values/scroll.css">
                      <content>
-                        <GridPane fx:id="incomeGrid" prefHeight="18.0" prefWidth="20.0">
+                        <GridPane fx:id="incomeGrid" prefHeight="18.0" prefWidth="0.0" style="-fx-background-color: #051522;">
                            <columnConstraints>
                               <ColumnConstraints minWidth="10.0" prefWidth="100.0" />
                            </columnConstraints>
@@ -31,14 +31,14 @@
          <right>
             <Pane prefWidth="330.0" BorderPane.alignment="CENTER">
                <children>
-                  <Label alignment="CENTER" layoutX="102.0" layoutY="14.0" prefHeight="27.0" prefWidth="126.0" text="past event" textFill="WHITE">
+                  <Label alignment="CENTER" layoutX="80.0" layoutY="14.0" prefHeight="27.0" prefWidth="170.0" text="PAST EVENTS" textFill="WHITE">
                      <font>
                         <Font size="18.0" />
                      </font>
                   </Label>
-                  <ScrollPane layoutX="32.0" layoutY="60.0" prefHeight="379.0" prefWidth="266.0">
+                  <ScrollPane layoutX="25.0" layoutY="57.0" prefHeight="379.0" prefWidth="280.0" style="-fx-background-color: #051522;" stylesheets="@values/scroll.css">
                      <content>
-                        <GridPane fx:id="pastGrid">
+                        <GridPane fx:id="pastGrid" style="-fx-background-color: #051522;">
                            <columnConstraints>
                               <ColumnConstraints minWidth="10.0" prefWidth="100.0" />
                            </columnConstraints>

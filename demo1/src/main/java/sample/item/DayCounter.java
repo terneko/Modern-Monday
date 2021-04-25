@@ -44,8 +44,6 @@ public class DayCounter {
         return dayLeft;
     }
 
-
-
     public long calculationDayLeft() {
         long diff = 0;
         SimpleDateFormat myFormat = new SimpleDateFormat("yyyy-MM-dd");
@@ -153,7 +151,6 @@ public class DayCounter {
                 ", now=" + now +
                 ", imageFilePath='" + imageFilePath + '\'' +
                 ", dayLeft='" + dayLeft + '\'' +
-                ", file=" + file +
                 '}';
     }
 }

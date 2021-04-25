@@ -10,34 +10,31 @@
    <children>
       <BorderPane fx:id="dayCounterPageMainPane">
          <center>
-            <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="463.0" prefWidth="661.0" style="-fx-background-color: #051522;">
+            <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="477.0" prefWidth="661.0" style="-fx-background-color: #051522;">
                <children>
-                  <DatePicker fx:id="dayInput" layoutX="108.0" layoutY="63.0" />
-                  <TextField fx:id="textInput" layoutX="358.0" layoutY="61.0" prefHeight="26.0" prefWidth="174.0" />
                   <Label fx:id="outputLabel" layoutX="331.0" layoutY="148.0" prefHeight="26.0" prefWidth="174.0" />
                </children>
             </AnchorPane>
          </center>
          <top>
-            <Pane prefHeight="100.0" prefWidth="661.0" style="-fx-background-color: #051522;" BorderPane.alignment="CENTER">
+            <Pane prefHeight="86.0" prefWidth="661.0" style="-fx-background-color: #051522;" BorderPane.alignment="CENTER">
                <children>
-                  <Label fx:id="mainLabel" layoutX="1.0" layoutY="14.0" prefHeight="18.0" prefWidth="661.0" style="-fx-label-padding: 10 0 0 20;" text="Day counter" textFill="WHITE">
+                  <Label fx:id="mainLabel" layoutX="1.0" prefHeight="18.0" prefWidth="661.0" style="-fx-label-padding: 10 0 0 20;" text="Day counter" textFill="WHITE">
                         <font>
                         <Font name="System Bold" size="25.0" />
                      </font>
                   </Label>
-                  <Label fx:id="mainDescriptionLabel" layoutX="1.0" layoutY="45.0" prefHeight="18.0" prefWidth="661.0" style="-fx-padding: 10 0 0 20;" text="Track incoming events and remind you important events" textFill="#a7a7a7">
+                  <Label fx:id="mainDescriptionLabel" layoutX="1.0" layoutY="31.0" prefHeight="18.0" prefWidth="661.0" style="-fx-padding: 10 0 0 20;" text="Track incoming events and remind you important events" textFill="#a7a7a7">
                      <font>
                         <Font size="14.0" />
                      </font>
                   </Label>
-                  <JFXButton layoutX="558.0" layoutY="38.0" onMouseClicked="#addPageDaycounter" style="-fx-background-color: white;" text="Add event" />
-                  <Button layoutX="497.0" layoutY="38.0" mnemonicParsing="false" onMouseClicked="#openDaycounter" text="open" />
+                  <JFXButton layoutX="568.0" layoutY="31.0" onMouseClicked="#addPageDaycounter" style="-fx-background-color: #082033;" styleClass="noteDropShadow" stylesheets="@values/style.css" text="Add event" textFill="WHITE" />
                </children>
             </Pane>
          </top>
       </BorderPane>
-      <HBox fx:id="backHBox" alignment="CENTER" layoutX="25.0" layoutY="108.0" prefHeight="30.0" prefWidth="30.0" style="-fx-background-color: #051522;">
+      <Pane fx:id="backPane" layoutX="25.0" layoutY="109.0" style="-fx-background-radius: 5;">
          <children>
             <ImageView fx:id="backButton" fitHeight="25.0" fitWidth="25.0" onMouseClicked="#backToShowInfo" pickOnBounds="true" preserveRatio="true">
                <image>
@@ -45,6 +42,6 @@
                </image>
             </ImageView>
          </children>
-      </HBox>
+      </Pane>
    </children>
 </AnchorPane>

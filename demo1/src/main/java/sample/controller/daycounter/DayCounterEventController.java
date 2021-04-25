@@ -37,7 +37,6 @@ import static sample.controller.daycounter.DaycounterWidgetController.setDaycoun
 
 public class DayCounterEventController extends Controller implements Initializable {
 
-
     public GridPane incomeGrid;
     public GridPane pastGrid;
     private File fileCheck = new File("FileNote/dayCounterNote.json");
@@ -60,7 +59,6 @@ public class DayCounterEventController extends Controller implements Initializab
                     fileModified = lastModified;
                 }
             }
-
         }),
                 new KeyFrame(Duration.seconds(0.1))
         );
@@ -83,10 +81,11 @@ public class DayCounterEventController extends Controller implements Initializab
         for (int i = dayCounter.size() - 1; i >= 0; i--) {
             JSONObject dayCounterObject = (JSONObject) dayCounter.get(i);
             String title = (String) dayCounterObject.get("Title");
-            LocalDate dayEnd =LocalDate.parse((String) dayCounterObject.get("DayEnd"));;
+            LocalDate dayEnd = LocalDate.parse((String) dayCounterObject.get("DayEnd"));
+            ;
             String description = (String) dayCounterObject.get("Description");
-            String imageFilePath = (String) dayCounterObject.get("ImageFile");
-            simpleDayCounter = new DayCounter(title,dayEnd,description,imageFilePath);
+            String imageFilePath = (String) dayCounterObject.get("ImagePath");
+            simpleDayCounter = new DayCounter(title, dayEnd, description, imageFilePath);
             dayCounterList.add(simpleDayCounter);
         }
         return dayCounterList;
@@ -96,12 +95,13 @@ public class DayCounterEventController extends Controller implements Initializab
         // เพิ่มข้อมูลทุกอย่างที่มี ใส่ลงไปในลิสต์
         dayCounterList = new ArrayList<>();
         dayCounterList.addAll(getData());
+        System.out.println(dayCounterList);
         if (dayCounterList.size() > 0) {
             //setChosenNote(notes.get(0));
             myListener = new DayCounterListener() {
                 @Override
                 public void onClickListener(DayCounter dayCounter) {
-                   setChosenNote(dayCounter);
+                    setChosenNote(dayCounter);
                 }
             };
             moveNoteToBin = new DayCounterListener() {
@@ -136,7 +136,7 @@ public class DayCounterEventController extends Controller implements Initializab
                 } else {
                     pastGrid.add(anchorPane, columnsRight, rowRight++); // (child , columns , row)
                 }
-               // GridPane.setMargin(anchorPane, new Insets(10));
+                GridPane.setMargin(anchorPane, new Insets(0,2,5,2));
             } catch (IOException e) {
                 e.printStackTrace();
             }
@@ -145,7 +145,7 @@ public class DayCounterEventController extends Controller implements Initializab
 
     private void setChosenNote(DayCounter dayCounter) {
 //        deleteNote(note);
-        setDaycounter(dayCounter.getDayLeft(),dayCounter.getTitle(),dayCounter.getImageFilePath());
+        setDaycounter(dayCounter.getDayLeft(), dayCounter.getTitle(), dayCounter.getImageFilePath());
         openDaycounter();
     }
 

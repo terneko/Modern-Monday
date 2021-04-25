@@ -1,30 +1,53 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import com.jfoenix.controls.*?>
+<?import javafx.geometry.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="463.0" prefWidth="661.0" style="-fx-background-color: #051522;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.controller.daycounter.DayCounterAddItemController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="477.0" prefWidth="661.0" style="-fx-background-color: #051522;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.controller.daycounter.DayCounterAddItemController">
    <children>
-      <BorderPane fx:id="bdPane" layoutX="205.0" layoutY="22.0" prefHeight="419.0" prefWidth="250.0" style="-fx-background-color: white;">
+      <BorderPane fx:id="bdPane" layoutX="205.0" layoutY="22.0" prefHeight="419.0" prefWidth="250.0" style="-fx-background-radius: 5;">
          <center>
-            <Pane prefHeight="268.0" prefWidth="250.0" BorderPane.alignment="CENTER">
+            <Pane prefHeight="268.0" prefWidth="250.0" style="-fx-background-color: #082033;" BorderPane.alignment="CENTER">
                <children>
-                  <TextField fx:id="eventTitle" layoutX="15.0" layoutY="39.0" prefHeight="25.0" prefWidth="172.0" />
-                  <DatePicker fx:id="datePicker" layoutX="14.0" layoutY="107.0" />
-                  <TextField fx:id="descripeEvent" layoutX="14.0" layoutY="181.0" prefHeight="25.0" prefWidth="174.0" />
-                  <Label layoutX="15.0" layoutY="22.0" prefHeight="17.0" prefWidth="111.0" text="Enter event title:" />
-                  <Label layoutX="15.0" layoutY="89.0" prefHeight="17.0" prefWidth="39.0" text="Date:" />
-                  <Label layoutX="14.0" layoutY="164.0" prefHeight="17.0" prefWidth="113.0" text="Descipe your event:" />
+                  <TextField fx:id="eventTitle" layoutX="15.0" layoutY="31.0" onKeyTyped="#typeTitle" prefHeight="25.0" prefWidth="172.0" />
+                  <DatePicker fx:id="datePicker" layoutX="14.0" layoutY="84.0" onAction="#setDayLeft" />
+                  <TextField fx:id="descripeEvent" layoutX="14.0" layoutY="141.0" prefHeight="25.0" prefWidth="174.0" />
+                  <Label layoutX="15.0" layoutY="14.0" prefHeight="17.0" prefWidth="111.0" text="Enter event title:" textFill="WHITE" />
+                  <Label layoutX="15.0" layoutY="67.0" prefHeight="17.0" prefWidth="39.0" text="Date:" textFill="WHITE" />
+                  <Label layoutX="14.0" layoutY="122.0" prefHeight="17.0" prefWidth="113.0" text="Descipe your event:" textFill="WHITE" />
                   <JFXButton layoutX="76.0" layoutY="235.0" onMouseClicked="#addEvent" prefHeight="25.0" prefWidth="102.0" style="-fx-background-color: #d47f00;" text="Add event" textFill="WHITE" />
                </children>
             </Pane>
          </center>
          <top>
-            <Pane maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="140.625" prefWidth="250.0" style="-fx-background-color: white;">
+            <Pane maxHeight="-Infinity" maxWidth="-Infinity" prefWidth="250.0" style="-fx-background-color: white;">
                <children>
-                  <ImageView fx:id="showImage" fitWidth="250.0" nodeOrientation="INHERIT" pickOnBounds="true" preserveRatio="true" />
+                  <ImageView fx:id="showImage" fitWidth="250.0" nodeOrientation="INHERIT" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../DayCounterPicture/city_buildings_bottom_view_204309_300x168.jpg" />
+                     </image>
+                  </ImageView>
+                  <VBox alignment="CENTER" prefHeight="138.0" prefWidth="250.0">
+                     <children>
+                        <Label fx:id="dayLeft" alignment="CENTER" prefHeight="18.0" prefWidth="55.0" text="100" textFill="WHITE">
+                           <font>
+                              <Font size="32.0" />
+                           </font></Label>
+                        <Pane fx:id="sepLine" prefHeight="3.0" style="-fx-background-color: white;">
+                           <VBox.margin>
+                              <Insets left="50.0" right="50.0" />
+                           </VBox.margin>
+                        </Pane>
+                        <Label fx:id="title" alignment="CENTER" text="title" textFill="WHITE">
+                           <font>
+                              <Font size="24.0" />
+                           </font></Label>
+                     </children>
+                  </VBox>
                </children>
             </Pane>
          </top>

@@ -13,10 +13,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
-import javafx.scene.layout.AnchorPane;
-import javafx.scene.layout.BorderPane;
-import javafx.scene.layout.GridPane;
-import javafx.scene.layout.HBox;
+import javafx.scene.layout.*;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
@@ -59,6 +56,9 @@ public class DaycounterController extends Controller implements Initializable {
     public BorderPane dayCounterPageMainPane;
     public HBox backHBox;
     public ImageView backButton;
+    public Pane backPane;
+    private File fileCheck = new File("FileNote/dayCounter.json");
+    private Date fileModified = new Date(fileCheck.lastModified());
 
 
     public static void dragWidget(Parent root,Stage primaryStage) {
@@ -110,6 +110,7 @@ public class DaycounterController extends Controller implements Initializable {
     }
 
     public void addPageDaycounter(MouseEvent mouseEvent) {
+        backButton.setVisible(true);
         loadPage("addDayCounterPage");
     }
 
@@ -132,10 +133,12 @@ public class DaycounterController extends Controller implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+        backButton.setVisible(false);
         setHover();
         loadPage("daycounterShowInfoPage");
         setFadeTransitionDayCounterPage();
         static_day_label = dayLabel;
+        checkFileChange();
     }
 
     public void setFadeTransitionDayCounterPage() {
@@ -164,14 +167,32 @@ public class DaycounterController extends Controller implements Initializable {
     }
 
     public void setHover() {
-        backHBox.setOnMouseEntered((e -> backHBox.setStyle("-fx-background-color: #00d3250")));
-        backHBox.setOnMouseExited((e -> backHBox.setStyle("-fx-background-color: #051522")));
+        backPane.setOnMouseEntered((e -> backPane.setStyle("-fx-background-color: #00d3250")));
+        backPane.setOnMouseExited((e -> backPane.setStyle("-fx-background-color: #051522")));
     }
 
     public void backToShowInfo(MouseEvent mouseEvent) {
         loadPage("daycounterShowInfoPage");
+        backButton.setVisible(false);
     }
 
+    public void checkFileChange() {
+        Timeline clock = new Timeline(new KeyFrame(Duration.ZERO, e -> {
+            File file = fileCheck;
+            if (file.exists()) {
+                Date lastModified = new Date(file.lastModified());
+                if (!fileModified.equals(lastModified)) {
+                    loadPage("daycounterShowInfoPage");
+                    fileModified = lastModified;
+                }
+            }
+
+        }),
+                new KeyFrame(Duration.seconds(0.1))
+        );
+        clock.setCycleCount(Animation.INDEFINITE);
+        clock.play();
+    }
 //    private void clearData() {
 //        mainGrid.getChildren().clear();
 //    }
