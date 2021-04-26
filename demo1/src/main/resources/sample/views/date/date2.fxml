@@ -5,7 +5,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane style="-fx-background-color: Transparent;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.controller.dateandclock.widgetDateAndClock">
+<AnchorPane style="-fx-background-color: Transparent;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.controller.dateandclock.widgetDateAndClockV2">
    <children>
       <VBox alignment="CENTER_RIGHT" prefHeight="90.0" prefWidth="290.0" style="-fx-background-color: transparent;">
          <children>

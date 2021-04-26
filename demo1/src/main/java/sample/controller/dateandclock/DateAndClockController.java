@@ -212,7 +212,6 @@ public class DateAndClockController extends Controller implements Initializable 
         }
     }
 
-
     public void dateClick1(MouseEvent mouseEvent) {
         openWidget("date1");
     }
@@ -234,11 +233,14 @@ public class DateAndClockController extends Controller implements Initializable 
     }
 
     public void clockClick2(MouseEvent mouseEvent) {
+        openWidget("Clock2");
     }
 
     public void clockClick3(MouseEvent mouseEvent) {
+        openWidget("Clock3");
     }
 
     public void clockClick4(MouseEvent mouseEvent) {
+        openWidget("Clock4");
     }
 }

@@ -182,6 +182,7 @@ public class DaycounterController extends Controller implements Initializable {
                 Date lastModified = new Date(file.lastModified());
                 if (!fileModified.equals(lastModified)) {
                     loadPage("daycounterShowInfoPage");
+                    backButton.setVisible(false);
                     fileModified = lastModified;
                 }
             }

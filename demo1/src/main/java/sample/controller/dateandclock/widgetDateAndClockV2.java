@@ -15,27 +15,9 @@ import java.util.ResourceBundle;
 
 
 public class widgetDateAndClockV2 implements Initializable {
-    public Label day2;
-    public Label dayInWeekAndMonthAndYear2;
-    public Label dayInweakAndMonthAndDay3;
-    public Label year3;
-    public Label dayInWeakAndDay4;
-    public Label monthAndYear4;
-    public Label hClock1;
-    public Label minuteClock1;
-
-
-    public Label dateTop1;
-    public Label dateBottom1;
 
     public Label day2Widget;
     public Label dayInWeekAndMonthAndYear2Widget;
-
-    public Label dayInweakAndMonthAndDay3Widget;
-    public Label year3Widget;
-
-    public Label dayInWeakAndDay4Widget;
-    public Label monthAndYear4Widget;
 
     String[] oneWeek = {
             "Sunday"
