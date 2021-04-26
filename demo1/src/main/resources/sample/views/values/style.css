@@ -1,3 +1,4 @@
+/*Usage: everything that drop shadow*/
 .noteDropShadow {
     -fx-effect:  dropshadow(gaussian, rgba(0, 0, 0, 0.3), 10, 0.5, 2, 1)
 }
@@ -24,23 +25,23 @@
     -fx-background-color: #51f542;
 }
 
-/*.welcomeText:hover {
-    -fx-font-size: 50px;
-    -fx-translate-x: -10px;
-}*/
+.aNote:hover {
+    -fx-translate-y: -5;
+}
 
 .scroll-bar:horizontal .track,
 .scroll-bar:vertical .track{
+    -fx-background-insets: 0;
     -fx-background-color : #051522;
-    -fx-border-color : transparent;
+    -fx-border-color : #051522;
     -fx-background-radius : 0.0em;
-    -fx-border-radius :2.0em;
+    -fx-border-radius : 0em;
 }
 
 
 .scroll-bar:horizontal .increment-button ,
 .scroll-bar:horizontal .decrement-button {
-    -fx-background-color :transparent;
+    -fx-background-color :#051522;
     -fx-background-radius : 0.0em;
     -fx-padding :0.0 0.0 10.0 0.0;
 
@@ -48,7 +49,7 @@
 
 .scroll-bar:vertical .increment-button ,
 .scroll-bar:vertical .decrement-button {
-    -fx-background-color :transparent;
+    -fx-background-color :#051522;
     -fx-background-radius : 0.0em;
     -fx-padding :0.0 10.0 0.0 0.0;
 
@@ -75,7 +76,7 @@
 
 .scroll-bar:horizontal .thumb:hover,
 .scroll-bar:vertical .thumb:hover {
-    -fx-background-color :derive(#4D4C4F,10.0%);
+    -fx-background-color : derive(#4D4C4F,10.0%);
     -fx-background-insets : 2.0, 0.0, 0.0;
     -fx-background-radius : 2.0em;
 }

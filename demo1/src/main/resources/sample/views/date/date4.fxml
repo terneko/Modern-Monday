@@ -9,21 +9,21 @@
    <children>
       <VBox alignment="CENTER_RIGHT" prefHeight="90.0" prefWidth="290.0" style="-fx-background-color: transparent;">
          <children>
-            <Label fx:id="dateTop1" text="Tue," textFill="WHITE">
+            <Label fx:id="dayInWeakAndDay4Widget" text="Sat, 24">
+               <font>
+                  <Font size="24.0" />
+               </font>
+               <padding>
+                  <Insets right="20.0" />
+               </padding>
+            </Label>
+            <Label fx:id="monthAndYear4Widget" text="April, 2021">
                <font>
                   <Font size="24.0" />
                </font>
                <VBox.margin>
                   <Insets />
                </VBox.margin>
-               <padding>
-                  <Insets right="20.0" />
-               </padding>
-            </Label>
-            <Label fx:id="dateBottom1" text="March 9" textFill="WHITE">
-               <font>
-                  <Font size="24.0" />
-               </font>
                <padding>
                   <Insets right="20.0" />
                </padding>
