@@ -1,21 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.geometry.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
-<?import javafx.scene.text.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="50.0" prefWidth="258.0" style="-fx-background-color: #082033; -fx-background-radius: 5;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.controller.daycounter.DayCounterItemController">
+<AnchorPane fx:id="paneItemDayCounter" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.controller.daycounter.DayCounterItemController">
    <children>
-      <HBox alignment="CENTER_LEFT" maxHeight="-Infinity" maxWidth="-Infinity" onMouseClicked="#click" prefHeight="50.0" prefWidth="258.0" style="-fx-background-radius: 10;">
+      <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#click" prefHeight="50.0" prefWidth="258.0" style="-fx-background-color: #082033; -fx-background-radius: 5;">
          <children>
-            <Label fx:id="dayLeft" alignment="CENTER" text="day and title" textFill="WHITE" textOverrun="CLIP">
+            <Label fx:id="dayLeft" alignment="CENTER" layoutY="10.0" text="day and title" textFill="WHITE" textOverrun="CLIP">
                <font>
-                  <Font name="DBAdmanX-Bold" size="24.0" />
+                  <Font size="18.0" />
                </font>
-               <HBox.margin>
-                  <Insets />
-               </HBox.margin>
                <opaqueInsets>
                   <Insets />
                </opaqueInsets>
@@ -24,6 +24,15 @@
                </padding>
             </Label>
          </children>
-      </HBox>
+      </AnchorPane>
+      <Pane fx:id="penPane" layoutX="218.0" layoutY="10.0" onMouseClicked="#clickEdit" prefHeight="30.0" prefWidth="30.0" style="-fx-background-radius: 5;">
+         <children>
+            <ImageView fitHeight="22.0" fitWidth="18.0" layoutX="7.0" layoutY="6.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../pencil.png" />
+               </image>
+            </ImageView>
+         </children>
+      </Pane>
    </children>
 </AnchorPane>

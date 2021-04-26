@@ -57,7 +57,7 @@ public class DaycounterController extends Controller implements Initializable {
     public HBox backHBox;
     public ImageView backButton;
     public Pane backPane;
-    private File fileCheck = new File("FileNote/dayCounter.json");
+    private File fileCheck = new File("FileNote/dayCounterNote.json");
     private Date fileModified = new Date(fileCheck.lastModified());
 
 
@@ -82,11 +82,11 @@ public class DaycounterController extends Controller implements Initializable {
 
     @FXML
     public void openDaycounter(MouseEvent mouseEvent) {
-        System.out.println("hello");
-        System.out.println(textInput.getText());
-        System.out.println(dayInput.getValue());
-        System.out.println(dayNow);
-        System.out.println(dateLeft);
+//        System.out.println("hello");
+//        System.out.println(textInput.getText());
+//        System.out.println(dayInput.getValue());
+//        System.out.println(dayNow);
+//        System.out.println(dateLeft);
         try {
             FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("../../../../resources/sample/views/daycounterWidget.fxml"));
             Parent root1 = (Parent) fxmlLoader.load();
@@ -103,10 +103,10 @@ public class DaycounterController extends Controller implements Initializable {
     }
 
     public void onClick(MouseEvent mouseEvent) {
-        System.out.println(textInput.getText());
-        System.out.println(dayInput.getValue());
-        System.out.println(dayNow);
-        System.out.println(dateLeft);
+//        System.out.println(textInput.getText());
+//        System.out.println(dayInput.getValue());
+//        System.out.println(dayNow);
+//        System.out.println(dateLeft);
     }
 
     public void addPageDaycounter(MouseEvent mouseEvent) {
@@ -126,9 +126,8 @@ public class DaycounterController extends Controller implements Initializable {
 
 
     public void addDaycounter(MouseEvent mouseEvent) {
-        DayCounter ter = new DayCounter(titleEvent.getText(),dateEvent.getValue(),descriptionEvent.getText());
-        System.out.println(ter);
-        ter.calculationDayLeft();
+        DayCounter addDayCounter = new DayCounter(titleEvent.getText(),dateEvent.getValue(),descriptionEvent.getText());
+        DayCounter.calculationDayLeft(addDayCounter.getDayEnd());
     }
 
     @Override
