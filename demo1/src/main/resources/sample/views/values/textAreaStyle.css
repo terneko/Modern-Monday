@@ -32,7 +32,7 @@
 
 
 .text-area:focused {
-    -fx-highlight-fill: #7ecfff;
+    -fx-highlight-fill: #082033;
 
     -fx-background-insets: 0;
     -fx-background-color: #082033;

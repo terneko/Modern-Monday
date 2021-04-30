@@ -2,6 +2,7 @@
 
 <?import javafx.geometry.*?>
 <?import javafx.scene.control.*?>
+<?import javafx.scene.effect.*?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
@@ -9,14 +10,14 @@
    <children>
       <BorderPane prefHeight="463.0" prefWidth="661.0">
          <left>
-            <Pane prefWidth="330.0" BorderPane.alignment="CENTER">
+            <Pane fx:id="futurePane" prefWidth="330.0" BorderPane.alignment="CENTER">
                <children>
-                  <Label alignment="CENTER" layoutX="64.0" layoutY="14.0" prefHeight="27.0" prefWidth="203.0" text="FUTURE EVENTS" textFill="WHITE">
+                  <Label alignment="CENTER" layoutX="64.0" layoutY="14.0" prefHeight="27.0" prefWidth="203.0" text="Upcoming Events" textFill="WHITE">
                      <font>
-                        <Font size="18.0" />
+                        <Font name="System Bold" size="16.0" />
                      </font>
                   </Label>
-                  <ScrollPane layoutX="25.0" layoutY="57.0" prefHeight="379.0" prefWidth="280.0" style="-fx-background-color: #051522;" stylesheets="@values/scroll.css">
+                  <ScrollPane fx:id="futureScrollPane" layoutX="25.0" layoutY="57.0" prefHeight="379.0" prefWidth="280.0" style="-fx-background-color: #051522;" stylesheets="@values/scroll.css">
                      <content>
                         <GridPane fx:id="incomeGrid" prefHeight="18.0" prefWidth="0.0" style="-fx-background-color: #051522;">
                            <columnConstraints>
@@ -25,18 +26,22 @@
                         </GridPane>
                      </content>
                   </ScrollPane>
+                  <Label fx:id="noFuturePane" alignment="CENTER" layoutX="11.0" layoutY="227.0" prefHeight="17.0" prefWidth="310.0" text="There are no upcoming events now." textFill="WHITE">
+                     <effect>
+                        <Glow level="0.4" />
+                     </effect></Label>
                </children>
             </Pane>
          </left>
          <right>
-            <Pane prefWidth="330.0" BorderPane.alignment="CENTER">
+            <Pane fx:id="pastPane" prefWidth="330.0" BorderPane.alignment="CENTER">
                <children>
-                  <Label alignment="CENTER" layoutX="80.0" layoutY="14.0" prefHeight="27.0" prefWidth="170.0" text="PAST EVENTS" textFill="WHITE">
+                  <Label alignment="CENTER" layoutX="70.0" layoutY="14.0" prefHeight="27.0" prefWidth="170.0" text="Past Events" textFill="WHITE">
                      <font>
-                        <Font size="18.0" />
+                        <Font name="System Bold" size="16.0" />
                      </font>
                   </Label>
-                  <ScrollPane layoutX="25.0" layoutY="57.0" prefHeight="379.0" prefWidth="280.0" style="-fx-background-color: #051522;" stylesheets="@values/scroll.css">
+                  <ScrollPane fx:id="pastScrollPane" layoutX="25.0" layoutY="57.0" prefHeight="379.0" prefWidth="280.0" style="-fx-background-color: #051522;" stylesheets="@values/scroll.css">
                      <content>
                         <GridPane fx:id="pastGrid" style="-fx-background-color: #051522;">
                            <columnConstraints>
@@ -48,6 +53,10 @@
                         </GridPane>
                      </content>
                   </ScrollPane>
+                  <Label fx:id="noPastPane" alignment="CENTER" layoutY="228.0" prefHeight="17.0" prefWidth="310.0" text="There are no past events to show." textFill="WHITE">
+                     <effect>
+                        <Glow level="0.4" />
+                     </effect></Label>
                </children>
             </Pane>
          </right>

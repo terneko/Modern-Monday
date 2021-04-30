@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane fx:id="mainPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="119.0" prefWidth="295.0" style="-fx-background-color: Transparent;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.controller.temperature.widgetTemp2Controller">
+   <children>
+      <Pane fx:id="gradiantPane" prefHeight="113.0" prefWidth="295.0">
+         <children>
+            <ImageView fx:id="dayNight" fitHeight="34.0" fitWidth="40.0" layoutX="236.0" layoutY="33.0" pickOnBounds="true" preserveRatio="true" />
+            <HBox layoutX="21.0" layoutY="-5.0" prefHeight="124.0" prefWidth="196.0">
+               <children>
+                  <Label fx:id="temperatureLabel" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="116.0" prefWidth="106.0" text="25">
+                     <font>
+                        <Font size="90.0" />
+                     </font>
+                     <HBox.margin>
+                        <Insets />
+                     </HBox.margin>
+                  </Label>
+                  <Pane>
+                     <children>
+                        <ImageView fx:id="cImage" fitHeight="35.0" fitWidth="34.0" layoutY="9.0" onMouseClicked="#cClick" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../../C_black.png" />
+                           </image>
+                        </ImageView>
+                        <Pane layoutX="35.0" layoutY="13.0" prefHeight="25.0" prefWidth="1.0" style="-fx-background-color: black;" />
+                        <ImageView fx:id="fImage" fitHeight="150.0" fitWidth="34.0" layoutX="36.0" layoutY="9.0" onMouseClicked="#fClick" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../../F_black.png" />
+                           </image>
+                        </ImageView>
+                        <Label fx:id="weather" layoutX="2.0" layoutY="43.0" text="rain" textFill="WHITE">
+                           <font>
+                              <Font name="DBAdmanX" size="18.0" />
+                           </font>
+                        </Label>
+                     </children>
+                     <HBox.margin>
+                        <Insets top="25.0" />
+                     </HBox.margin>
+                  </Pane>
+               </children>
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+               <padding>
+                  <Insets right="10.0" />
+               </padding>
+            </HBox>
+         </children></Pane>
+      <ImageView fx:id="closeId" fitHeight="18.0" fitWidth="22.0" layoutX="274.0" layoutY="4.0" onMouseClicked="#close" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../X.png" />
+         </image>
+      </ImageView>
+      <Pane fx:id="randomPane" layoutX="259.0" layoutY="82.0" onMouseClicked="#randomColorPane" opacity="0.4" prefHeight="28.0" prefWidth="28.0" style="-fx-background-radius: 5; -fx-background-color: black;">
+         <children>
+            <ImageView fitHeight="20.0" fitWidth="20.0" layoutX="4.0" layoutY="4.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../dice.png" />
+               </image>
+            </ImageView>
+         </children>
+      </Pane>
+   </children>
+</AnchorPane>

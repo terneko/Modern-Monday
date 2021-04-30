@@ -1,5 +1,6 @@
 package sample.controller.daycounter;
 
+import com.jfoenix.controls.JFXButton;
 import javafx.animation.*;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
@@ -11,6 +12,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.control.Tooltip;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.*;
@@ -57,6 +59,7 @@ public class DaycounterController extends Controller implements Initializable {
     public HBox backHBox;
     public ImageView backButton;
     public Pane backPane;
+    public JFXButton newEventButton;
     private File fileCheck = new File("FileNote/dayCounterNote.json");
     private Date fileModified = new Date(fileCheck.lastModified());
 
@@ -138,6 +141,7 @@ public class DaycounterController extends Controller implements Initializable {
         setFadeTransitionDayCounterPage();
         static_day_label = dayLabel;
         checkFileChange();
+        setTooltipDayCounterPage();
     }
 
     public void setFadeTransitionDayCounterPage() {
@@ -168,6 +172,11 @@ public class DaycounterController extends Controller implements Initializable {
     public void setHover() {
         backPane.setOnMouseEntered((e -> backPane.setStyle("-fx-background-color: #00d3250")));
         backPane.setOnMouseExited((e -> backPane.setStyle("-fx-background-color: #051522")));
+    }
+
+    public void setTooltipDayCounterPage() {
+        Tooltip.install(backButton, new Tooltip("Back"));
+        Tooltip.install(newEventButton, new Tooltip("Add a new event"));
     }
 
     public void backToShowInfo(MouseEvent mouseEvent) {

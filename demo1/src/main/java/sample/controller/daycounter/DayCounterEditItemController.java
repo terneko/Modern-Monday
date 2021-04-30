@@ -1,6 +1,8 @@
 package sample.controller.daycounter;
 
 import com.google.gson.JsonObject;
+import javafx.animation.FadeTransition;
+import javafx.animation.TranslateTransition;
 import javafx.event.ActionEvent;
 import javafx.fxml.Initializable;
 import javafx.scene.control.DatePicker;
@@ -14,6 +16,7 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
+import javafx.util.Duration;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
@@ -54,6 +57,13 @@ public class DayCounterEditItemController implements Initializable {
     private File selectedFile;
     private static DayCounter currentDayCounter;
 
+    public void setFadeTransitionDCTEdit() {
+        FadeTransition mainPaneFade = new FadeTransition(Duration.millis(500), editPane);
+        mainPaneFade.setFromValue(0);
+        mainPaneFade.setToValue(9);
+        mainPaneFade.play();
+    }
+
     public static void editDaycounter(long day, String texTitle, String imagePath, String description, LocalDate dayEnd) {
         DayCounterEditItemController.dayLeft = day;
         DayCounterEditItemController.staticTitle = texTitle;
@@ -66,6 +76,7 @@ public class DayCounterEditItemController implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+        //setFadeTransitionDCTEdit();
         if (dayLeft > 1) {
             dayLeftLabel.setText(String.valueOf(dayLeft) + " days");
         } else if (dayLeft == 1) {
@@ -154,7 +165,7 @@ public class DayCounterEditItemController implements Initializable {
         obj.put("Description", describeEvent.getText());
         obj.put("DayEnd", String.valueOf(datePicker.getValue()));
         obj.put("ImagePath", imagePath);
-        obj.put("DayLeft", dayLeft);
+        //obj.put("DayLeft", dayLeft);
         noteArray.add(obj);
         try {
             // Constructs a FileWriter given a file name, using the platform's default charset
@@ -199,7 +210,7 @@ public class DayCounterEditItemController implements Initializable {
         obj.put("Description", dayCounter.getDescription());
         obj.put("DayEnd", String.valueOf(dayCounter.getDayEnd()));
         obj.put("ImagePath", dayCounter.getImageFilePath());
-        obj.put("DayLeft", dayCounter.getDayLeft());
+        //obj.put("DayLeft", dayCounter.getDayLeft());
         System.out.println(obj);
         JSONArray noteArray = openJSON();
         for (int i = 0; i < noteArray.size(); i++) {

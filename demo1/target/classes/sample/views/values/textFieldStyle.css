@@ -1,0 +1,9 @@
+.text-input {
+    -fx-text-inner-color: Black;
+}
+
+.text-input:focused {
+    -fx-text-fill: Black;
+    -fx-highlight-fill: -fx-accent;
+    -fx-highlight-text-fill: #a7a7a7;
+}

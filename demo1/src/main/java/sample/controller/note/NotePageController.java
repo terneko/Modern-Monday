@@ -1,5 +1,6 @@
 package sample.controller.note;
 
+import com.jfoenix.controls.JFXButton;
 import javafx.animation.*;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -8,6 +9,8 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.control.ScrollPane;
+import javafx.scene.control.Tooltip;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.*;
@@ -31,7 +34,9 @@ import static sample.controller.daycounter.DaycounterController.dragWidget;
 import static sample.controller.note.WriteNote.setTextNote;
 
 public class NotePageController extends Controller implements Initializable {
-    String[] listNoNoteText = {"No note to show here!", "Are you note yet?", "Let note!", "Have a nice day!", "Come and take note!"};
+
+    public JFXButton newNoteButton;
+    String[] listNoNoteText = {"No notes to show here!", "Have you noted yet?", "Let's note!", "You haven't noted yet!", "Come and take a note!"};
     public BorderPane mainNote;
 
     public GridPane mainGrid;
@@ -61,13 +66,33 @@ public class NotePageController extends Controller implements Initializable {
             labelTrans.play();
         }
     }
-    
+
+    public void setTooltipNotePage() {
+        Tooltip.install(newNoteButton, new Tooltip("Add a new note"));
+        Tooltip.install(noNoteShowText, new Tooltip("You haven't noted yet or maybe some notes are being opened on Desktop"));
+    }
+
+    public void setTransitionMainGrid() {
+        ScaleTransition trans = new ScaleTransition(Duration.millis(900), mainGrid);
+        trans.setFromX(0.97);
+        trans.setToX(1);
+        trans.setFromY(0.97);
+        trans.setToY(1);
+        trans.play();
+
+        FadeTransition fadeMainPane = new FadeTransition(Duration.millis(2000), mainGrid);
+        fadeMainPane.setFromValue(0);
+        fadeMainPane.setToValue(9);
+        fadeMainPane.play();
+    }
+
     public static List<Note> getData() {
         // OPEN FILE JSON AND READ WITH SPECIFIC NUMBER OF COUNT
         JSONParser parser = new JSONParser();
         JSONArray noteArray = null;
         try {
             Object object = parser.parse(new FileReader("FileNote/noteDemo.json"));
+            noteArray = (JSONArray) object;
         } catch (ParseException | IOException e) {
             e.printStackTrace();
         }
@@ -141,6 +166,8 @@ public class NotePageController extends Controller implements Initializable {
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         setFadeTransitionNotePage();
+        setTransitionMainGrid();
+        setTooltipNotePage();
         openData();
         checkFileChange();
     }

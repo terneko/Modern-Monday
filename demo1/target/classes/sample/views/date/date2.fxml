@@ -1,17 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.geometry.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
-<?import javafx.scene.text.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane style="-fx-background-color: Transparent;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.controller.dateandclock.widgetDateAndClock">
+<AnchorPane style="-fx-background-color: Transparent;" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.controller.dateandclock.widgetDateAndClockV2">
    <children>
       <VBox alignment="CENTER_RIGHT" prefHeight="90.0" prefWidth="290.0" style="-fx-background-color: transparent;">
          <children>
-            <Label fx:id="day2Widget" text="24">
+            <Label fx:id="day2Widget" text="24" textFill="WHITE">
                <font>
-                  <Font size="24.0" />
+                  <Font size="26.0" />
                </font>
                <VBox.margin>
                   <Insets />
@@ -20,7 +21,7 @@
                   <Insets right="20.0" />
                </padding>
             </Label>
-            <Label fx:id="dayInWeekAndMonthAndYear2Widget" text="Sat, April 2021">
+            <Label fx:id="dayInWeekAndMonthAndYear2Widget" text="Sat, April 2021" textFill="WHITE">
                <font>
                   <Font size="24.0" />
                </font>

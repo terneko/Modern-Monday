@@ -1,6 +1,8 @@
 package sample.controller.daycounter;
 
+import javafx.animation.FadeTransition;
 import javafx.event.ActionEvent;
+import javafx.fxml.Initializable;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
@@ -13,6 +15,7 @@ import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.Pane;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
+import javafx.util.Duration;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
@@ -24,10 +27,12 @@ import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.net.MalformedURLException;
+import java.net.URL;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.time.LocalDate;
 import java.util.Date;
+import java.util.ResourceBundle;
 import java.util.concurrent.TimeUnit;
 
 import sample.item.DayCounter.*;
@@ -35,7 +40,7 @@ import sample.item.Note;
 
 import static sample.item.DayCounter.calculationDayLeft;
 
-public class DayCounterAddItemController {
+public class DayCounterAddItemController implements Initializable {
     public ImageView showImage;
     public BorderPane bdPane;
     public TextField eventTitle;
@@ -45,6 +50,7 @@ public class DayCounterAddItemController {
     public Label dayLeft;
     public Pane sepLine;
     public AnchorPane editPane;
+    public AnchorPane mainPaneAdd;
     File selectedFile = null;
     private FileWriter file;
 
@@ -87,7 +93,7 @@ public class DayCounterAddItemController {
             filePath=text;
         }
         DayCounter dayCounter = new DayCounter(title, dayEnd, description,filePath);
-        if (dayCounter.getTitle() != "") {
+        if (dayCounter.getTitle() != "" && dayCounter.getDayEnd() != null) {
             dayCounter.saveJSON();
         }
     }
@@ -155,5 +161,17 @@ public class DayCounterAddItemController {
     public void closeEdit(MouseEvent mouseEvent) {
         Stage stage = (Stage) editPane.getScene().getWindow();
         stage.close();
+    }
+
+    public void setFadeTransitionDCTAdd() {
+        FadeTransition mainPaneFade = new FadeTransition(Duration.millis(1000), mainPaneAdd);
+        mainPaneFade.setFromValue(0);
+        mainPaneFade.setToValue(9);
+        mainPaneFade.play();
+    }
+
+    @Override
+    public void initialize(URL location, ResourceBundle resources) {
+        setFadeTransitionDCTAdd();
     }
 }

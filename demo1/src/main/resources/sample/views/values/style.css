@@ -22,11 +22,19 @@
 }
 
 .pane:hover {
-    -fx-background-color: #51f542;
+    -fx-background-color: #0a2942;
+}
+
+.scroll-pane:hover {
+    -fx-background-color: #0b273d;
 }
 
 .aNote:hover {
     -fx-translate-y: -5;
+}
+
+.aDayCounterAdd:hover {
+    -fx-translate-x: 15;
 }
 
 .scroll-bar:horizontal .track,

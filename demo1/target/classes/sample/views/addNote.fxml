@@ -1,12 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.lang.*?>
 <?import javafx.geometry.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane fx:id="eachNotePane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="145.0" prefWidth="130.0" styleClass="noteDropShadow" stylesheets="@values/style.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.controller.note.NoteControl">
+<AnchorPane fx:id="eachNotePane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="145.0" prefWidth="130.0" stylesheets="@values/style.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.controller.note.NoteControl">
    <children>
       <BorderPane prefHeight="145.0" prefWidth="130.0">
          <top>
@@ -20,7 +21,7 @@
                         <Font size="10.0" />
                      </font>
                   </Label>
-                  <ImageView fx:id="deletedbutton" fitHeight="11.0" fitWidth="83.0" layoutX="114.0" layoutY="6.0" onMouseClicked="#moveNoteToBinClicked" pickOnBounds="true" preserveRatio="true" style="visibility: false;">
+                  <ImageView fx:id="deletedbutton" fitHeight="11.0" fitWidth="83.0" layoutX="114.0" layoutY="6.0" onMouseClicked="#moveNoteToBinClicked" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@../../Xwhite.png" />
                      </image>
@@ -40,4 +41,8 @@
          </center>
       </BorderPane>
    </children>
+   <styleClass>
+      <String fx:value="noteDropShadow" />
+      <String fx:value="aNote" />
+   </styleClass>
 </AnchorPane>

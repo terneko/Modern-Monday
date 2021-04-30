@@ -1,16 +1,20 @@
 package sample.controller.daycounter;
 
+import javafx.animation.FadeTransition;
+import javafx.animation.ScaleTransition;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
+import javafx.scene.control.Tooltip;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
+import javafx.util.Duration;
 import sample.item.DayCounter;
 import sample.main.DayCounterListener;
 import sample.main.MyListener;
@@ -26,6 +30,7 @@ public class DayCounterItemController implements Initializable {
     public Label title;
     public Pane penPane;
     public AnchorPane paneItemDayCounter;
+    public AnchorPane addDayCounterPane;
     private DayCounterListener myListener, editListener;
     private DayCounter dayCounter;
 
@@ -78,11 +83,32 @@ public class DayCounterItemController implements Initializable {
 
         penPane.setOnMouseEntered(e -> penPane.setStyle("-fx-background-color: #0a2942"));
         penPane.setOnMouseExited(e -> penPane.setStyle(""));
+        //setTransition();
+    }
+
+    public void setTooltipAddDayCounter() {
+        Tooltip.install(addDayCounterPane, new Tooltip("Click to open this widget on Desktop"));
+        Tooltip.install(penPane, new Tooltip("Edit and delete here"));
+    }
+
+    public void setTransition() {
+        ScaleTransition trans = new ScaleTransition(Duration.millis(900), paneItemDayCounter);
+        trans.setFromX(0.97);
+        trans.setToX(1);
+        trans.setFromY(0.97);
+        trans.setToY(1);
+        trans.play();
+
+        FadeTransition fadeMainPane = new FadeTransition(Duration.millis(2000), paneItemDayCounter);
+        fadeMainPane.setFromValue(0);
+        fadeMainPane.setToValue(9);
+        fadeMainPane.play();
     }
 
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         setHover();
+        setTooltipAddDayCounter();
     }
 }

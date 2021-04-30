@@ -37,20 +37,20 @@ public class DayCounter {
         this.dayEnd = dayEnd;
         this.description = description;
         this.imageFilePath = imageFilePath;
-        this.dayLeft = calculationDayLeft();
+        this.dayLeft = calculationDayLeft(dayEnd);
     }
 
     public long getDayLeft() {
         return dayLeft;
     }
 
-    public long calculationDayLeft() {
+    public static long calculationDayLeft(LocalDate dayEnd) {
         long diff = 0;
         SimpleDateFormat myFormat = new SimpleDateFormat("yyyy-MM-dd");
-        String inputString1 = String.valueOf(now);
+        String inputString1 = String.valueOf(LocalDate.now());
         String inputString2 = String.valueOf(dayEnd);
-        System.out.println(inputString1);
-        System.out.println(inputString2);
+//        System.out.println(inputString1);
+//        System.out.println(inputString2);
         try {
             Date date1 = myFormat.parse(inputString1);
             Date date2 = myFormat.parse(inputString2);
@@ -60,7 +60,7 @@ public class DayCounter {
         } catch (ParseException e) {
             e.printStackTrace();
         }
-        System.out.println(diff);
+//        System.out.println(diff);
         return diff;
     }
 
@@ -71,7 +71,7 @@ public class DayCounter {
         obj.put("Description", description);
         obj.put("DayEnd", String.valueOf(dayEnd));
         obj.put("ImagePath",imageFilePath);
-        obj.put("DayLeft",dayLeft);
+        //obj.put("DayLeft",dayLeft);
         noteArray.add(obj);
         try {
             // Constructs a FileWriter given a file name, using the platform's default charset

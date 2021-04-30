@@ -6,6 +6,7 @@ import javafx.animation.TranslateTransition;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
+import javafx.scene.control.Tooltip;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
@@ -70,13 +71,20 @@ public class NoteControl implements Initializable {
         fadeMainPane.play();
     }
 
+    public void setTooltipAddNote() {
+        Tooltip.install(inputPane, new Tooltip("Click to open this note"));
+        Tooltip.install(deletedbutton, new Tooltip("Delete this note permanently"));
+    }
+
     public Pane getInputPane() {
         return inputPane;
     }
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+        deletedbutton.setVisible(false);
         setHover();
+        setTooltipAddNote();
         //setTransition();
     }
 

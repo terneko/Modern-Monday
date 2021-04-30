@@ -6,25 +6,31 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane style="-fx-background-color: Transparent;" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.controller.dateandclock.widgetDateAndClock">
+<AnchorPane style="-fx-background-color: Transparent;" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.controller.dateandclock.widgetDateAndClockV5">
    <children>
-      <VBox alignment="CENTER_RIGHT" prefHeight="90.0" prefWidth="290.0" style="-fx-background-color: transparent;">
+      <VBox alignment="CENTER" prefHeight="90.0" prefWidth="290.0" style="-fx-background-color: transparent;">
          <children>
-            <Label fx:id="hClock1" text="04">
+            <Label fx:id="hourClock1" text="04" textFill="WHITE">
                <font>
                   <Font size="24.0" />
                </font>
                <padding>
                   <Insets right="20.0" />
                </padding>
+               <VBox.margin>
+                  <Insets bottom="-5.0" />
+               </VBox.margin>
             </Label>
-            <Label fx:id="minuteClock1" layoutX="254.0" layoutY="38.0" text="04">
+            <Label fx:id="minuteClock1" layoutX="254.0" layoutY="38.0" text="04" textFill="WHITE">
                <font>
                   <Font size="24.0" />
                </font>
                <padding>
                   <Insets right="20.0" />
                </padding>
+               <VBox.margin>
+                  <Insets bottom="5.0" />
+               </VBox.margin>
             </Label>
          </children>
       </VBox>

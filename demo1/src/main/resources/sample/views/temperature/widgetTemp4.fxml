@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane fx:id="mainPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="120.0" prefWidth="300.0" style="-fx-background-color: Transparent;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.controller.temperature.widgetTemp4Controller">
+   <children>
+      <ImageView fitHeight="120.0" fitWidth="300.0" pickOnBounds="true">
+         <image>
+            <Image url="@../../../DayCounterPicture/lena-denk-vO_RghTzvxE-unsplash.jpg" />
+         </image>
+      </ImageView>
+      <Label fx:id="province" alignment="BOTTOM_LEFT" contentDisplay="TOP" layoutX="22.0" layoutY="79.0" text="Country" textFill="WHITE">
+         <padding>
+            <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+         </padding>
+         <font>
+            <Font name="System Bold" size="20.0" />
+         </font>
+      </Label>
+      <ImageView fitHeight="34.0" fitWidth="27.0" layoutX="1.0" layoutY="91.0" opacity="0.36" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../unnamed.png" />
+         </image>
+      </ImageView>
+      <HBox layoutX="174.0" layoutY="-6.0">
+         <children>
+            <Label fx:id="temperatureLabel" prefHeight="107.0" prefWidth="115.0" text="25" textFill="WHITE">
+               <font>
+                  <Font name="DBAdmanX" size="90.0" />
+               </font>
+            </Label>
+            <ImageView fitHeight="21.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../O.png" />
+               </image>
+               <HBox.margin>
+                  <Insets left="-20.0" top="15.0" />
+               </HBox.margin>
+            </ImageView>
+         </children>
+         <opaqueInsets>
+            <Insets />
+         </opaqueInsets>
+         <padding>
+            <Insets right="10.0" />
+         </padding>
+      </HBox>
+      <ImageView fx:id="dayNight" fitHeight="40.0" fitWidth="40.0" layoutX="50.0" layoutY="35.0" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fx:id="closeId" fitHeight="18.0" fitWidth="22.0" layoutX="282.0" onMouseClicked="#close" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../X.png" />
+         </image>
+      </ImageView>
+   </children>
+</AnchorPane>

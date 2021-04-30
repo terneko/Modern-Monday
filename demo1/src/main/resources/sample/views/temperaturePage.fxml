@@ -1,68 +1,295 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import com.jfoenix.controls.*?>
+<?import java.lang.*?>
+<?import java.net.*?>
+<?import javafx.geometry.*?>
 <?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
 <AnchorPane fx:id="tempPageMainPane" prefHeight="563.0" prefWidth="661.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.controller.temperature.TemperatureAPI">
    <children>
-      <GridPane prefHeight="563.0" prefWidth="662.0">
-        <columnConstraints>
-          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-        </columnConstraints>
-        <rowConstraints>
-          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-        </rowConstraints>
+      <Pane prefHeight="282.0" prefWidth="662.0" style="-fx-background-color: #051522;">
          <children>
-            <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #051522;">
+            <Label fx:id="mainLabel" layoutY="3.0" prefHeight="22.0" prefWidth="662.0" style="-fx-padding: 10 0 0 20;" text="Weather &amp; Temperature" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="25.0" />
+               </font>
+            </Label>
+            <VBox alignment="CENTER_RIGHT" layoutX="384.0" layoutY="82.0" prefHeight="118.0" prefWidth="236.0">
                <children>
-                  <Label fx:id="mainLabel" layoutY="3.0" prefHeight="22.0" prefWidth="662.0" style="-fx-padding: 10 0 0 20;" text="Weather &amp; Temperature" textFill="WHITE">
+                  <Label fx:id="weatherStatus" text="RAINY" textFill="WHITE">
                      <font>
-                        <Font name="System Bold" size="25.0" />
+                        <Font name="System Bold Italic" size="24.0" />
                      </font></Label>
-                  <Label layoutX="57.0" layoutY="97.0" text="25" textFill="WHITE">
+                  <Label fx:id="locationStatus" text="KHONKEAN" textFill="WHITE">
                      <font>
-                        <Font name="System Bold" size="55.0" />
+                        <Font name="System Bold Italic" size="18.0" />
                      </font></Label>
-                  <Label layoutX="559.0" layoutY="120.0" text="KHONKEAN" textFill="WHITE" />
-                  <Label layoutX="577.0" layoutY="144.0" text="SUNDAY" textFill="WHITE" />
-                  <Label layoutX="591.0" layoutY="95.0" prefHeight="17.0" prefWidth="34.0" text="12:30" textFill="WHITE" />
-                  <Label layoutX="584.0" layoutY="169.0" text="RAINY" textFill="WHITE" />
-                  <JFXButton layoutX="178.0" layoutY="235.0" text="Pop-up widget" textFill="WHITE" />
-                  <ComboBox fx:id="selectedProvince" layoutX="14.0" layoutY="235.0" prefWidth="150.0" promptText="เลือกเมืองบ้านมึงอะ" stylesheets="@values/provinceComboboxStyle.css" />
-                  <Label fx:id="mainDescriptionLabel" layoutY="45.0" prefHeight="22.0" prefWidth="662.0" style="-fx-padding: 10 0 0 20;" text="Current weather and temperature in your region." textFill="#a7a7a7">
+                  <Label fx:id="timeStatus" text="12:30" textFill="WHITE">
                      <font>
-                        <Font size="14.0" />
+                        <Font name="System Bold" size="18.0" />
                      </font>
                   </Label>
-                  <Label layoutX="14.0" layoutY="194.0" text="It looks cold outside, if you go out, don't forget your coat '-'" textFill="#6888af">
+                  <Label fx:id="dayStatus" text="SUNDAY" textFill="WHITE">
                      <font>
-                        <Font name="System Italic" size="14.0" />
+                        <Font name="System Bold" size="14.0" />
+                     </font></Label>
+               </children>
+            </VBox>
+            <ComboBox fx:id="selectedProvince" layoutX="28.0" layoutY="234.0" prefHeight="34.0" prefWidth="180.0" promptText="กรุงเทพมหานคร" stylesheets="@values/provinceComboboxStyle.css" />
+            <Label fx:id="mainDescriptionLabel" layoutY="37.0" prefHeight="22.0" prefWidth="662.0" style="-fx-padding: 10 0 0 20;" text="Current weather and temperature in your region." textFill="#a7a7a7">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+            <Label layoutX="7.0" layoutY="189.0" text="It looks cold outside, if you go out, don't forget your coat '-'" textFill="#6888af" visible="false">
+               <font>
+                  <Font name="System Italic" size="14.0" />
+               </font>
+            </Label>
+            <HBox layoutX="98.0" layoutY="84.0" prefHeight="91.0" prefWidth="308.0">
+               <children>
+                  <Label fx:id="numberOfTemperature" text="25" textFill="WHITE">
+                     <font>
+                        <Font size="72.0" />
                      </font>
                   </Label>
-               </children></Pane>
-            <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #082033;" GridPane.rowIndex="1">
-               <children>
-                  <GridPane prefHeight="282.0" prefWidth="662.0">
-                    <columnConstraints>
-                      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                    </columnConstraints>
-                    <rowConstraints>
-                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                    </rowConstraints>
+                  <Pane prefHeight="106.0" prefWidth="113.0">
                      <children>
-                        <Pane prefHeight="200.0" prefWidth="200.0" />
-                        <Pane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" />
-                        <Pane prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="1" />
-                        <Pane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                        <ImageView fx:id="cImage" fitHeight="30.0" fitWidth="30.0" layoutX="-13.0" layoutY="20.0" onMouseClicked="#cCLick" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../C.png" />
+                           </image>
+                        </ImageView>
+                        <Pane layoutX="22.0" layoutY="23.0" prefHeight="25.0" prefWidth="1.0" style="-fx-background-color: white;" />
+                        <ImageView fx:id="fImage" fitHeight="30.0" fitWidth="30.0" layoutX="24.0" layoutY="20.0" onMouseClicked="#fClick" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../F.png" />
+                           </image>
+                        </ImageView>
                      </children>
-                  </GridPane>
-               </children></Pane>
+                     <HBox.margin>
+                        <Insets left="15.0" />
+                     </HBox.margin>
+                      </Pane>
+               </children>
+            </HBox>
+            <ImageView fx:id="dayNightMain" fitHeight="45.0" fitWidth="45.0" layoutX="32.0" layoutY="114.0" pickOnBounds="true" preserveRatio="true" />
+            <Label layoutX="32.0" layoutY="212.0" prefHeight="17.0" prefWidth="171.0" text="Select your current province :" textFill="WHITE" />
          </children>
-      </GridPane>
+      </Pane>
+      <Pane layoutY="282.0" prefHeight="282.0" prefWidth="662.0" style="-fx-background-color: #082033;">
+         <children>
+            <GridPane prefHeight="282.0" prefWidth="662.0">
+              <columnConstraints>
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+              </columnConstraints>
+              <rowConstraints>
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+              </rowConstraints>
+               <children>
+                  <HBox alignment="CENTER" prefHeight="110.0" prefWidth="331.0">
+                     <children>
+                        <Pane fx:id="widgetPane1" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#widgetTemp1" prefHeight="93.0" prefWidth="288.0" style="-fx-background-color: white; -fx-background-radius: 3;">
+                           <children>
+                              <ImageView fx:id="img1" fitHeight="94.0" fitWidth="288.0" pickOnBounds="true" style="-fx-background-radius: 3;">
+                                 <image>
+                                    <Image url="@../../DayCounterPicture/peter-oslanec-LKcI_5CmgF4-unsplash.jpg" />
+                                 </image>
+                              </ImageView>
+                              <Label fx:id="provinceWidget1" alignment="BOTTOM_LEFT" contentDisplay="TOP" layoutY="47.0" text="Country" textFill="WHITE">
+                                 <padding>
+                                    <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                                 </padding>
+                                 <font>
+                                    <Font name="System Bold Italic" size="18.0" />
+                                 </font>
+                              </Label>
+                              <HBox layoutX="172.0" prefHeight="111.0" prefWidth="102.0">
+                                 <children>
+                                    <Label fx:id="widgetTemp1" prefHeight="111.0" prefWidth="77.0" text="25" textFill="WHITE">
+                                       <font>
+                                          <Font size="48.0" />
+                                       </font>
+                                       <padding>
+                                          <Insets bottom="10.0" left="10.0" right="10.0" />
+                                       </padding>
+                                    </Label>
+                                    <ImageView fitHeight="35.0" fitWidth="34.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@../../C.png" />
+                                       </image>
+                                       <HBox.margin>
+                                          <Insets left="-10.0" top="25.0" />
+                                       </HBox.margin>
+                                    </ImageView>
+                                 </children>
+                              </HBox>
+                           </children>
+                           <HBox.margin>
+                              <Insets bottom="10.0" left="15.0" right="15.0" top="20.0" />
+                           </HBox.margin>
+                           <stylesheets>
+                              <URL value="@values/style.css" />
+                              <URL value="@values/style.css" />
+                           </stylesheets>
+                           <styleClass>
+                              <String fx:value="noteDropShadow" />
+                              <String fx:value="aNote" />
+                           </styleClass>
+                        </Pane>
+                     </children>
+                  </HBox>
+                  <HBox GridPane.columnIndex="1" />
+                  <HBox GridPane.rowIndex="1" />
+                  <HBox GridPane.columnIndex="1" GridPane.rowIndex="1" />
+               </children>
+            </GridPane>
+         </children>
+      </Pane>
+      <Pane fx:id="widgetPane3" layoutX="21.0" layoutY="441.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#widgetTemp3" prefHeight="94.0" prefWidth="288.0" style="-fx-background-color: grey; -fx-background-radius: 3;" stylesheets="@values/style.css">
+         <children>
+            <ImageView fitHeight="111.0" fitWidth="292.0" pickOnBounds="true" preserveRatio="true" />
+            <HBox layoutX="80.0" layoutY="-21.0">
+               <children>
+                  <Label fx:id="widgetTemp3" prefHeight="135.0" prefWidth="102.0" text="25">
+                     <font>
+                        <Font size="72.0" />
+                     </font>
+                     <padding>
+                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                     </padding>
+                  </Label>
+                  <Pane>
+                     <children>
+                        <ImageView fitHeight="30.0" fitWidth="30.0" layoutX="-13.0" layoutY="20.0" opacity="0.4" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../C_withoutO.png" />
+                           </image>
+                        </ImageView>
+                        <ImageView fitHeight="30.0" fitWidth="30.0" layoutX="-13.0" layoutY="50.0" opacity="0.4" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../F_withoutO.png" />
+                           </image>
+                        </ImageView>
+                     </children>
+                     <HBox.margin>
+                        <Insets top="18.0" />
+                     </HBox.margin>
+                  </Pane>
+               </children>
+            </HBox>
+         </children>
+         <styleClass>
+            <String fx:value="noteDropShadow" />
+            <String fx:value="aNote" />
+         </styleClass>
+      </Pane>
+      <Pane fx:id="widgetPane2" layoutX="343.0" layoutY="309.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#widgetTemp2" prefHeight="94.0" prefWidth="288.0" stylesheets="@values/style.css">
+         <children>
+            <Pane />
+            <HBox layoutX="14.0" layoutY="-13.0">
+               <children>
+                  <Label fx:id="widgetTemp2" prefHeight="106.0" prefWidth="98.0" text="25" textFill="WHITE">
+                     <font>
+                        <Font size="72.0" />
+                     </font>
+                     <padding>
+                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                     </padding>
+                  </Label>
+                  <Pane>
+                     <children>
+                        <ImageView fitHeight="30.0" fitWidth="30.0" layoutX="-13.0" layoutY="20.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../C.png" />
+                           </image>
+                        </ImageView>
+                        <Pane layoutX="22.0" layoutY="23.0" prefHeight="25.0" prefWidth="1.0" style="-fx-background-color: white;" />
+                        <ImageView fitHeight="30.0" fitWidth="30.0" layoutX="24.0" layoutY="20.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../F.png" />
+                           </image>
+                        </ImageView>
+                        <Label fx:id="weatherStatus1" layoutX="-4.0" layoutY="53.0" text="RAINY" textFill="WHITE">
+                           <font>
+                              <Font size="20.0" />
+                           </font>
+                           <padding>
+                              <Insets top="-5.0" />
+                           </padding>
+                        </Label>
+                     </children>
+                     <HBox.margin>
+                        <Insets left="10.0" top="18.0" />
+                     </HBox.margin>
+                  </Pane>
+               </children>
+            </HBox>
+            <ImageView fx:id="dayNightWid1" fitHeight="40.0" fitWidth="40.0" layoutX="224.0" layoutY="27.0" pickOnBounds="true" preserveRatio="true" />
+         </children>
+         <styleClass>
+            <String fx:value="noteDropShadow" />
+            <String fx:value="aNote" />
+         </styleClass>
+      </Pane>
+      <Pane fx:id="widgetPane4" layoutX="344.0" layoutY="441.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#widgetTemp4" prefHeight="93.0" prefWidth="288.0" style="-fx-background-color: white;" stylesheets="@values/style.css">
+         <children>
+            <ImageView fx:id="img4" fitHeight="94.0" fitWidth="288.0" pickOnBounds="true">
+               <image>
+                  <Image url="@../../DayCounterPicture/lena-denk-vO_RghTzvxE-unsplash.jpg" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="dayNightWid2" fitHeight="40.0" fitWidth="40.0" layoutX="45.0" layoutY="21.0" pickOnBounds="true" preserveRatio="true" />
+            <HBox alignment="CENTER_RIGHT" layoutX="178.0" layoutY="-13.0">
+               <children>
+                  <Label fx:id="widgetTemp4" text="25" textFill="WHITE">
+                     <font>
+                        <Font size="64.0" />
+                     </font>
+                     <padding>
+                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                     </padding>
+                     <HBox.margin>
+                        <Insets />
+                     </HBox.margin>
+                  </Label>
+                  <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../O.png" />
+                     </image>
+                     <HBox.margin>
+                        <Insets bottom="65.0" left="-15.0" />
+                     </HBox.margin>
+                  </ImageView>
+               </children>
+            </HBox>
+            <HBox alignment="CENTER_LEFT" layoutY="55.0" prefHeight="25.0" prefWidth="200.0">
+               <children>
+                  <ImageView fitHeight="28.0" fitWidth="27.0" opacity="0.36" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../unnamed.png" />
+                     </image>
+                  </ImageView>
+                  <Label fx:id="provinceWidget4" alignment="BOTTOM_LEFT" contentDisplay="TOP" text="Country" textFill="WHITE">
+                     <padding>
+                        <Insets bottom="10.0" right="10.0" top="10.0" />
+                     </padding>
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+               </children>
+            </HBox>
+         </children>
+         <styleClass>
+            <String fx:value="noteDropShadow" />
+            <String fx:value="aNote" />
+         </styleClass>
+      </Pane>
    </children>
 </AnchorPane>

@@ -1,12 +1,16 @@
 package sample.controller.daycounter;
 
+import javafx.animation.FadeTransition;
+import javafx.animation.ScaleTransition;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
+import javafx.util.Duration;
 
 import java.net.MalformedURLException;
 import java.net.URL;
@@ -24,6 +28,26 @@ public class DaycounterWidgetController implements Initializable {
     public static String imagePath;
     public ImageView closeBox;
     public AnchorPane widgetPane;
+    public VBox vboxDCT;
+
+    public void setTransitionWidgetPane() {
+//        ScaleTransition trans = new ScaleTransition(Duration.millis(900), imageChange);
+//        trans.setFromX(0.97);
+//        trans.setToX(1);
+//        trans.setFromY(0.97);
+//        trans.setToY(1);
+//        trans.play();
+
+        FadeTransition fadeMainPane = new FadeTransition(Duration.millis(2000), imageChange);
+        fadeMainPane.setFromValue(0);
+        fadeMainPane.setToValue(9);
+        fadeMainPane.play();
+
+        FadeTransition fade = new FadeTransition(Duration.millis(2000), vboxDCT);
+        fade.setFromValue(0);
+        fade.setToValue(9);
+        fade.play();
+    }
 
     public static void setDaycounter(long day, String texTitle, String imagePath) {
         DaycounterWidgetController.dayLeft = day;
@@ -50,8 +74,11 @@ public class DaycounterWidgetController implements Initializable {
         } catch (MalformedURLException e) {
             e.printStackTrace();
         }
+
         closeBox.setVisible(false);
         setVisible();
+
+        setTransitionWidgetPane();
     }
 
     public void setVisible() {

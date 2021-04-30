@@ -1,9 +1,6 @@
 package sample.main;
 
-import javafx.animation.FadeTransition;
-import javafx.animation.Timeline;
 import javafx.application.Application;
-import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;

@@ -1,27 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
-<?import javafx.scene.text.*?>
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="translatePageMainPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="563.0" prefWidth="661.0" style="-fx-background-color: #051522;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.controller.translate.TranslateController">
+<AnchorPane fx:id="translatePageMainPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="563.0" prefWidth="661.0" style="-fx-background-color: #051522;" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.controller.translate.TranslateController">
    <children>
-      <Pane layoutX="80.0" layoutY="138.0" prefHeight="195.0" prefWidth="250.0" style="-fx-background-color: #26037c;">
+      <Pane layoutX="80.0" layoutY="138.0" prefHeight="195.0" prefWidth="250.0">
          <children>
-            <ComboBox fx:id="sourceTranslation" layoutY="160.0" prefHeight="35.0" prefWidth="250.0" promptText="English" />
-            <TextArea fx:id="fromText" onKeyPressed="#entered" prefHeight="160.0" prefWidth="250.0" />
+            <ComboBox fx:id="sourceTranslation" layoutY="160.0" prefHeight="35.0" prefWidth="250.0" promptText="English" stylesheets="@values/provinceComboboxStyle.css" />
+            <TextArea fx:id="fromText" layoutY="-2.0" onKeyPressed="#entered" prefHeight="162.0" prefWidth="250.0" stylesheets="@values/textAreaStyle.css" />
          </children></Pane>
-      <Pane layoutX="332.0" layoutY="138.0" prefHeight="195.0" prefWidth="250.0" style="-fx-background-color: #ffff;">
+      <Pane layoutX="333.0" layoutY="139.0" prefHeight="195.0" prefWidth="250.0" style="-fx-background-color: #082033;">
          <children>
-            <TextArea fx:id="toText" prefHeight="160.0" prefWidth="250.0" />
-            <ComboBox fx:id="targetTranslation" layoutY="160.0" prefHeight="35.0" prefWidth="250.0" promptText="Thai" />
-         </children></Pane>
-      <Pane layoutX="80.0" layoutY="373.0" prefHeight="50.0" prefWidth="150.0" style="-fx-background-color: #26037c;">
-         <children>
-            <Label layoutX="13.0" layoutY="10.0" onMouseClicked="#openTranslatorWidget" text="Popup widget" textFill="WHITE">
-               <font>
-                  <Font size="20.0" />
-               </font></Label>
+            <TextArea fx:id="toText" layoutY="-2.0" prefHeight="162.0" prefWidth="250.0" stylesheets="@values/textAreaStyle.css" />
+            <ComboBox fx:id="targetTranslation" layoutY="160.0" prefHeight="35.0" prefWidth="250.0" promptText="Thai" stylesheets="@values/provinceComboboxStyle.css" />
          </children></Pane>
       <Label fx:id="mainLabel" style="-fx-padding: 10 0 0 20;" text="Translator" textFill="WHITE">
          <font>
@@ -33,5 +30,6 @@
             <Font size="14.0" />
          </font>
       </Label>
+      <JFXButton layoutX="538.0" layoutY="33.0" onMouseClicked="#openTranslatorWidget" style="-fx-background-color: #082033;" styleClass="noteDropShadow" stylesheets="@values/style.css" text="Open Widget" textFill="WHITE" />
    </children>
 </AnchorPane>

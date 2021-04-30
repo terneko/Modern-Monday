@@ -24,19 +24,19 @@
                         <Font name="System Bold" size="25.0" />
                      </font>
                   </Label>
-                  <Label fx:id="mainDescriptionLabel" layoutX="1.0" layoutY="31.0" prefHeight="18.0" prefWidth="661.0" style="-fx-padding: 10 0 0 20;" text="Track incoming events and remind you important events" textFill="#a7a7a7">
+                  <Label fx:id="mainDescriptionLabel" layoutX="1.0" layoutY="34.0" prefHeight="18.0" prefWidth="661.0" style="-fx-padding: 10 0 0 20;" text="Track incoming events and remind you important events" textFill="#a7a7a7">
                      <font>
                         <Font size="14.0" />
                      </font>
                   </Label>
-                  <JFXButton layoutX="568.0" layoutY="31.0" onMouseClicked="#addPageDaycounter" style="-fx-background-color: #082033;" styleClass="noteDropShadow" stylesheets="@values/style.css" text="Add event" textFill="WHITE" />
+                  <JFXButton fx:id="newEventButton" layoutX="568.0" layoutY="31.0" onMouseClicked="#addPageDaycounter" style="-fx-background-color: #082033;" styleClass="noteDropShadow" stylesheets="@values/style.css" text="New event" textFill="WHITE" />
                </children>
             </Pane>
          </top>
       </BorderPane>
       <Pane fx:id="backPane" layoutX="25.0" layoutY="109.0" style="-fx-background-radius: 5;">
          <children>
-            <ImageView fx:id="backButton" fitHeight="25.0" fitWidth="25.0" onMouseClicked="#backToShowInfo" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="backButton" fitHeight="18.0" fitWidth="19.0" onMouseClicked="#backToShowInfo" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../../back_grey.png" />
                </image>

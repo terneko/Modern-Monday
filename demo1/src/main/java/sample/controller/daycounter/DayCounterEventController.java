@@ -1,15 +1,16 @@
 package sample.controller.daycounter;
 
-import javafx.animation.Animation;
-import javafx.animation.KeyFrame;
-import javafx.animation.Timeline;
+import javafx.animation.*;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.geometry.Insets;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Label;
+import javafx.scene.control.ScrollPane;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
+import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 import javafx.util.Duration;
@@ -41,6 +42,12 @@ public class DayCounterEventController extends Controller implements Initializab
 
     public GridPane incomeGrid;
     public GridPane pastGrid;
+    public Label noFuturePane;
+    public Label noPastPane;
+    public ScrollPane futureScrollPane;
+    public ScrollPane pastScrollPane;
+    public Pane pastPane;
+    public Pane futurePane;
     private File fileCheck = new File("FileNote/dayCounterNote.json");
     private Date fileModified = new Date(fileCheck.lastModified());
     private List<DayCounter> dayCounterList;
@@ -137,8 +144,12 @@ public class DayCounterEventController extends Controller implements Initializab
                 dayCounterItemController.setData(dayCounterList.get(i), myListener, editListener);
                 if (dayCounterList.get(i).getDayLeft() >= 0) {
                     incomeGrid.add(anchorPane, columnsLeft, rowLeft++);
+                    futureScrollPane.setVisible(true);
+                    noFuturePane.setVisible(false);
                 } else {
                     pastGrid.add(anchorPane, columnsRight, rowRight++); // (child , columns , row)
+                    pastScrollPane.setVisible(true);
+                    noPastPane.setVisible(false);
                 }
                 GridPane.setMargin(anchorPane, new Insets(0,2,5,2));
             } catch (IOException e) {
@@ -150,7 +161,7 @@ public class DayCounterEventController extends Controller implements Initializab
     private void setChosenNote(DayCounter dayCounter) {
         setDaycounter(dayCounter.getDayLeft(), dayCounter.getTitle(), dayCounter.getImageFilePath());
         openDaycounter();
-        delete(dayCounter);
+        //delete(dayCounter);
     }
 
     private void editChosenDayCounter(DayCounter dayCounter){
@@ -228,8 +239,34 @@ public class DayCounterEventController extends Controller implements Initializab
         return noteArray;
     }
 
+    public void setTransitionShowInfoDayCounter() {
+        Pane[] panes = {futurePane, pastPane};
+        for (Pane pane : panes) {
+            FadeTransition fadeMainPane = new FadeTransition(Duration.millis(2000), pane);
+            fadeMainPane.setFromValue(0);
+            fadeMainPane.setToValue(9);
+            fadeMainPane.play();
+        }
+
+        ScrollPane[] scrollPane = {futureScrollPane, pastScrollPane};
+        for (ScrollPane pane : scrollPane) {
+            ScaleTransition trans = new ScaleTransition(Duration.millis(1000), pane);
+            trans.setFromX(0.97);
+            trans.setToX(1);
+            trans.setFromY(0.97);
+            trans.setToY(1);
+            trans.play();
+
+            FadeTransition fadeMainPane = new FadeTransition(Duration.millis(2100), pane);
+            fadeMainPane.setFromValue(0);
+            fadeMainPane.setToValue(9);
+            fadeMainPane.play();
+        }
+    }
+
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         openData();
+        setTransitionShowInfoDayCounter();
     }
 }
